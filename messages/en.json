@@ -1,0 +1,88 @@
+{
+  "HomePage": {
+    "welcome": "Welcome to our website!",
+    "menu": {
+      "home": "Home",
+      "about": "About Us",
+      "contact": "Contact"
+    }
+  },
+  "NavBar": {
+    "booking": "Booking",
+    "events": "Events",
+    "about": "About",
+    "language": "Language"
+  },
+  "Auth": {
+    "login": "Log In",
+    "register": "Sign Up"
+  },
+  "Contacts": {
+    "contacts": "Contact Information",
+    "phone": "+49 (0)541 580 587 0",
+    "email": "hengeler.shofrohnhofen3@gmail.com",
+    "address": "Frohnhofen 3, 87452 Altusried,y Deutschland"
+  },
+  "MainCarousel": {
+    "slide1": {
+      "title": "Your vacation at Hengeler's Hof – Relaxation with mountain panorama, sun, nature and mountain view.",
+      "text": ""
+    },
+    "slide2": {
+      "title": "Upcoming events!",
+      "text": ""
+    },
+    "slide3": {
+      "title": "Arrive, unpack, feel good – and simply enjoy",
+      "text": "Our cozy farmhouse (guest rooms or complete house) welcomes you with loving furnishings and lots of heart. Whether as a couple, with family, group or good friends. Up to 6 guests + baby/child up to 7 years. One dog is welcome, two on request – everyone finds their favorite place here. The mountain view of the Allgäu Alps? Like from a picture book. And the sun? Our wonderful secluded location gives you that as a bonus – for that extra bit of holiday happiness!"
+    }
+  },
+  "CookiesBanner": {
+    "mainText": "This website only uses technically necessary cookies to enable login and session management. No tracking cookies are set. For more information, please refer to our privacy policy.",
+    "moreInfo": "For more information, please see our",
+    "privacyPolicy": "Privacy Policy",
+    "accept": "Accept"
+  },
+  "Rooms": {
+    "title": "Our Rooms",
+    "description": "Comfort and coziness in every room! Our rooms are designed for your relaxation and unwinding in the midst of nature. A cozy atmosphere, modern design, and all amenities for a perfect stay await you."
+  },
+  "RoomCarousel": {
+    "rooms": {
+      "smallRoom1": {
+        "title": "Small Room: Beds and Wardrobe",
+        "text": "A cozy small room with two single beds and a spacious wooden wardrobe. The warm orange decor creates a sunny mood. Perfect for friends or children traveling together. The wooden ceiling adds rustic charm."
+      },
+      "smallRoom2": {
+        "title": "Small Room: Bedside Table Decor",
+        "text": "Detailed view of the bedside table in the small room. It features a bright yellow lamp, an elegant vase with decorative flowers, and a round woven mat. These elements add personality and coziness to the room, creating a pleasant atmosphere for relaxation."
+      },
+      "smallRoom3": {
+        "title": "Small Room: Bed, Wardrobe, and Door",
+        "text": "View of a portion of the small room showing one of the beds with orange bedding, a corner wooden wardrobe, and wooden door. This room offers a compact but comfortable space for individual rest, providing all necessary amenities."
+      },
+      "bigRoom1": {
+        "title": "Large Room: Bed, Painting, and Window",
+        "text": "A spacious large room with a double bed decorated in green tones. On the wall hangs an impressive painting of a forest deer, creating an atmosphere of tranquility and connection with nature. A large window provides plenty of natural light and views of the surroundings."
+      },
+      "bigRoom2": {
+        "title": "Large Room: Bedside Tables",
+        "text": "Detailed shot of two wooden bedside tables in the large room. They feature an elegant vintage lamp and two vases with decorative lily of the valley, adding elegance and comfort. Each bedside table has two drawers for convenient storage of personal items."
+      },
+      "bigRoom3": {
+        "title": "Large Room: Desk and Interior",
+        "text": "A cozy large room where, in addition to the bed, there is a functional wooden desk with a chair. This is the perfect spot if you need to work or read. The interior is complemented by a deer painting, table lamp, and decorative shelves, creating a harmonious atmosphere."
+      },
+      "bigRoom4": {
+        "title": "Large Room: Tree-Shaped Mirror and Window",
+        "text": "Part of the large room featuring a unique wooden tree-shaped mirror that adds special charm to the room. Next to it is a small wooden bedside table with vases, and a large window provides bright natural lighting. There is also a clothes rack present."
+      }
+    },
+    "book": "Book Now",
+    "priceFrom": "Price from",
+    "perNight": "€/night"
+  },
+  "Buttons": {
+    "book": "Book Now"
+  }
+}

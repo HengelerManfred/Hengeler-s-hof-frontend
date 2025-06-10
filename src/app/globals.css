@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@import "@fontsource/roboto/300.css";
+@import "@fontsource/roboto/400.css";
+@import "@fontsource/roboto/500.css";
+@import "@fontsource/roboto/700.css";
+
+body {
+  background: var(--main-bg);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.roundhand {
+  font-family: var(--font-roundhand);
+}
+
+.inter {
+  font-family: var(--font-inter);
+}
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.gradient-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0)   100%
+  );
+}
+
+.layer-blur {
+  filter: blur(1px);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
+}

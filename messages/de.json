@@ -1,0 +1,88 @@
+{
+  "HomePage": {
+    "welcome": "Willkommen auf unserer Website!",
+    "menu": {
+      "home": "Startseite",
+      "about": "Über uns",
+      "contact": "Kontakt"
+    }
+  },
+  "NavBar": {
+    "booking": "Buchung",
+    "events": "Veranstaltungen",
+    "about": "Über uns",
+    "language": "Sprache"
+  },
+  "Auth": {
+    "login": "Anmelden",
+    "register": "Registrieren"
+  },
+  "Contacts": {
+    "contacts": "Kontaktinformationen",
+    "phone": "+49 (0)541 580 587 0",
+    "email": "hengeler.shofrohnhofen3@gmail.com",
+    "address": "Frohnhofen 3, 87452 Altusried,y Deutschland"
+  },
+  "MainCarousel": {
+    "slide1": {
+      "title": "Euer Urlaub auf dem Hengeler's Hof – Erholung mit Bergpanorama, Sonne, Natur und Bergblick.",
+      "text": ""
+    },
+    "slide2": {
+      "title": "Kommende Veranstaltungen!",
+      "text": ""
+    },
+    "slide3": {
+      "title": "Ankommen, auspacken, wohlfühlen – und einfach genießen",
+      "text": "Unser gemütlicher Bauernhof (Fremdenzimmer oder komplettes Haus) empfangen Dich mit liebevoller Einrichtung und ganz viel Herz. Ob zu zweit, mit der Familie,Gruppe oder guten Freunden .Bis zu 6 Gäste +Baby/Kind bis 7 Jahre. Ein Hund ist willkommen, zwei auf Anfrage – hier findet jeder seinen Lieblingsplatz. Der Bergblick auf die Allgäuer Alpen? Wie aus dem Bilderbuch. Und die Sonne? Die schenkt Dir unsere herrliche Alleinlage ganz nebenbei – für das gewisse Extra an Urlaubsglück!"
+    }
+  },
+  "CookiesBanner": {
+    "mainText": "Diese Website verwendet nur technisch notwendige Cookies, um die Anmeldung und Sitzungsverwaltung zu ermöglichen. Es werden keine Tracking-Cookies gesetzt. Weitere Informationen finden Sie in unserer Datenschutzerklärung.",
+    "moreInfo": "Mehr Informationen finden Sie in unserer",
+    "privacyPolicy": "Datenschutzerklärung",
+    "accept": "Akzeptieren"
+  },
+  "Rooms": {
+    "title": "Unsere Zimmer",
+    "description": "Komfort und Gemütlichkeit in jedem Zimmer! Unsere Zimmer sind für Ihre Erholung und Entspannung inmitten der Natur gestaltet. Eine behagliche Atmosphäre, modernes Design und alle Annehmlichkeiten für einen perfekten Aufenthalt erwarten Sie."
+  },
+  "RoomCarousel": {
+    "rooms": {
+      "smallRoom1": {
+        "title": "Kleines Zimmer: Betten und Schrank",
+        "text": "Ein gemütliches kleines Zimmer mit zwei Einzelbetten und einem geräumigen Holzschrank. Die warme orangefarbene Einrichtung sorgt für eine sonnige Atmosphäre. Ideal für Freunde oder Kinder, die zusammen reisen. Die Holzdecke verleiht ländlichen Charme."
+      },
+      "smallRoom2": {
+        "title": "Kleines Zimmer: Nachttisch-Dekor",
+        "text": "Detailansicht des Nachttisches im kleinen Zimmer. Darauf befinden sich eine leuchtend gelbe Lampe, eine elegante Vase mit Dekorationsblumen und ein runder geflochtener Teppich. Diese Elemente verleihen dem Raum Individualität und Gemütlichkeit und schaffen eine angenehme Atmosphäre zum Entspannen."
+      },
+      "smallRoom3": {
+        "title": "Kleines Zimmer: Bett, Schrank und Tür",
+        "text": "Blick auf einen Teil des kleinen Zimmers, der eines der Betten mit orangefarbener Bettwäsche, einen Eckholzschrank und eine Holztür zeigt. Dieses Zimmer bietet einen kompakten, aber komfortablen Raum für individuelle Erholung und bietet alle notwendigen Annehmlichkeiten."
+      },
+      "bigRoom1": {
+        "title": "Großes Zimmer: Bett, Gemälde und Fenster",
+        "text": "Ein geräumiges großes Zimmer mit einem Doppelbett in grünen Tönen. An der Wand hängt ein beeindruckendes Gemälde eines Waldhirsches, das eine Atmosphäre der Ruhe und Naturverbundenheit schafft. Ein großes Fenster sorgt für viel natürliches Licht und Ausblick auf die Umgebung."
+      },
+      "bigRoom2": {
+        "title": "Großes Zimmer: Nachttische",
+        "text": "Detailaufnahme von zwei hölzernen Nachttischen im großen Zimmer. Auf ihnen stehen eine elegante Vintage-Lampe und zwei Vasen mit dekorativen Maiglöckchen, die Eleganz und Gemütlichkeit verleihen. Jeder Nachttisch hat zwei Schubladen zur bequemen Aufbewahrung persönlicher Gegenstände."
+      },
+      "bigRoom3": {
+        "title": "Großes Zimmer: Schreibtisch und Interieur",
+        "text": "Ein gemütliches großes Zimmer, in dem neben dem Bett ein funktionaler Holzschreibtisch mit Stuhl steht. Dies ist der ideale Ort, wenn Sie arbeiten oder lesen müssen. Das Interieur wird durch ein Hirschgemälde, eine Tischlampe und Dekorregale ergänzt, die eine harmonische Atmosphäre schaffen."
+      },
+      "bigRoom4": {
+        "title": "Großes Zimmer: Baumspiegel und Fenster",
+        "text": "Teil des großen Zimmers mit einem einzigartigen Holzspiegel in Baumform, der dem Raum besonderen Charme verleiht. Daneben steht ein kleiner Holznachttisch mit Vasen, und ein großes Fenster sorgt für helle natürliche Beleuchtung. Es gibt auch einen Kleiderständer."
+      }
+    },
+    "book": "Jetzt Buchen",
+    "priceFrom": "Preis ab",
+    "perNight": "€/Nacht"
+  },
+  "Buttons": {
+    "book": "Jetzt Buchen"
+  }
+}

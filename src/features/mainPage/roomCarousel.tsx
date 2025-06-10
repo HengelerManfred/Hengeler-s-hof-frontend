@@ -87,7 +87,7 @@ export function RoomCarousel() {
                   src={slide.image}
                   alt={t(`rooms.${slide.id}.title`)}
                   fill
-                  sizes="100vw"
+                  sizes="(max-width: 768px) 80vw, 50vw"
                   className="object-cover rounded-[16px] select-none pointer-events-none gradient-overlay md:layer-blur"
                   priority
                 />
@@ -101,22 +101,22 @@ export function RoomCarousel() {
               )}
             >
               <div className="w-full lg:w-7/8">
-                <h2 className="text-[var(--primary-text)] mb-2 font-light text-[24px] md:text-[40px] inter text-4xl">
+                <h2 className="text-[var(--primary-text)] select-none mb-2 font-light text-[24px] md:text-[40px] inter text-4xl">
                   {t(`rooms.${slide.id}.title`)}
                 </h2>
-                <p className="text-[var(--primary-text)] font-light text-[16px] md:text-[16px] inter text-justify text-4xl">
+                <p className="text-[var(--primary-text)] select-none font-light text-[16px] md:text-[16px] inter text-justify text-4xl">
                   {t(`rooms.${slide.id}.text`)}
                 </p>
               </div>
               <div className="flex lg:flex-col gap-3 justify-end items-center lg:items-start">
-                <div className="text-[var(--primary-text)] leading-none self-end bg-[var(--section-bg)] w-fit border-[var(--section-border)] p-[10px] rounded-[8px] font-medium text-[16px] md:text-[16px] inter">
+                <div className="text-[var(--primary-text)] select-none leading-none self-end bg-[var(--section-bg)] border w-fit border-[var(--section-border)] p-[10px] rounded-[8px] font-medium text-[16px] md:text-[16px] inter">
                   {t("priceFrom")} <br />
                   <span className="text-[34px] lg:text-[36px]">
                     {slide.price}
                   </span>{" "}
                   {t("perNight")}
                 </div>
-                <BookButton />
+                <BookButton disabled={selectedIndex !== index}/>
               </div>
             </span>
           </div>

@@ -4,13 +4,19 @@ import { Button } from "@mui/material";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
-export function BookButton() {
+export function BookButton({ disabled = false }: { disabled: boolean }) {
   const t = useTranslations("Buttons");
 
   return (
-    <Button variant="default" className="gap-2 w-fit h-[34px]" component={Link} href="/booking">
-        <CalendarMonth className="text-[var(--main-bg)]" />
-        <span className="text-nowrap">{t("book")}</span>
+    <Button
+      variant="default"
+      disabled={disabled}
+      className="focus-visible:ring-2 gap-2 w-fit h-[34px]"
+      component={Link}
+      href="/booking"
+    >
+      <CalendarMonth className="text-[var(--main-bg)]" />
+      <span className="text-nowrap">{t("book")}</span>
     </Button>
   );
 }

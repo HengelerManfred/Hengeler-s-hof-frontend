@@ -87,7 +87,7 @@ export function RoomCarousel() {
                   src={slide.image}
                   alt={t(`rooms.${slide.id}.title`)}
                   fill
-                  sizes="100vw"
+                  sizes="(max-width: 768px) 80vw, 50vw"
                   className="object-cover rounded-[16px] select-none pointer-events-none gradient-overlay md:layer-blur"
                   priority
                 />
@@ -116,7 +116,7 @@ export function RoomCarousel() {
                   </span>{" "}
                   {t("perNight")}
                 </div>
-                <BookButton />
+                <BookButton disabled={selectedIndex !== index}/>
               </div>
             </span>
           </div>

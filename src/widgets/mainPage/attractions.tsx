@@ -38,7 +38,7 @@ export function Attractions() {
       <h2 className="text-[24px] md:text-[64px] inter text-nowrap font-light content-center text-[var(--primary-text)]">
         {t("title")}
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 rounded-lg">
+      <div className="grid grid-cols-1 md:grid-cols-2 [@media(width>=1370px)]:grid-cols-3 rounded-lg">
         {attractions.map((attraction) => (
           <div
             key={attraction.id}
@@ -48,8 +48,9 @@ export function Attractions() {
             <div className="relative aspect-video w-full will-change-transform transform transition-transform duration-500 group-hover:scale-105 group-focus-within:scale-105">
               <Image
                 src={attraction.image}
-                alt={attraction.id}
+                alt={t(`items.${attraction.id}.title`)}
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 style={{ objectFit: "fill" }}
               />
               <div

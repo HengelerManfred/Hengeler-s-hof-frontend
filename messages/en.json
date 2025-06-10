@@ -84,5 +84,34 @@
   },
   "Buttons": {
     "book": "Book Now"
+  },
+  "Attractions": {
+    "title": "What's nearby?",
+    "items": {
+      "neuschwanstein": {
+        "title": "Neuschwanstein Castle",
+        "description": "A real fairy tale castle! Just a short drive away, the world-famous Neuschwanstein Castle awaits you – an unforgettable experience for visitors of all ages."
+      },
+      "hohenschwangau": {
+        "title": "Hohenschwangau Castle",
+        "description": "Immerse yourself in the history of Bavarian kings – the charming Hohenschwangau Castle is located directly opposite Neuschwanstein and impresses with historical insights."
+      },
+      "gorge": {
+        "title": "Gorge",
+        "description": "A special kind of natural wonder: the Breitachklamm is one of the deepest gorges in Europe – impressive, wild, and absolutely worth seeing."
+      },
+      "forests": {
+        "title": "Forests",
+        "description": "Discover the idyllic Allgäu forests right on your doorstep – perfect for walks, short hikes, and exciting adventures with the whole family."
+      },
+      "hopfenSee": {
+        "title": "Hopfen am See Promenade",
+        "description": "Enjoy a leisurely walk along the shore of Lake Hopfen with mountain views – ideal for relaxing, strolling, and lingering."
+      },
+      "mountains": {
+        "title": "Mountains",
+        "description": "Whether hiking, cycling, or just enjoying the view – the Allgäu Alps offer stunning vistas and numerous activities for nature lovers."
+      }
+    }
   }
 }

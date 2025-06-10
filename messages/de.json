@@ -84,5 +84,34 @@
   },
   "Buttons": {
     "book": "Jetzt Buchen"
+  },
+  "Attractions": {
+    "title": "Was befindet sich in unserer Nähe?",
+    "items": {
+      "neuschwanstein": {
+        "title": "Schloss Neuschwanstein",
+        "description": "Ein echtes Märchenschloss! Nur eine kurze Fahrt entfernt erwartet Sie das weltberühmte Schloss Neuschwanstein – ein unvergessliches Erlebnis für Groß und Klein."
+      },
+      "hohenschwangau": {
+        "title": "Schloss Hohenschwangau",
+        "description": "Tauchen Sie ein in die Geschichte der bayerischen Könige – das charmante Schloss Hohenschwangau liegt direkt gegenüber von Neuschwanstein und begeistert mit historischen Einblicken."
+      },
+      "gorge": {
+        "title": "Schlucht",
+        "description": "Ein Naturwunder der besonderen Art: Die Breitachklamm ist eine der tiefsten Schluchten Europas – beeindruckend, wild und absolut sehenswert."
+      },
+      "forests": {
+        "title": "Wälder",
+        "description": "Entdecken Sie die idyllischen Allgäuer Wälder direkt vor der Haustür – perfekt für Spaziergänge, kleine Wanderungen und spannende Abenteuer mit der ganzen Familie."
+      },
+      "hopfenSee": {
+        "title": "Promenade Hopfen am See",
+        "description": "Genießen Sie einen gemütlichen Spaziergang am Ufer des Hopfensees mit Blick auf die Berge – ideal zum Entspannen, Spazieren und Verweilen."
+      },
+      "mountains": {
+        "title": "Bergen",
+        "description": "Ob Wandern, Radfahren oder einfach nur die Aussicht genießen – die Allgäuer Alpen bieten traumhafte Ausblicke und zahlreiche Aktivitäten für Naturliebhaber."
+      }
+    }
   }
 }

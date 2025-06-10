@@ -55,7 +55,9 @@ export default function NavDropdown() {
             </Button>
           </span>
         </li>
-        <Divider />
+        <li aria-hidden="true">
+          <Divider />
+        </li>
         <li>
           <Link
             onClick={toggle}
@@ -65,7 +67,9 @@ export default function NavDropdown() {
             {t("booking")}
           </Link>
         </li>
-        <Divider />
+        <li aria-hidden="true">
+          <Divider />
+        </li>
         <li>
           <Link
             onClick={toggle}
@@ -75,7 +79,9 @@ export default function NavDropdown() {
             {t("events")}
           </Link>
         </li>
-        <Divider />
+        <li aria-hidden="true">
+          <Divider />
+        </li>
         <li>
           <Link
             onClick={toggle}
@@ -85,7 +91,9 @@ export default function NavDropdown() {
             {t("about")}
           </Link>
         </li>
-        <Divider />
+        <li aria-hidden="true">
+          <Divider />
+        </li>
       </ul>
       <Contacts />
       <AuthBurgerButtons />

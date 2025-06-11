@@ -119,5 +119,9 @@
         "description": "Whether hiking, cycling, or just enjoying the view – the Allgäu Alps offer stunning vistas and numerous activities for nature lovers."
       }
     }
+  },
+  "MainMap": {
+    "title": "How to find us?",
+    "loading": "Loading map..."
   }
 }

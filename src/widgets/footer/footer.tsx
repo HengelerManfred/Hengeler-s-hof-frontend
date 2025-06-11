@@ -13,7 +13,7 @@ export async function Footer() {
         <address className="flex flex-col w-[450px] not-italic inter">
           <TextLogo />
           <a className="flex items-center" href={`tel:${t("phone")}`}>
-            <PhoneIphone className="size-[40px]! text-[var(--main-bg)] rounded-full gap-2 mr-3" />
+            <PhoneIphone className="!size-[40px] text-[var(--main-bg)] gap-2 mr-3" />
             <span className="text-[var(--main-bg)]">
               {t("phoneAnswer")}
               <br />
@@ -54,7 +54,7 @@ export async function Footer() {
             <Link href="/privacyPolicy" className="text-[var(--main-bg)] border-b-2 border-transparent hover:border-[var(--main-bg)] transition-colors duration-150">
               {tr("privacyPolicy")}
             </Link>
-            <Link href="/privacyPolicy" className="text-[var(--main-bg)] border-b-2 border-transparent hover:border-[var(--main-bg)] transition-colors duration-150">
+            <Link href="/imprint" className="text-[var(--main-bg)] border-b-2 border-transparent hover:border-[var(--main-bg)] transition-colors duration-150">
               {tr("imprint")}
             </Link>
           </div>

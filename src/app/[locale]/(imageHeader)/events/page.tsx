@@ -5,7 +5,6 @@ const slides = [
   {
     id: "2",
     titleKey: "slide2.title",
-    textKey: "slide2.text",
     image: "/images/eventsMain.png",
     interactive: <ScrollArrows />
   }

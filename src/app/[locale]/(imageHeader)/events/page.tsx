@@ -1,19 +1,20 @@
-"use client";
-import { useTranslations } from "next-intl";
+import { ScrollArrows } from "@/shared/ui/scrollArrows/scrollArrows";
+import { HeaderCarousel } from "@/widgets/mainPage/headerCarousel";
 
-export default function Home() {
-  const t = useTranslations("HomePage");
+const slides = [
+  {
+    id: "2",
+    titleKey: "slide2.title",
+    textKey: "slide2.text",
+    image: "/images/eventsMain.png",
+    interactive: <ScrollArrows />
+  }
+];
 
+export default function Events() {
   return (
     <main>
-      <h1>{t("welcome")}</h1>
-      <nav>
-        <ul>
-          <li>{t("menu.home")}</li>
-          <li>{t("menu.about")}</li>
-          <li>{t("menu.contact")}</li>
-        </ul>
-      </nav>
+      <HeaderCarousel slides={slides} />
     </main>
   );
 }

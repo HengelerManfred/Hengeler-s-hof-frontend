@@ -9,30 +9,15 @@ import { useTranslations } from "next-intl";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { Button } from "@mui/material";
+import { Slide } from "./slide";
+import clsx from "clsx";
 
-const slides = [
-  {
-    id: 1,
-    titleKey: "slide1.title",
-    textKey: "slide1.text",
-    image: "/images/main.png",
-  },
-  {
-    id: 2,
-    titleKey: "slide2.title",
-    textKey: "slide2.text",
-    image: "/images/eventsMain.png",
-  },
-  {
-    id: 3,
-    titleKey: "slide3.title",
-    textKey: "slide3.text",
-    image: "/images/bicycles.png",
-  },
-];
-
-export function HeaderCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+export function HeaderCarousel({ slides }: { slides: Slide[] }) {
+  const singleSlide = slides.length === 1;
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    active: !singleSlide,
+  });
   const [progress, setProgress] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const duration = 10000;
@@ -42,7 +27,7 @@ export function HeaderCarousel() {
   emblaApi?.on("select", () => setProgress(0));
 
   useEffect(() => {
-    if (!isPlaying) return;
+    if (!isPlaying || singleSlide) return;
     const interval = setInterval(() => {
       setProgress((prev) => {
         const next = Math.min(prev + (tick / duration) * 100, 100);
@@ -54,7 +39,7 @@ export function HeaderCarousel() {
       });
     }, tick);
     return () => clearInterval(interval);
-  }, [isPlaying, emblaApi]);
+  }, [isPlaying, emblaApi, singleSlide]);
 
   return (
     <div className="embla relative" ref={emblaRef}>
@@ -72,47 +57,69 @@ export function HeaderCarousel() {
               className="object-cover relative select-none pointer-events-none gradient-overlay md:layer-blur"
               priority
             />
-            <span className="flex absolute flex-col gap-20 w-full px-[12.5%] top-1/7 md:top-1/4">
-              <h1 className="text-white font-medium text-[24px] md:text-[64px] inter text-center text-4xl">
+            <span
+              className={clsx(
+                "flex absolute flex-col gap-20 w-full px-[12.5%]",
+                !slide?.textKey && "top-1/3 md:top-1/3",
+                slide?.textKey && "top-1/3 md:top-1/4"
+              )}
+            >
+              <h1
+                className={clsx(
+                  "text-white font-medium text-[24px] md:text-[48px] lg:text-[64px] inter text-center text-4xl",
+                  singleSlide && ""
+                )}
+              >
                 {t(slide.titleKey)}
               </h1>
-              {t(slide.textKey) && (
-                <p className="text-white font-medium text-[16px] md:text-[28px] inter text-justify text-4xl">
+              {slide.textKey && (
+                <p className="text-white font-medium text-[16px] md:text-[20px] lg:text-[28px] inter text-justify text-4xl">
                   {t(slide.textKey)}
                 </p>
               )}
             </span>
+            {slide.interactive && (
+              <span className="absolute w-full top-2/3 left-0 items-center justify-center flex">
+                {slide.interactive}
+              </span>
+            )}
           </div>
         ))}
       </div>
-      <button
-        className="size-[50px] absolute bottom-10 right-10 rounded-full bg-[var(--accent)]"
-        onClick={() => setIsPlaying((p) => !p)}
-      >
-        {isPlaying ? (
-          <Pause className="text-white" />
-        ) : (
-          <PlayArrow className="text-white" />
-        )}
-        <ProgressCircle
-          progress={progress}
-          className="absolute top-0 left-0 z-0"
-        />
-      </button>
-      <Button
-        className="!absolute min-w-[50px] !p-0 top-1/2 -translate-y-1/2 left-0"
-        aria-label="Previous slide"
-        onClick={() => emblaApi?.scrollPrev()}
-      >
-        <KeyboardArrowLeftIcon className="text-white !text-[50px] md:!text-[70px] !h-[50px] md:!h-[70px]" />
-      </Button>
-      <Button
-        className="!absolute top-1/2 min-w-[50px] right-0 md:right-3 -translate-y-1/2 !p-0"
-        aria-label="Next slide"
-        onClick={() => emblaApi?.scrollNext()}
-      >
-        <KeyboardArrowRightIcon className="text-white  !text-[50px] md:!text-[70px] !h-[50px] md:!h-[70px]" />
-      </Button>
+      {!singleSlide && (
+        <button
+          className="size-[50px] absolute bottom-10 right-10 rounded-full bg-[var(--accent)]"
+          onClick={() => setIsPlaying((p) => !p)}
+        >
+          {isPlaying ? (
+            <Pause className="text-white" />
+          ) : (
+            <PlayArrow className="text-white" />
+          )}
+          <ProgressCircle
+            progress={progress}
+            className="absolute top-0 left-0 z-0"
+          />
+        </button>
+      )}
+      {!singleSlide && (
+        <Button
+          className="!absolute min-w-[50px] !p-0 top-1/2 -translate-y-1/2 left-0"
+          aria-label="Previous slide"
+          onClick={() => emblaApi?.scrollPrev()}
+        >
+          <KeyboardArrowLeftIcon className="text-white !text-[50px] md:!text-[70px] !h-[50px] md:!h-[70px]" />
+        </Button>
+      )}
+      {!singleSlide && (
+        <Button
+          className="!absolute top-1/2 min-w-[50px] right-0 md:right-3 -translate-y-1/2 !p-0"
+          aria-label="Next slide"
+          onClick={() => emblaApi?.scrollNext()}
+        >
+          <KeyboardArrowRightIcon className="text-white  !text-[50px] md:!text-[70px] !h-[50px] md:!h-[70px]" />
+        </Button>
+      )}
     </div>
   );
 }

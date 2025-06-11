@@ -1,5 +1,3 @@
-
-import { ScrollArrows } from "@/shared/ui/scrollArrows/scrollArrows";
 import { Attractions } from "@/widgets/mainPage/attractions";
 import { HeaderCarousel } from "@/widgets/mainPage/headerCarousel";
 import { MainMap } from "@/widgets/mainPage/mainMap";
@@ -17,7 +15,7 @@ const slides = [
     titleKey: "slide2.title",
     textKey: "",
     image: "/images/eventsMain.png",
-    interactive: <ScrollArrows />
+    scrollArrows: true
   },
   {
     id: "3",

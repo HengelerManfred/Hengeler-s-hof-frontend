@@ -1,4 +1,3 @@
-import { ScrollArrows } from "@/shared/ui/scrollArrows/scrollArrows";
 import { HeaderCarousel } from "@/widgets/mainPage/headerCarousel";
 
 const slides = [
@@ -6,7 +5,7 @@ const slides = [
     id: "2",
     titleKey: "slide2.title",
     image: "/images/eventsMain.png",
-    interactive: <ScrollArrows />
+    scrollArrows: true
   }
 ];
 

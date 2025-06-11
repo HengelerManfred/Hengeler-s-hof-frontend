@@ -10,7 +10,7 @@ export async function Footer() {
   return (
     <footer className="p-[5%] lg:p-[10px] w-[100dvw] lg:pb-5 flex justify-center z-1000 bg-[var(--accent)] relative">
       <div className="flex flex-col lg:flex-row max-w-[450px] lg:max-w-[auto] lg:min-w-3/4 gap-6 items-center lg:items-end justify-between">
-        <address className="flex flex-col w-[450px] not-italic inter">
+        <address className="flex flex-col max-w-[450px] w-full not-italic inter">
           <TextLogo />
           <a className="flex items-center" href={`tel:${t("phone")}`}>
             <PhoneIphone className="!size-[40px] text-[var(--main-bg)] gap-2 mr-3" />
@@ -50,11 +50,11 @@ export async function Footer() {
               <Instagram className="size-[40px]!" />
             </a>
           </div>
-          <div className="flex items-center justify-between">
-            <Link href="/privacyPolicy" className="text-[var(--main-bg)] border-b-2 border-transparent hover:border-[var(--main-bg)] transition-colors duration-150">
+          <div className="flex pt-2 items-center justify-between">
+            <Link href="/privacyPolicy" className="text-[var(--main-bg)] border-b-2 border-transparent underline">
               {tr("privacyPolicy")}
             </Link>
-            <Link href="/imprint" className="text-[var(--main-bg)] border-b-2 border-transparent hover:border-[var(--main-bg)] transition-colors duration-150">
+            <Link href="/imprint" className="text-[var(--main-bg)] border-b-2 border-transparent underline">
               {tr("imprint")}
             </Link>
           </div>

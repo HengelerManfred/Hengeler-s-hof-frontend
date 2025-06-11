@@ -11,6 +11,7 @@ import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { Button } from "@mui/material";
 import { Slide } from "./slide";
 import clsx from "clsx";
+import { ScrollArrows } from "@/shared/ui/scrollArrows/scrollArrows";
 
 export function HeaderCarousel({ slides }: { slides: Slide[] }) {
   const singleSlide = slides.length === 1;
@@ -24,7 +25,16 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
   const tick = 100;
   const t = useTranslations("MainCarousel");
 
-  emblaApi?.on("select", () => setProgress(0));
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const handler = () => setProgress(0);
+    emblaApi.on("select", handler);
+
+    return () => {
+      emblaApi.off("select", handler);
+    };
+  }, [emblaApi]);
 
   useEffect(() => {
     if (!isPlaying || singleSlide) return;
@@ -78,9 +88,9 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
                 </p>
               )}
             </span>
-            {slide.interactive && (
+            {slide.scrollArrows && (
               <span className="absolute w-full top-2/3 left-0 items-center justify-center flex">
-                {slide.interactive}
+                <ScrollArrows />
               </span>
             )}
           </div>

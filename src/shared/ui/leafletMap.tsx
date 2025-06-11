@@ -30,14 +30,14 @@ function LocationMarker() {
     </Marker>
   );
 }
-const LeafletMap = () => {
+const LeafletMap = ({zoomControl = true}: {zoomControl?: boolean}) => {
   return (
-    <div className="px-[2.5%]">
+    <div className="px-[2.5%] lg:p-0">
       <MapContainer
         center={[47.7747, 10.2375995]}
         zoom={15}
-        zoomControl={false}
-        scrollWheelZoom={true}
+        zoomControl={zoomControl}
+        scrollWheelZoom={false}
         style={{
           height: "400px",
           width: "100%",

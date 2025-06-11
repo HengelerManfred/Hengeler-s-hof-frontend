@@ -73,6 +73,7 @@ export function RoomCarousel() {
       <div className="embla__container w-[100dvw]">
         {slides.map((slide, index) => (
           <button
+            aria-label={t(`rooms.${slide.id}.title`)}
             className={clsx(
               "embla__slide mx-[8px] lg:mx-[12px] relative gap-3 flex flex-col items-center !basis-[80vw] lg:!basis-[50vw] transition-opacity duration-300",
               selectedIndex !== index && "opacity-60"

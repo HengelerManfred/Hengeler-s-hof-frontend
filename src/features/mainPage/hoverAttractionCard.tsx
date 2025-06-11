@@ -18,7 +18,7 @@ export async function HoverAttractionCard({ attraction }: { attraction: Attracti
           alt={t(`items.${attraction.id}.title`)}
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
-          style={{ objectFit: "fill" }}
+          style={{ objectFit: "cover" }}
         />
         <div
           className="absolute inset-0 

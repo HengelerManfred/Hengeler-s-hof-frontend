@@ -6,9 +6,16 @@ export function Contacts() {
   return (
     <address className="flex flex-col gap-2 not-italic inter mt-[15px]">
       <p>{t("contacts")}</p>
-      <a href={`tel:${t("phone")}`}>
+      <a className="flex items-center" href={`tel:${t("phone")}`}>
         <Phone className="size-[40px]! text-[var(--main-bg)] bg-[var(--accent)] rounded-full p-1 mr-3" />
-        {t("phone")}
+        <div className="flex flex-col leading-snug">
+          <span className="text-[var(--primary-text)]">
+            {t("phone")}
+          </span>
+          <span className="text-[16px] text-[var(--secondary-text)]">
+            {t("phoneAnswer")}
+          </span>
+        </div>
       </a>
       <a href={`mailto:${t("email")}`} className="flex items-center gap-[15px] w-full ">
         <Email className="size-[40px]! text-[var(--main-bg)] bg-[var(--accent)] rounded-full p-1" />

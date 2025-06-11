@@ -6,6 +6,9 @@ import { useState, useEffect, useCallback } from "react";
 import type { UseEmblaCarouselType } from "embla-carousel-react";
 import clsx from "clsx";
 import { BookButton } from "@/shared/ui/buttons/bookButton";
+import { Button } from "@mui/material";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 
 const slides = [
   {
@@ -53,7 +56,7 @@ export function RoomCarousel() {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
   }, []);
-
+  
   useEffect(() => {
     if (!emblaApi) return;
     onSelect(emblaApi);
@@ -69,11 +72,12 @@ export function RoomCarousel() {
     <div className="embla !overflow-visible" ref={emblaRef}>
       <div className="embla__container w-[100dvw]">
         {slides.map((slide, index) => (
-          <div
+          <button
             className={clsx(
               "embla__slide mx-[8px] lg:mx-[12px] relative gap-3 flex flex-col items-center !basis-[80vw] lg:!basis-[50vw] transition-opacity duration-300",
               selectedIndex !== index && "opacity-60"
             )}
+            onClick={() => emblaApi?.scrollTo(index)}
             key={slide.id}
           >
             <div className="flex w-full aspect-video justify-center items-center">
@@ -89,39 +93,51 @@ export function RoomCarousel() {
                   fill
                   sizes="(max-width: 768px) 80vw, 50vw"
                   className="object-cover rounded-[16px] select-none pointer-events-none gradient-overlay md:layer-blur"
-                  priority
+                  priority={ index === 0 }
                 />
               </div>
             </div>
             <span
               className={clsx(
-                "flex flex-col h-fit lg:flex-row gap-2 lg:gap-20 w-full",
+                "flex flex-col h-fit xl:flex-row gap-2 xl:gap-20 w-full",
                 "transition-opacity duration-300",
                 selectedIndex !== index && "opacity-0"
               )}
             >
-              <div className="w-full lg:w-7/8">
-                <h2 className="text-[var(--primary-text)] select-none mb-2 font-light text-[24px] md:text-[40px] inter text-4xl">
+              <div className="w-full xl:w-7/8">
+                <h2 className="text-[var(--primary-text)] select-none mb-2 font-light text-start text-[24px] md:text-[40px] inter text-4xl">
                   {t(`rooms.${slide.id}.title`)}
                 </h2>
                 <p className="text-[var(--primary-text)] select-none font-light text-[16px] md:text-[16px] inter text-justify text-4xl">
                   {t(`rooms.${slide.id}.text`)}
                 </p>
               </div>
-              <div className="flex lg:flex-col gap-3 justify-end items-center lg:items-start">
+              <div className="flex xl:flex-col gap-3 justify-end items-center xl:items-start">
                 <div className="text-[var(--primary-text)] select-none leading-none self-end bg-[var(--section-bg)] border w-fit border-[var(--section-border)] p-[10px] rounded-[8px] font-medium text-[16px] md:text-[16px] inter">
                   {t("priceFrom")} <br />
-                  <span className="text-[34px] lg:text-[36px]">
+                  <span className="text-[34px] xl:text-[36px]">
                     {slide.price}
                   </span>{" "}
                   {t("perNight")}
                 </div>
-                <BookButton disabled={selectedIndex !== index}/>
+                <BookButton disabled={selectedIndex !== index} />
               </div>
             </span>
-          </div>
+          </button>
         ))}
       </div>
+      <Button
+        className="!absolute min-w-[50px] !p-0 top-1/3 [@media(min-width:1500px)]:top-2/5 left-7 !hidden lg:!block"
+        onClick={() => emblaApi?.scrollPrev()}
+      >
+        <KeyboardArrowLeftIcon className="text-white !text-[50px] md:!text-[70px] !h-[50px] md:!h-[70px]" />
+      </Button>
+      <Button
+        className="!absolute top-1/3 [@media(min-width:1500px)]:top-2/5 min-w-[50px] right-10 !p-0 !hidden lg:!block "
+        onClick={() => emblaApi?.scrollNext()}
+      >
+        <KeyboardArrowRightIcon className="text-white  !text-[50px] md:!text-[70px] !h-[50px] md:!h-[70px]" />
+      </Button>
     </div>
   );
 }

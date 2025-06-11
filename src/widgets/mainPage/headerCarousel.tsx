@@ -6,6 +6,9 @@ import Image from "next/image";
 import { Pause, PlayArrow } from "@mui/icons-material";
 import { ProgressCircle } from "@/features/mainPage/progressCircle";
 import { useTranslations } from "next-intl";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import { Button } from "@mui/material";
 
 const slides = [
   {
@@ -96,6 +99,18 @@ export function HeaderCarousel() {
           className="absolute top-0 left-0 z-0"
         />
       </button>
+      <Button
+        className="!absolute min-w-[50px] !p-0 top-1/2 left-0"
+        onClick={() => emblaApi?.scrollPrev()}
+      >
+        <KeyboardArrowLeftIcon className="text-white !text-[50px] md:!text-[70px] !h-[50px] md:!h-[70px]" />
+      </Button>
+      <Button
+        className="!absolute top-1/2 min-w-[50px] right-0 md:right-3 !p-0"
+        onClick={() => emblaApi?.scrollNext()}
+      >
+        <KeyboardArrowRightIcon className="text-white  !text-[50px] md:!text-[70px] !h-[50px] md:!h-[70px]" />
+      </Button>
     </div>
   );
 }

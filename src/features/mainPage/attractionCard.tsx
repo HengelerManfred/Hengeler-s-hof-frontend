@@ -1,14 +1,13 @@
-"use client";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 interface AttractionCardProps {
   id: string;
   image: string;
 }
 
-export function AttractionCard({ id, image }: AttractionCardProps) {
-  const t = useTranslations("Attractions");
+export async function AttractionCard({ id, image }: AttractionCardProps) {
+  const t = await getTranslations("Attractions");
 
   return (
     <div className="flex flex-col gap-4 bg-[var(--section-bg)] p-6 rounded-lg border border-[var(--section-border)]">

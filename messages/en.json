@@ -21,7 +21,13 @@
     "contacts": "Contact Information",
     "phone": "+49 (0)541 580 587 0",
     "email": "hengeler.shofrohnhofen3@gmail.com",
-    "address": "Frohnhofen 3, 87452 Altusried,y Deutschland"
+    "address": "Frohnhofen 3, 87452 Altusried, Deutschland",
+    "phoneAnswer": "Call response time: 9:00 – 21:00"
+  },
+  "Footer": {
+    "privacyPolicy": "Contact Information",
+    "imprint": "Imprint",
+    "slogan": "Farm holidays in the Allgäu – experience nature, pet animals, enjoy family time."
   },
   "MainCarousel": {
     "slide1": {

@@ -17,7 +17,7 @@ export default function Header({ hasImage }: { hasImage?: boolean }) {
     >
       <div className="flex justify-between items-center gap-9 py-[10px] min-w-3/4">
         <h1>
-          <TextLogo />
+          <TextLogo/>
         </h1>
         <span className="flex items-center gap-[15px]">
           <Navbar />

@@ -7,6 +7,10 @@
       "contact": "Kontakt"
     }
   },
+  "MainMap": {
+    "title": "Wie findet man uns?",
+    "loading": "Karte wird geladen..."
+  },
   "NavBar": {
     "booking": "Buchung",
     "events": "Veranstaltungen",

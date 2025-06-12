@@ -13,6 +13,7 @@ export function LanguagePicker() {
   const pathname = usePathname();
   const router = useRouter();
   const locale = useLocale();
+
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const currentLanguage = locale.toUpperCase() as Language;

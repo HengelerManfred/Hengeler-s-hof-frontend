@@ -2,7 +2,6 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { cookies } from "next/headers";
 import { AcceptButton } from "./acceptButton";
-
 const COOKIE_NAME = "cookies-accepted";
 
 export async function CookiesBanner() {
@@ -13,9 +12,8 @@ export async function CookiesBanner() {
   if (cookiesAccepted) {
     return null;
   }
-
   return (
-    <div className=" flex flex-col w-full py-5 px-[12.5%] px-auto fixed bottom-0 left-0 bg-[var(--accent)] text-[16px] text-[var(--main-bg)] inter">
+    <div className=" flex flex-col w-full py-5 px-[12.5%] px-auto fixed bottom-0 left-0 bg-[var(--accent)] text-[16px] text-[var(--main-bg)] inter z-1000">
       <p>{t("mainText")}</p>
       <p>
         {t("moreInfo")}{" "}

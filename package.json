@@ -24,7 +24,7 @@
     "next-intl": "^4.1.0",
     "react": "^19.0.0-rc.1",
     "react-dom": "^19.0.0-rc.1",
-    "react-leaflet": "^5.0.0-rc.2",
+    "react-leaflet": "^5.0.0",
     "zustand": "^5.0.5"
   },
   "devDependencies": {

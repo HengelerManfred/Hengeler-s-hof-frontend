@@ -1,6 +1,6 @@
 export default function Imprint() {
   return (
-    <main className="w-3/4 h-[63.8vh] mx-auto">
+    <main className="w-3/4 h-[67.1vh] mx-auto">
       <h2 className="text-4xl font-bold my-6">Impressum</h2>
       <section>
         <ol className="list-decimal pl-6 marker:text-2xl marker:font-semibold">

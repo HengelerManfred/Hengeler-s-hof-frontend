@@ -8,7 +8,7 @@ export async function Footer() {
   const t = await getTranslations("Contacts");
   const tr = await getTranslations("Footer");
   return (
-    <footer className="p-[5%] lg:p-[10px] w-[100dvw] lg:pb-5 flex justify-center z-1000 bg-[var(--accent)] relative">
+    <footer className="p-[5%] lg:p-[10px] w-[100dvw] lg:pb-5 flex justify-center z-5 bg-[var(--accent)] relative">
       <div className="flex flex-col lg:flex-row max-w-[450px] lg:max-w-[auto] lg:min-w-3/4 gap-6 items-center lg:items-end justify-between">
         <address className="flex flex-col max-w-[450px] w-full not-italic inter">
           <TextLogo />

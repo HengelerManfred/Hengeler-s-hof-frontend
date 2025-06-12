@@ -5,7 +5,8 @@
       "home": "Startseite",
       "about": "Über uns",
       "contact": "Kontakt"
-    }
+    },
+    "bannerText":"Buchen Sie Ihren Urlaub zu einem für Sie passenden Zeitpunkt."
   },
   "MainMap": {
     "title": "Wie findet man uns?",
@@ -16,6 +17,11 @@
     "events": "Veranstaltungen",
     "about": "Über uns",
     "language": "Sprache"
+  },
+  "Event": {
+    "title":"Winterwunderland inklusive",
+    "text":"Moderne Skigebiete, rasante Snowboardparks und bestens präparierte Langlaufloipen. Perfekte Bedingungen für kleine und große Schneefans!Ein einmaliges Erlebnis ist auch die Hirschfütterung. Man kann sie im Rahmen einer Kutschfahrt oder bei einem gemütlichem Spaziergang erreichen. Oder Du bleibst einfach bei uns am Hof – Schneeballschlacht, Schneeschuhe laufen runden ihren Urlaub ab.",
+    "view":"View more"
   },
   "Auth": {
     "login": "Anmelden",

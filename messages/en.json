@@ -7,6 +7,9 @@
       "contact": "Contact",
       "booking": "Booking"
     }
+      "contact": "Contact"
+    },
+    "bannerText": "Book your vacation at a time that suits you."
   },
   "NavBar": {
     "booking": "Booking",
@@ -24,6 +27,11 @@
     "email": "hengeler.shofrohnhofen3@gmail.com",
     "address": "Frohnhofen 3, 87452 Altusried, Deutschland",
     "phoneAnswer": "Call response time: 9:00 – 21:00"
+  },
+  "Event": {
+    "title": "Winter Wonderland Included",
+    "text": "Modern ski resorts, thrilling snowboard parks, and perfectly groomed cross-country ski trails. Ideal conditions for snow fans of all ages! A unique experience is also deer feeding, which can be enjoyed during a carriage ride or a peaceful walk. Or just stay with us at the farm – snowball fights and snowshoe hiking will complete your winter holiday.",
+    "view": "View more"
   },
   "Footer": {
     "privacyPolicy": "Privacy policy",

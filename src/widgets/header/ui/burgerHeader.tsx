@@ -6,7 +6,6 @@ import { useBurgerStore } from "@/shared/store/burgerStore";
 
 export default function BurgerHeader({ hasImage }: { hasImage?: boolean }) {
   const isOpen = useBurgerStore((state) => state.isOpen);
-
   return (
     <>
       <header
@@ -14,9 +13,9 @@ export default function BurgerHeader({ hasImage }: { hasImage?: boolean }) {
         className={clsx(
           "w-[100dvw] flex [@media(min-width:1248px)]:hidden justify-center z-1000",
           "transition-bg duration-300 ease-in-out",
-          !hasImage && !isOpen && "bg-[var(--accent)] relative",
-          hasImage && !isOpen && "bg-transparent absolute",
-          isOpen ? "bg-[var(--accent)] fixed" : "bg-transparent"
+          !hasImage && "relative bg-[var(--accent)]",
+          hasImage && "absolute bg-transparent",
+          isOpen && "!bg-[var(--accent)]"
         )}
       >
         <BurgerButton />

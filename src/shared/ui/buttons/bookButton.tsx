@@ -13,7 +13,7 @@ export function BookButton({ disabled = false }: { disabled: boolean }) {
       disabled={disabled}
       className="focus-visible:ring-2 gap-2 w-fit h-[34px]"
       component={Link}
-      href="/booking"
+      href="/booking/room1"
     >
       <CalendarMonth className="text-[var(--main-bg)]" />
       <span className="text-nowrap">{t("book")}</span>

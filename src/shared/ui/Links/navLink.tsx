@@ -1,15 +1,28 @@
+"use client";
+
 import Link from "next/link";
 import clsx from "clsx";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export function NavLink({
   href,
   children,
-  isActive,
 }: {
   href: string;
   children: React.ReactNode;
-  isActive: (path: string) => boolean;
 }) {
+  const pathname = usePathname();
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+
+  useEffect(() => {
+    if (href.includes("booking")) {
+      setShouldAnimate(pathname.includes("booking"));
+    } else {
+      setShouldAnimate(pathname === href || pathname.endsWith(href));
+    }
+  }, [href, pathname]);
+
   return (
     <Link
       href={href}
@@ -19,9 +32,7 @@ export function NavLink({
         "after:h-[2px] after:w-full after:bg-current",
         "after:transform after:-translate-x-1/2 after:origin-center",
         "after:transition-transform after:duration-300 after:ease-in-out",
-        isActive(href)
-          ? "after:scale-x-100"
-          : "after:scale-x-0"
+        shouldAnimate ? "after:scale-x-100" : "after:scale-x-0"
       )}
     >
       {children}

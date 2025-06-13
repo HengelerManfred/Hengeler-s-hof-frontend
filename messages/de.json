@@ -4,13 +4,19 @@
     "menu": {
       "home": "Startseite",
       "about": "Über uns",
+      "contact": "Kontakt",
+      "booking": "Buchung"
+    }
       "contact": "Kontakt"
     },
     "bannerText":"Buchen Sie Ihren Urlaub zu einem für Sie passenden Zeitpunkt."
+
   },
   "MainMap": {
     "title": "Wie findet man uns?",
-    "loading": "Karte wird geladen..."
+    "loading": "Karte wird geladen...",
+    "whereWeAreTitle": "Wo wir uns befinden?",
+    "whereWeAreDescription": "Unser Hof liegt idyllisch am Rande der Allgäuer Alpen, umgeben von saftigen Wiesen und duftenden Wäldern – der perfekte Rückzugsort für Naturliebhaber."
   },
   "NavBar": {
     "booking": "Buchung",
@@ -38,7 +44,7 @@
     "privacyPolicy": "Datenschutzerklärung",
     "imprint": "Impressum",
     "slogan": "Bauernhofurlaub im Allgäu – Natur erleben, Tiere streicheln, Familienzeit genießen."
-    },
+  },
   "MainCarousel": {
     "slide1": {
       "title": "Euer Urlaub auf dem Hengeler's Hof – Erholung mit Bergpanorama, Sonne, Natur und Bergblick.",
@@ -129,5 +135,47 @@
         "description": "Ob Wandern, Radfahren oder einfach nur die Aussicht genießen – die Allgäuer Alpen bieten traumhafte Ausblicke und zahlreiche Aktivitäten für Naturliebhaber."
       }
     }
+  },
+  "Booking": {
+    "availabilityTitle": "Belegungsmöglichkeiten",
+    "room1": "Zimmer 1",
+    "room2": "Zimmer 2",
+    "room3": "Zimmer 3",
+    "house": "Ganzes Haus",
+    "room1_name": "Zimmer 1",
+    "room1_description": "Helles und warm eingerichtetes Doppelzimmer mit großem Bett, Schreibtisch und Stauraum. Ideal für zwei Erwachsene und ein Kleinkind (Babybett auf Anfrage). Den Gästen steht eine voll ausgestattete Gemeinschaftsküche sowie zwei Gemeinschaftsbäder (Dusche und Badewanne) zur Verfügung. ",
+    "room2_name": "Zimmer 2",
+    "room2_description": "Kleines Zimmer mit zwei getrennten Betten, einem Schränkchen und einer kleinen Kommode zur Aufbewahrung von Dingen. Ideal für aktive Reisende, die Einfachheit und Komfort schätzen. Den Gästen steht eine voll ausgestattete Gemeinschaftsküche sowie zwei Gemeinschaftsbäder mit Dusche und Badewanne zur Verfügung.",
+    "room3_name": "Zimmer 3",
+    "room3_description": "Großes, geräumiges Zimmer mit einem bequemen Doppelbett, Nachtkästchen, einem großen Kleiderschrank, Caught mit Caught-Tisch und einem separaten Sofa. Es bietet Platz für zwei Personen und kann einen weiteren Gast aufnehmen. Dazu gibt es noch eine wunderschöne Aussicht in die Berge.",
+    "house_name": "Ganzes Haus",
+    "house_description": "Unser liebevoll eingerichteter Bauernhof bietet auf ca. 200 qm zwei Ebenen mit kompletter Ausstattung: voll eingerichtete Küche, gemütliches Wohnzimmer im Landhausstil, zwei Badezimmer und drei komfortable Zimmer. Ideal für Familien oder Gruppen bis zu 7 Personen. Im Garten erwarten Sie Grillplatz, Gartenmöbel, Sandkasten und Naturblick mit Rehen und Hasen.",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "maxGuests": "Max. Gäste",
+    "size": "Größe",
+    "price": "Preis",
+    "perNight": "pro Nacht",
+    "bookNow": "Jetzt buchen",
+    "m2": "m²",
+    "room1_max_guests": "2+1 (Babybett)",
+    "room2_max_guests": "2",
+    "room3_max_guests": "2+1 (das Sofa kann als zweites Bett verwendet werden)",
+    "house_max_guests": "7+1 (Babybett)"
+  },
+  "RoomsPage": {
+    "title": "Unsere Zimmer",
+    "description": "Komfort und Gemütlichkeit in jedem Zimmer! Unsere Zimmer sind für Ihre Erholung und Entspannung inmitten der Natur gestaltet. Eine behagliche Atmosphäre, modernes Design und alle Annehmlichkeiten für einen perfekten Aufenthalt erwarten Sie."
+  },
+  "Benefits": {
+    "title": "Was wir bieten",
+    "house": "Haus",
+    "wifi": "Kostenloses WLAN",
+    "pets": "Haustiere: nach Absprache",
+    "grill": "Grillmöglichkeit",
+    "parking": "Kostenloser Parkplatz",
+    "noSmoking": "Rauchen verboten",
+    "view": "Fensterausblick",
+    "crib": "Kinderbett auf Anfrage"
   }
 }

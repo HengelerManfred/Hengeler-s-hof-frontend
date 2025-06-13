@@ -4,6 +4,9 @@
     "menu": {
       "home": "Home",
       "about": "About Us",
+      "contact": "Contact",
+      "booking": "Booking"
+    }
       "contact": "Contact"
     },
     "bannerText": "Book your vacation at a time that suits you."
@@ -128,6 +131,50 @@
   },
   "MainMap": {
     "title": "How to find us?",
-    "loading": "Loading map..."
+    "loading": "Loading map...",
+    "whereWeAreTitle": "Where we are located?",
+    "whereWeAreDescription": "Our farm is idyllically located on the edge of the Allgäu Alps, surrounded by lush meadows and fragrant forests – the perfect retreat for nature lovers."
+  },
+  "Booking": {
+    "availabilityTitle": "Availability",
+    "room1": "Room 1",
+    "room2": "Room 2",
+    "room3": "Room 3",
+    "house": "Whole House",
+    "room1_name": "Room 1",
+    "room1_description": "Bright and warmly furnished double room with a large bed, desk, and storage space. Ideal for two adults and one small child (baby cot available on request). Guests have access to a fully equipped shared kitchen and two shared bathrooms (shower and bathtub).",
+    "room2_name": "Room 2",
+    "room2_description": "Small room with two separate beds, a small cabinet, and a small chest of drawers for storage. Ideal for active travelers who appreciate simplicity and comfort. Guests have access to a fully equipped shared kitchen and two shared bathrooms with a shower and bathtub.",
+    "room3_name": "Room 3",
+    "room3_description": "Large, spacious room with a comfortable double bed, bedside tables, a large wardrobe, a couch with a coffee table, and a separate sofa. It can accommodate two people and can host an additional guest. It also offers a beautiful view of the mountains.",
+    "house_name": "Whole House",
+    "house_description": "Our lovingly furnished farmhouse offers approximately 200 sqm on two levels with complete amenities: a fully equipped kitchen, a cozy living room in country house style, two bathrooms, and three comfortable rooms. Ideal for families or groups of up to 7 people. In the garden, you will find a barbecue area, garden furniture, a sandbox, and a natural view with deer and rabbits.",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out",
+    "maxGuests": "Max. guests",
+    "size": "Size",
+    "price": "Price",
+    "perNight": "per night",
+    "bookNow": "Book now",
+    "m2": "m²",
+    "room1_max_guests": "2+1 (baby cot)",
+    "room2_max_guests": "2",
+    "room3_max_guests": "2+1 (the sofa can be used as a second bed)",
+    "house_max_guests": "7+1 (baby cot)"
+  },
+  "RoomsPage": {
+    "title": "Our Rooms",
+    "description": "Comfort and coziness in every room! Our rooms are designed for your relaxation and unwinding in the midst of nature. A cozy atmosphere, modern design, and all amenities for a perfect stay await you."
+  },
+  "Benefits": {
+    "title": "What we offer",
+    "house": "House",
+    "wifi": "Free Wi-Fi",
+    "pets": "Pets: on request",
+    "grill": "Barbecue facilities",
+    "parking": "Free parking",
+    "noSmoking": "No smoking",
+    "view": "Window view",
+    "crib": "Baby crib on request"
   }
 }

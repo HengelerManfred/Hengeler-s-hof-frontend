@@ -62,7 +62,7 @@ export default function NavDropdown() {
           <Link
             onClick={toggle}
             className="block w-full py-[15px]"
-            href="/booking"
+            href="/booking/room1"
           >
             {t("booking")}
           </Link>

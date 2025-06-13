@@ -52,7 +52,7 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
   }, [isPlaying, emblaApi, singleSlide]);
 
   return (
-    <div className="embla relative" ref={emblaRef}>
+    <div className="embla relative animate-fadeIn-75" ref={emblaRef}>
       <div className="embla__container h-[100%] w-[100dvw]">
         {slides.map((slide) => (
           <div
@@ -114,7 +114,7 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
       )}
       {!singleSlide && (
         <Button
-          className="!absolute min-w-[50px] !p-0 top-1/2 -translate-y-1/2 left-0"
+          className="!absolute !min-w-[50px] !p-0 top-1/2 -translate-y-1/2 left-0 !rounded-full !bg-[rgba(0,0,0,0.3)]"
           aria-label="Previous slide"
           onClick={() => emblaApi?.scrollPrev()}
         >
@@ -123,7 +123,7 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
       )}
       {!singleSlide && (
         <Button
-          className="!absolute top-1/2 min-w-[50px] right-0 md:right-3 -translate-y-1/2 !p-0"
+          className="!absolute top-1/2 !min-w-[50px] right-0 md:right-3 -translate-y-1/2 !p-0 !rounded-full !bg-[rgba(0,0,0,0.3)]"
           aria-label="Next slide"
           onClick={() => emblaApi?.scrollNext()}
         >

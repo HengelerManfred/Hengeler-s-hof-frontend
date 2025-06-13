@@ -32,7 +32,7 @@ body {
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0)   100%
+    rgba(0, 0, 0, 0) 100%
   );
 }
 
@@ -40,10 +40,54 @@ body {
   filter: blur(1px);
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+}
 
+@layer utilities {
+  .animate-fadeIn-75 {
+    animation: fadeIn-75 0.4s ease-in-out forwards;
+  }
+
+  @keyframes fadeIn-75 {
+    0% {
+      opacity: 0.75;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.4s ease-in-out forwards;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes underlineGrow {
+    0% { 
+      transform: 'scaleX(0)'; 
+    }
+
+    100% { 
+      transform: 'scaleX(1)'; 
+    }
+  }
+
+  .animate-underlineGrow {
+    animation: underlineGrow 0.3s ease-in-out forwards;
+  }
 }

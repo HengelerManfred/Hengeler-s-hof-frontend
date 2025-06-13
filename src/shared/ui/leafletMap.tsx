@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
 
 import "leaflet/dist/leaflet.css";
@@ -8,6 +7,7 @@ import "leaflet-defaulticon-compatibility";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import { LatLng } from "leaflet";
 import Image from "next/image";
+
 
 function LocationMarker() {
   const markerPosition = new LatLng(47.7747, 10.2375995);
@@ -30,16 +30,16 @@ function LocationMarker() {
     </Marker>
   );
 }
-const LeafletMap = ({zoomControl = true}: {zoomControl?: boolean}) => {
+const LeafletMap = ({zoomControl = true, height = "400px", scrollWheelZoom = false }: {zoomControl?: boolean, height?: string, scrollWheelZoom?: boolean }) => {
   return (
-    <div className="px-[2.5%] lg:p-0">
+    <div>
       <MapContainer
         center={[47.7747, 10.2375995]}
         zoom={15}
         zoomControl={zoomControl}
-        scrollWheelZoom={false}
+        scrollWheelZoom={scrollWheelZoom}
         style={{
-          height: "400px",
+          height: height,
           width: "100%",
           borderRadius: "8px",
           zIndex: 1,

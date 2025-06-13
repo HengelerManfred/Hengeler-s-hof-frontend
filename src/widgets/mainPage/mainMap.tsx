@@ -1,4 +1,5 @@
 "use client";
+import { Skeleton } from "@mui/material";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
@@ -9,7 +10,7 @@ export function MainMap() {
   const LeafletMap = useMemo(
     () =>
       dynamic(() => import("@/shared/ui/leafletMap"), {
-        loading: () => <p>{t("loading")}</p>,
+        loading: () => <Skeleton variant="rectangular" width="100%" height={400} />,
         ssr: false,
       }),
     [t]
@@ -20,7 +21,9 @@ export function MainMap() {
       <h2 className="text-[24px] md:text-[64px] inter text-nowrap font-light content-center text-[var(--primary-text)]">
         {t("title")}
       </h2>
-      <LeafletMap />
+      <div className="px-[2.5%] lg:p-0">
+        <LeafletMap />
+      </div>
     </section>
   );
 }

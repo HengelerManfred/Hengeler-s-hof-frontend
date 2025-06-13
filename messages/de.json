@@ -157,5 +157,16 @@
   "RoomsPage": {
     "title": "Unsere Zimmer",
     "description": "Komfort und Gemütlichkeit in jedem Zimmer! Unsere Zimmer sind für Ihre Erholung und Entspannung inmitten der Natur gestaltet. Eine behagliche Atmosphäre, modernes Design und alle Annehmlichkeiten für einen perfekten Aufenthalt erwarten Sie."
+  },
+  "Benefits": {
+    "title": "Was wir bieten",
+    "house": "Haus",
+    "wifi": "Kostenloses WLAN",
+    "pets": "Haustiere: nach Absprache",
+    "grill": "Grillmöglichkeit",
+    "parking": "Kostenloser Parkplatz",
+    "noSmoking": "Rauchen verboten",
+    "view": "Fensterausblick",
+    "crib": "Kinderbett auf Anfrage"
   }
 }

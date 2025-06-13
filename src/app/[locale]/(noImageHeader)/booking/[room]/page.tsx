@@ -1,4 +1,5 @@
 import { getRoomData } from "@/widgets/booking/model/roomsData";
+import { Benefits } from "@/widgets/booking/ui/benefits";
 import RoomsSlider from "@/widgets/booking/ui/bookingCarousel";
 import { RoomCard } from "@/widgets/booking/ui/roomCard";
 import { WhereWeAre } from "@/widgets/booking/ui/whereWeAre";
@@ -30,6 +31,7 @@ export default async function RoomPage({
       <div className="2xl:hidden w-9/10 md:w-3/4">
         <WhereWeAre />
       </div>
+      <Benefits />
     </main>
   );
 }

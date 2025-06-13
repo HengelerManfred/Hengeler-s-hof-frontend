@@ -157,5 +157,16 @@
   "RoomsPage": {
     "title": "Our Rooms",
     "description": "Comfort and coziness in every room! Our rooms are designed for your relaxation and unwinding in the midst of nature. A cozy atmosphere, modern design, and all amenities for a perfect stay await you."
+  },
+  "Benefits": {
+    "title": "What we offer",
+    "house": "House",
+    "wifi": "Free Wi-Fi",
+    "pets": "Pets: on request",
+    "grill": "Barbecue facilities",
+    "parking": "Free parking",
+    "noSmoking": "No smoking",
+    "view": "Window view",
+    "crib": "Baby crib on request"
   }
 }

@@ -7,7 +7,7 @@ import clsx from "clsx";
 export async function RoomCard({ room }: { room: Room }) {
   const t = await getTranslations("Booking");
   return (
-    <div className="w-full inter backface-hidden flex flex-col bg-color-[var(--section-bg)] border border-[var(--section-border)] rounded-[8px] gap-[15px] p-[20px]">
+    <div className="w-full inter backface-hidden flex flex-col bg-[var(--section-bg)] border border-[var(--section-border)] rounded-[8px] gap-[15px] p-[20px]">
       <h3 className="text-[var(--primary-text)] text-[36px]">{t(room.name)}</h3>
       <p className="text-[var(--secondary-text)] text-[14px]">
         {t(room.description)}

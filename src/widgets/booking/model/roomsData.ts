@@ -6,6 +6,7 @@ export const roomsData = new Map<string, Room>([
       name: "room1_name",
       description: "room1_description",
       price: 45,
+      additionalPrice: 10,
       checkIn: "15:00",
       checkOut: "12:00",
       maxGuests: "room1_max_guests",
@@ -39,6 +40,7 @@ export const roomsData = new Map<string, Room>([
       name: "room2_name",
       description: "room2_description",
       price: 35,
+      additionalPrice: 10,
       checkIn: "15:00",
       checkOut: "12:00",
       maxGuests: "room2_max_guests",
@@ -71,6 +73,7 @@ export const roomsData = new Map<string, Room>([
       name: "room3_name",
       description: "room3_description",
       price: 60,
+      additionalPrice: 10,
       checkIn: "15:00",
       checkOut: "12:00",
       maxGuests: "room3_max_guests",
@@ -100,6 +103,7 @@ export const roomsData = new Map<string, Room>([
       name: "house_name",
       description: "house_description",
       price: 150,
+      additionalPrice: 50,
       checkIn: "15:00",
       checkOut: "12:00",
       maxGuests: "house_max_guests",
@@ -134,6 +138,7 @@ export interface Room {
   name: string;
   description: string;
   price: number;
+  additionalPrice: number;
   checkIn: string;
   checkOut: string;
   maxGuests: string;

@@ -1,18 +1,13 @@
-import { getTranslations } from "next-intl/server";
+import Image from "next/image";
+import LoginForm from "@/widgets/auth/loginForm";
 
-export default async function Home() {
-  const t = await getTranslations("HomePage");
+export default function LoginPage() {
 
   return (
-    <main>
-      <h1>{t("welcome")}</h1>
-      <nav>
-        <ul>
-          <li>{t("menu.home")}</li>
-          <li>{t("menu.about")}</li>
-          <li>{t("menu.contact")}</li>
-        </ul>
-      </nav>
+    <main className="relative h-screen w-screen">
+      <Image src="/images/login.jpg" alt="login" fill className="object-cover" sizes="100vw" />
+      <div className="absolute inset-0 bg-black/30"></div>
+      <LoginForm />
     </main>
   );
 }

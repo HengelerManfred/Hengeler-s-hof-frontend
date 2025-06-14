@@ -7,8 +7,7 @@
       "contact": "Kontakt",
       "booking": "Buchung"
     },
-    "bannerText":"Buchen Sie Ihren Urlaub zu einem für Sie passenden Zeitpunkt."
-
+    "bannerText": "Buchen Sie Ihren Urlaub zu einem für Sie passenden Zeitpunkt."
   },
   "MainMap": {
     "title": "Wie findet man uns?",
@@ -23,13 +22,14 @@
     "language": "Sprache"
   },
   "Event": {
-    "title":"Winterwunderland inklusive",
-    "text":"Moderne Skigebiete, rasante Snowboardparks und bestens präparierte Langlaufloipen. Perfekte Bedingungen für kleine und große Schneefans!Ein einmaliges Erlebnis ist auch die Hirschfütterung. Man kann sie im Rahmen einer Kutschfahrt oder bei einem gemütlichem Spaziergang erreichen. Oder Du bleibst einfach bei uns am Hof – Schneeballschlacht, Schneeschuhe laufen runden ihren Urlaub ab.",
-    "view":"View more"
+    "title": "Winterwunderland inklusive",
+    "text": "Moderne Skigebiete, rasante Snowboardparks und bestens präparierte Langlaufloipen. Perfekte Bedingungen für kleine und große Schneefans!Ein einmaliges Erlebnis ist auch die Hirschfütterung. Man kann sie im Rahmen einer Kutschfahrt oder bei einem gemütlichem Spaziergang erreichen. Oder Du bleibst einfach bei uns am Hof – Schneeballschlacht, Schneeschuhe laufen runden ihren Urlaub ab.",
+    "view": "View more"
   },
   "Auth": {
     "login": "Anmelden",
-    "register": "Registrieren"
+    "register": "Registrieren",
+    "logout": "Abmelden"
   },
   "Contacts": {
     "contacts": "Kontaktinformationen",
@@ -175,5 +175,26 @@
     "noSmoking": "Rauchen verboten",
     "view": "Fensterausblick",
     "crib": "Kinderbett auf Anfrage"
+  },
+  "BookingCalendar": {
+    "pastDateMessage": "Dieses Datum ist bereits vergangen",
+    "BookedByUser": "Vom Benutzer gebucht",
+    "DisabledByAdmin": "Vom Administrator deaktiviert"
+  },
+  "BookingForm": {
+    "title": "Buchungsplanung",
+    "dateRange": "An- und Abreisedatum",
+    "numberOfDays": "Anzahl der Tage: {count}",
+    "minStay": "Mindestaufenthalt: {count} Tage",
+    "priceForPeriod": "Preis für den Zeitraum: {price}€",
+    "additionalPrice": "Bei einer Buchung von weniger als 7 Tagen fällt ein zusätzlicher Tagespreis an: {price}€",
+    "withPet": "Ich komme mit mehr als einem Haustier",
+    "bookNow": "Jetzt Buchen",
+    "errors": {
+      "invalidFormat": "Ungültiges Format. Verwenden Sie 'TT/MM/JJJJ - TT/MM/JJJJ'.",
+      "invalidDate": "Ungültiges Datum. Verwenden Sie das Format 'TT/MM/JJJJ'.",
+      "invalidRange": "Das Anreisedatum muss vor dem Abreisedatum liegen.",
+      "rangeUnavailable": "Der ausgewählte Zeitraum ist nicht verfügbar."
+    }
   }
 }

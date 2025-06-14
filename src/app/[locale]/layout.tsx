@@ -7,6 +7,8 @@ import { ThemeProvider } from "@mui/material";
 import { theme } from "@/shared/config/theme";
 import { CookiesBanner } from "@/widgets/cookiesBanner/cookiesBanner";
 import { Footer } from "@/widgets/footer/footer";
+import { Toaster } from 'react-hot-toast';
+import '@/app/datePicker.css'
 
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "uk" }, { locale: "de" }];
@@ -36,6 +38,7 @@ export default async function LocaleLayout({
             <NextIntlClientProvider locale={locale}>
               {children}
               <CookiesBanner />
+              <Toaster position="top-center" />
               <Footer />
             </NextIntlClientProvider>
           </ThemeProvider>

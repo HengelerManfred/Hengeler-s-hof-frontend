@@ -17,7 +17,8 @@
   },
   "Auth": {
     "login": "Log In",
-    "register": "Sign Up"
+    "register": "Sign Up",
+    "logout": "Logout"
   },
   "Contacts": {
     "contacts": "Contact Information",
@@ -174,5 +175,26 @@
     "noSmoking": "No smoking",
     "view": "Window view",
     "crib": "Baby crib on request"
+  },
+  "BookingCalendar": {
+    "pastDateMessage": "This date has already passed",
+    "BookedByUser": "Booked by user",
+    "DisabledByAdmin": "Disabled by admin"
+  },
+  "BookingForm": {
+    "title": "Booking schedule",
+    "dateRange": "Arrival and departure dates",
+    "numberOfDays": "Number of days: {count}",
+    "minStay": "Minimum stay: {count} days",
+    "priceForPeriod": "Price for the period: {price}€",
+    "additionalPrice": "When booking for less than 7 days, an additional charge per day applies: {price}€",
+    "withPet": "I will come with more than one pet",
+    "bookNow": "Book Now",
+    "errors": {
+      "invalidFormat": "Invalid format. Use 'DD/MM/YYYY - DD/MM/YYYY'.",
+      "invalidDate": "Invalid date. Use 'DD/MM/YYYY' format.",
+      "invalidRange": "Arrival date must be before departure date.",
+      "rangeUnavailable": "The selected date range is unavailable."
+    }
   }
 }

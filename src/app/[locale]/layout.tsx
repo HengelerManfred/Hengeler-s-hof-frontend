@@ -9,6 +9,7 @@ import { CookiesBanner } from "@/widgets/cookiesBanner/cookiesBanner";
 import { Footer } from "@/widgets/footer/footer";
 import { Toaster } from 'react-hot-toast';
 import '@/app/datePicker.css'
+import { SessionProvider } from "next-auth/react";
 
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "uk" }, { locale: "de" }];
@@ -36,7 +37,9 @@ export default async function LocaleLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <NextIntlClientProvider locale={locale}>
-              {children}
+              <SessionProvider>
+                {children}
+              </SessionProvider>
               <CookiesBanner />
               <Toaster position="top-center" />
               <Footer />

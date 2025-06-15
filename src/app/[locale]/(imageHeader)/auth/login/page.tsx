@@ -1,18 +1,8 @@
-import { getTranslations } from "next-intl/server";
+import LoginForm from "@/widgets/auth/loginForm";
 
-export default async function Home() {
-  const t = await getTranslations("HomePage");
+export default function LoginPage() {
 
   return (
-    <main>
-      <h1>{t("welcome")}</h1>
-      <nav>
-        <ul>
-          <li>{t("menu.home")}</li>
-          <li>{t("menu.about")}</li>
-          <li>{t("menu.contact")}</li>
-        </ul>
-      </nav>
-    </main>
+      <LoginForm />
   );
 }

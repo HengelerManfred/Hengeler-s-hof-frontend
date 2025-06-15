@@ -37,8 +37,8 @@ export async function Benefits() {
 
   return (
     <section className="w-9/10 md:w-3/4">
-      <div className="hidden md:flex flex-col gap-4">
-        <div className="flex flex-wrap gap-4">
+      <div className="hidden md:flex flex-col gap-3">
+        <div className="flex flex-wrap gap-3">
           {topRowBenefits.map((b, i) => (
             <div
               key={`desktop-top-${i}`}
@@ -48,7 +48,7 @@ export async function Benefits() {
             </div>
           ))}
         </div>
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-3">
           {bottomRowBenefits.map((b, i) => (
             <div
               key={`desktop-bottom-${i}`}
@@ -60,7 +60,7 @@ export async function Benefits() {
         </div>
       </div>
 
-      <div className="md:hidden flex flex-col gap-4 p-5 bg-[var(--section-bg)] rounded-lg border border-[var(--section-border)]">
+      <div className="md:hidden flex flex-col gap-3 p-5 bg-[var(--section-bg)] rounded-lg border border-[var(--section-border)]">
         <h3 className="text-2xl font-semibold mb-2">{t("title")}</h3>
         <div className="grid grid-cols-1 [@media(width>562)]:grid-cols-2 gap-x-6 gap-y-3">
           {benefits.map((b, i) => (

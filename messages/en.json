@@ -17,7 +17,8 @@
   },
   "Auth": {
     "login": "Log In",
-    "register": "Sign Up"
+    "register": "Sign Up",
+    "logout": "Logout"
   },
   "Contacts": {
     "contacts": "Contact Information",
@@ -174,5 +175,71 @@
     "noSmoking": "No smoking",
     "view": "Window view",
     "crib": "Baby crib on request"
+  },
+  "BookingCalendar": {
+    "pastDateMessage": "This date has already passed",
+    "BookedByUser": "Booked by user",
+    "DisabledByAdmin": "Disabled by admin"
+  },
+  "BookingForm": {
+    "title": "Booking schedule",
+    "dateRange": "Arrival and departure dates",
+    "numberOfDays": "Number of days: {count}",
+    "minStay": "Minimum stay: {count} days",
+    "priceForPeriod": "Price for the period: {price}€",
+    "additionalPrice": "When booking for less than 7 days, an additional charge per day applies: {price}€",
+    "withPet": "I will come with more than one pet",
+    "bookNow": "Book Now",
+    "errors": {
+      "invalidFormat": "Invalid format. Use 'DD/MM/YYYY - DD/MM/YYYY'.",
+      "invalidDate": "Invalid date. Use 'DD/MM/YYYY' format.",
+      "invalidRange": "Arrival date must be before departure date.",
+      "rangeUnavailable": "The selected date range is unavailable."
+    }
+  },
+  "LoginForm": {
+    "title": "Login",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "loginButton": "Login",
+    "googleButton": "Continue with Google",
+    "registerPrompt": "Don't have an account?",
+    "registerLink": "Register",
+    "errors": {
+      "emailRequired": "Email is required.",
+      "emailInvalid": "Invalid email address.",
+      "passwordRequired": "Password is required.",
+      "passwordMinLength": "Password must be at least 8 characters long.",
+      "invalidCredentials": "The email or password you entered is incorrect.",
+      "unknownError": "An unknown error occurred. Please try again."
+    }
+  },
+  "RegisterForm": {
+    "title": "Register",
+    "firstNameLabel": "First Name",
+    "lastNameLabel": "Last Name",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone Number",
+    "passwordLabel": "Password",
+    "registerButton": "Register",
+    "loginPrompt": "Already have an account?",
+    "loginLink": "Login",
+    "successMessage": "User registered successfully",
+    "errors": {
+      "nameRequired": "Name is required.",
+      "emailRequired": "Email is required.",
+      "emailInvalid": "Invalid email address. It must be in the format: example@domain.com.",
+      "phoneRequired": "Phone number is required.",
+      "phoneInvalid": "Invalid phone number format. Use only digits after '+'. Example: +4915123456789.",
+      "passwordRequired": "Password is required.",
+      "passwordMinLength": "Password must be at least 8 characters long.",
+      "unknownError": "An unknown error occurred. Please try again.",
+      "emailHaveTaken": "This email is already in use. Please choose another one."
+    }
+  },
+  "NotFound": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist.",
+    "keywords": "Hengelershof, vacation, holiday, nature, Netherlands"
   }
 }

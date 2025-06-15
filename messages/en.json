@@ -49,6 +49,18 @@
     "slide3": {
       "title": "Arrive, unpack, feel good – and simply enjoy",
       "text": "Our cozy farmhouse (guest rooms or complete house) welcomes you with loving furnishings and lots of heart. Whether as a couple, with family, group or good friends. Up to 6 guests + baby/child up to 7 years. One dog is welcome, two on request – everyone finds their favorite place here. The mountain view of the Allgäu Alps? Like from a picture book. And the sun? Our wonderful secluded location gives you that as a bonus – for that extra bit of holiday happiness!"
+    },
+    "slide4": {
+      "title": "Summer time is explorer time!",
+      "text": "Whether hiking over blooming alpine meadows, cycling through picturesque valleys, or taking exciting excursions – here the adventure begins right at your doorstep. The Alpsee, the royal castles, Austria or even Switzerland are all close by. Variety? Guaranteed."
+    },
+    "slide5": {
+      "title": "A memorable deer-feeding experience",
+      "text": ""
+    },
+    "slide6": {
+      "title": "Winter wonderland included",
+      "text": "Modern ski resorts, thrilling snowboard parks and perfectly groomed ski trails. Ideal conditions for snow lovers of all ages! A special highlight is feeding the deer – you can do this during a carriage ride or a leisurely walk. Or stay right here on the farm – snowball fights and snowshoe walks will make your winter unforgettable."
     }
   },
   "CookiesBanner": {
@@ -159,7 +171,9 @@
     "room1_max_guests": "2+1 (baby cot)",
     "room2_max_guests": "2",
     "room3_max_guests": "2+1 (the sofa can be used as a second bed)",
-    "house_max_guests": "7+1 (baby cot)"
+    "house_max_guests": "7+1 (baby cot)",
+    "kitchen": "Kitchen",
+    "bathroom": "Bathroom"
   },
   "RoomsPage": {
     "title": "Our Rooms",
@@ -241,5 +255,108 @@
     "title": "Page Not Found",
     "description": "The page you are looking for does not exist.",
     "keywords": "Hengelershof, vacation, holiday, nature, Netherlands"
+  },
+  "PrivacyPolicy": {
+    "title": "Privacy Policy",
+    "responsible": {
+      "title": "Responsible Party",
+      "operator": "[Name Surname]",
+      "address": "Frohnhofen 3, 87452 Altusried, Germany",
+      "email": "hengeler.shofrohnhofen3@gmail.com",
+      "phone": "+49 (0)541 580 587 0"
+    },
+    "dataProcessing": {
+      "title": "Collection and Processing of Personal Data",
+      "registration": {
+        "title": "Registration",
+        "text": "During registration, we collect:",
+        "items": [
+          "First and last name",
+          "Email address",
+          "Phone number (e.g., for notifications)",
+          "Password (stored only as secure hash)"
+        ],
+        "legal": "Legal basis: Art. 6(1)(b) GDPR (contract performance)."
+      },
+      "oauth": {
+        "title": "OAuth2 Login",
+        "text": "When using Facebook or Google login, we only receive:",
+        "items": ["Your email address", "Your platform ID"],
+        "additional": "No additional data is collected.",
+        "legal": "Legal basis: Art. 6(1)(b) GDPR."
+      },
+      "visitData": {
+        "title": "Visit Data",
+        "text": "For planning our offerings, we store the date(s) of your visits.",
+        "legal": "Legal basis: Art. 6(1)(b) GDPR (contract performance)."
+      },
+      "payment": {
+        "title": "Payment Processing",
+        "text": "Payments are processed entirely through Stripe. We do not collect or store payment data.",
+        "legal": "Legal basis: Art. 6(1)(b) GDPR (contract performance)."
+      }
+    },
+    "cookies": {
+      "title": "Use of Cookies",
+      "text": "Our website uses only technically necessary cookies for:",
+      "items": [
+        "managing your login and session",
+        "providing security features"
+      ],
+      "noTracking": "No tracking, analytics, marketing, or A/B testing cookies are used.",
+      "legal": "As these cookies are necessary for operation, consent is not required under Art. 6(1)(f) GDPR."
+    },
+    "thirdParty": {
+      "title": "Third-Party Transfers",
+      "items": [
+        "Payment data: no transfer (processed via Stripe).",
+        "OAuth data: no transfer to other third parties, only to platforms you authorized."
+      ]
+    },
+    "retention": {
+      "title": "Data Retention",
+      "items": [
+        "Registration data: until account deletion, maximum 10 years after last activity.",
+        "Visit data: up to 2 years.",
+        "Cookies: session cookies until end of session."
+      ]
+    },
+    "rights": {
+      "title": "Your Rights",
+      "text": "You have the right to:",
+      "items": [
+        "Information access (Art. 15 GDPR)",
+        "Rectification (Art. 16 GDPR)",
+        "Erasure (Art. 17 GDPR)",
+        "Processing restriction (Art. 18 GDPR)",
+        "Data portability (Art. 20 GDPR)",
+        "Withdrawal of consent (Art. 7(3) GDPR)"
+      ],
+      "contact": "To exercise your rights or for questions, contact:"
+    },
+    "updates": {
+      "title": "Currency and Changes",
+      "validFrom": "This privacy policy is valid from June 15, 2024.",
+      "changes": "We reserve the right to make changes when necessary."
+    }
+  },
+  "Imprint": {
+    "title": "Legal Notice",
+    "legal": {
+      "title": "Information according to § 5 TMG",
+      "name": "[Name Surname]",
+      "street": "Frohnhofen 3",
+      "city": "87452 Altusried",
+      "country": "Germany",
+      "email": "hengeler.shofrohnhofen3@gmail.com",
+      "phone": "+49 (0)541 580 587 0"
+    },
+    "content": {
+      "title": "Responsible for content according to § 55 para. 2 RStV",
+      "name": "[Name Surname]",
+      "street": "Frohnhofen 3",
+      "city": "87452 Altusried",
+      "country": "Germany"
+    }
   }
 }

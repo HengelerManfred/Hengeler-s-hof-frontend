@@ -4,10 +4,11 @@ import { RoomImage } from "../model/roomsData";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
+import { useTranslations } from "next-intl";
 
 export default function BookingCarousel({ images }: { images: RoomImage[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-
+  const t = useTranslations("Booking");
   return (
     <div className="embla w-full relative h-full rounded-lg transition-opacity animate-fadeIn" ref={emblaRef}>
       <div className="embla__container h-full flex">
@@ -25,6 +26,7 @@ export default function BookingCarousel({ images }: { images: RoomImage[] }) {
                 className="object-cover"
               />
             </div>
+            {image.title && <h3 className="text-white text-[36px] absolute bottom-10 w-full text-center">{t(image.title)}</h3>}
           </div>
         ))}
       </div>
@@ -46,3 +48,4 @@ export default function BookingCarousel({ images }: { images: RoomImage[] }) {
     </div>
   );
 }
+

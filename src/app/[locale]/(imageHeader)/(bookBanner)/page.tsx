@@ -12,13 +12,24 @@ const slides = [
   },
   {
     id: "2",
-    titleKey: "slide2.title",
-    textKey: "",
-    image: "/images/eventsMain.png",
-    scrollArrows: true
+    titleKey: "slide5.title",
+    textKey: "slide5.text",
+    image: "/images/deer.jpg"
   },
   {
     id: "3",
+    titleKey: "slide4.title",
+    textKey: "slide4.text",
+    image: "/images/house2.jpg"
+  },
+  {
+    id: "4",
+    titleKey: "slide6.title",
+    textKey: "slide6.text",
+    image: "/images/house3.jpg"
+  },
+  {
+    id: "5",
     titleKey: "slide3.title",
     textKey: "slide3.text",
     image: "/images/bicycles.png",

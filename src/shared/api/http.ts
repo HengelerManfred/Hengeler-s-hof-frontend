@@ -3,14 +3,19 @@ export async function http<T>(
   options: RequestInit = {}
 ): Promise<T> {
   const base = process.env.NEXT_PUBLIC_API_URL;
+  if (!base) throw new Error("NEXT_PUBLIC_API_URL is not defined");
+
   const url = `${base}${path}`;
-  
-  if (!base)
-    throw new Error("NEXT_PUBLIC_API_URL is not defined");
+
   const res = await fetch(url, {
-    headers: { "Content-Type": "application/json" },
     ...options,
+    headers: {
+      "Content-Type": "application/json",
+      ...options.headers,
+    },
+    credentials: "include",
   });
+
   if (!res.ok) throw new HttpError(res.status, await res.text());
   return res.json();
 }

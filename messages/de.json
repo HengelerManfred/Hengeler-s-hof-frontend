@@ -55,6 +55,18 @@
     "slide3": {
       "title": "Ankommen, auspacken, wohlfühlen – und einfach genießen",
       "text": "Unser gemütlicher Bauernhof (Fremdenzimmer oder komplettes Haus) empfangen Dich mit liebevoller Einrichtung und ganz viel Herz. Ob zu zweit, mit der Familie,Gruppe oder guten Freunden .Bis zu 6 Gäste +Baby/Kind bis 7 Jahre. Ein Hund ist willkommen, zwei auf Anfrage – hier findet jeder seinen Lieblingsplatz. Der Bergblick auf die Allgäuer Alpen? Wie aus dem Bilderbuch. Und die Sonne? Die schenkt Dir unsere herrliche Alleinlage ganz nebenbei – für das gewisse Extra an Urlaubsglück!"
+    },
+    "slide4": {
+      "title": "Sommerzeit ist Entdeckerzeit!",
+      "text": "Ob Wandern über blühende Bergwiesen, Radeln durch malerische Täler oder spannende Ausflüge – hier beginnt das Abenteuer direkt vor der Haustür. Der Alpsee, die Königsschlösser, Österreich oder sogar die Schweiz sind alle in der Nähe. Abwechslung? Garantiert."
+    },
+    "slide5": {
+      "title": "Unvergessliches Hirschfütterungserlebnis",
+      "text": ""
+    },
+    "slide6": {
+      "title": "Winterwunderland inklusive",
+      "text": "Moderne Skigebiete, rasante Snowboardparks und perfekt präparierte Skipisten. Ideale Bedingungen für Schneeliebhaber jeden Alters! Ein besonderes Highlight ist die Hirschfütterung – das können Sie während einer Kutschfahrt oder eines gemütlichen Spaziergangs erleben. Oder bleiben Sie einfach hier auf dem Hof – Schneeballschlachten und Schneeschuhwanderungen machen Ihren Winter unvergesslich."
     }
   },
   "CookiesBanner": {
@@ -159,7 +171,9 @@
     "room1_max_guests": "2+1 (Babybett)",
     "room2_max_guests": "2",
     "room3_max_guests": "2+1 (das Sofa kann als zweites Bett verwendet werden)",
-    "house_max_guests": "7+1 (Babybett)"
+    "house_max_guests": "7+1 (Babybett)",
+    "kitchen": "Küche",
+    "bathroom": "Badezimmer"
   },
   "RoomsPage": {
     "title": "Unsere Zimmer",
@@ -241,5 +255,108 @@
     "title": "Seite nicht gefunden",
     "description": "Die von Ihnen gesuchte Seite existiert nicht.",
     "keywords": "Hengelershof, Urlaub, Ferien, Natur, Niederlande"
+  },
+  "PrivacyPolicy": {
+    "title": "Datenschutzerklärung",
+    "responsible": {
+      "title": "Verantwortlicher",
+      "operator": "[Name Surname]",
+      "address": "Frohnhofen 3, 87452 Altusried, Deutschland",
+      "email": "hengeler.shofrohnhofen3@gmail.com",
+      "phone": "+49 (0)541 580 587 0"
+    },
+    "dataProcessing": {
+      "title": "Erhebung und Verarbeitung personenbezogener Daten",
+      "registration": {
+        "title": "Registrierung",
+        "text": "Bei der Registrierung erfassen wir:",
+        "items": [
+          "Vor- und Nachname",
+          "E-Mail-Adresse",
+          "Telefonnummer (z.B. für Benachrichtigungen)",
+          "Passwort (nur als sicherer Hash gespeichert)"
+        ],
+        "legal": "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)."
+      },
+      "oauth": {
+        "title": "OAuth2-Anmeldung",
+        "text": "Bei der Nutzung von Facebook oder Google-Login erhalten wir nur:",
+        "items": ["Ihre E-Mail-Adresse", "Ihre Plattform-ID"],
+        "additional": "Weitere Daten werden nicht erhoben.",
+        "legal": "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO."
+      },
+      "visitData": {
+        "title": "Besuchsdaten",
+        "text": "Zur Planung unserer Angebote speichern wir das Datum bzw. die Daten Ihrer Besuche.",
+        "legal": "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)."
+      },
+      "payment": {
+        "title": "Zahlungsabwicklung",
+        "text": "Zahlungen werden vollständig über Stripe abgewickelt. Wir erheben und speichern keine Zahlungsdaten.",
+        "legal": "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)."
+      }
+    },
+    "cookies": {
+      "title": "Verwendung von Cookies",
+      "text": "Unsere Website verwendet ausschließlich technisch notwendige Cookies für:",
+      "items": [
+        "Verwaltung Ihres Logins und Ihrer Sitzung",
+        "Bereitstellung von Sicherheitsfunktionen"
+      ],
+      "noTracking": "Es werden keine Tracking-, Analyse-, Marketing- oder A/B-Test-Cookies verwendet.",
+      "legal": "Da diese Cookies für den Betrieb erforderlich sind, ist gemäß Art. 6 Abs. 1 lit. f DSGVO keine Einwilligung erforderlich."
+    },
+    "thirdParty": {
+      "title": "Weitergabe an Dritte",
+      "items": [
+        "Zahlungsdaten: keine Weitergabe (Verarbeitung über Stripe).",
+        "OAuth-Daten: keine Weitergabe an andere Dritte, nur an von Ihnen autorisierte Plattformen."
+      ]
+    },
+    "retention": {
+      "title": "Speicherdauer",
+      "items": [
+        "Registrierungsdaten: bis zur Kontolöschung, maximal 10 Jahre nach letzter Aktivität.",
+        "Besuchsdaten: bis zu 2 Jahre.",
+        "Cookies: Session-Cookies bis zum Ende der Sitzung."
+      ]
+    },
+    "rights": {
+      "title": "Ihre Rechte",
+      "text": "Sie haben das Recht auf:",
+      "items": [
+        "Auskunft (Art. 15 DSGVO)",
+        "Berichtigung (Art. 16 DSGVO)",
+        "Löschung (Art. 17 DSGVO)",
+        "Einschränkung der Verarbeitung (Art. 18 DSGVO)",
+        "Datenübertragbarkeit (Art. 20 DSGVO)",
+        "Widerruf erteilter Einwilligungen (Art. 7 Abs. 3 DSGVO)"
+      ],
+      "contact": "Zur Ausübung Ihrer Rechte oder bei Fragen wenden Sie sich an:"
+    },
+    "updates": {
+      "title": "Aktualität und Änderungen",
+      "validFrom": "Diese Datenschutzerklärung ist gültig ab dem 15.06.2024.",
+      "changes": "Wir behalten uns vor, Änderungen bei Bedarf vorzunehmen."
+    }
+  },
+  "Imprint": {
+    "title": "Impressum",
+    "legal": {
+      "title": "Angaben gemäß § 5 TMG",
+      "name": "[Name Surname]",
+      "street": "Frohnhofen 3",
+      "city": "87452 Altusried",
+      "country": "Deutschland",
+      "email": "hengeler.shofrohnhofen3@gmail.com",
+      "phone": "+49 (0)541 580 587 0"
+    },
+    "content": {
+      "title": "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV",
+      "name": "[Name Surname]",
+      "street": "Frohnhofen 3",
+      "city": "87452 Altusried",
+      "country": "Deutschland"
+    }
   }
 }

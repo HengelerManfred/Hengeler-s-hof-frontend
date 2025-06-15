@@ -67,6 +67,7 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
               className="object-cover relative select-none pointer-events-none gradient-overlay md:layer-blur"
               priority
             />
+            <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-b from-black/35 to-transparent"></div>
             <span
               className={clsx(
                 "flex absolute flex-col gap-20 w-full px-[12.5%]",

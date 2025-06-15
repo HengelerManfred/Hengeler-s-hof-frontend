@@ -30,9 +30,12 @@ export const authConfig: NextAuthConfig = {
         if (!res.ok) {
           return null;
         }
-
-        const user = await res.json();
-        return user;
+        try {
+          const user = await res.json();
+          return user;
+        } catch {
+          return null;
+        }
       },
     }),
   ],

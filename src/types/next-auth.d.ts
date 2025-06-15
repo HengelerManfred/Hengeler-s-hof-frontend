@@ -1,5 +1,5 @@
 // types/next-auth.d.ts
-import { Roles } from "@/types/roles";
+import { Roles } from "@/entities/model/user";
 
 declare module "next-auth" {
   interface User {

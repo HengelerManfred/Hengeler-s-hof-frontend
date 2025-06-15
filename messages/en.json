@@ -228,9 +228,9 @@
     "errors": {
       "nameRequired": "Name is required.",
       "emailRequired": "Email is required.",
-      "emailInvalid": "Invalid email address.",
+      "emailInvalid": "Invalid email address. It must be in the format: example@domain.com.",
       "phoneRequired": "Phone number is required.",
-      "phoneInvalid": "Invalid phone number format.",
+      "phoneInvalid": "Invalid phone number format. Use only digits after '+'. Example: +4915123456789.",
       "passwordRequired": "Password is required.",
       "passwordMinLength": "Password must be at least 8 characters long.",
       "unknownError": "An unknown error occurred. Please try again.",

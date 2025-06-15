@@ -13,6 +13,7 @@ import {
   validatePhoneNumber,
 } from "@/shared/lib/validation";
 import clsx from "clsx";
+import { HttpError } from "@/shared/api/http";
 
 export default function RegisterForm() {
   const t = useTranslations("RegisterForm");
@@ -84,8 +85,8 @@ export default function RegisterForm() {
       toast.success(t("successMessage"));
     } catch (err: unknown) {
       let message = t("errors.unknownError");
-      if (err instanceof Error) {
-        if(err.message.includes("409"))  {
+      if (err instanceof HttpError) {
+        if(err.status === 409)  {
           message = t("errors.emailHaveTaken");
           setErrors((prev) => ({ ...prev, email: message }));
         }

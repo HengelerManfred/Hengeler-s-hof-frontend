@@ -10,6 +10,7 @@ import { Footer } from "@/widgets/footer/footer";
 import { Toaster } from 'react-hot-toast';
 import '@/app/datePicker.css'
 import { SessionProvider } from "next-auth/react";
+import { auth } from "@/auth";
 
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "uk" }, { locale: "de" }];
@@ -23,6 +24,7 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const session = await auth();
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
@@ -37,7 +39,7 @@ export default async function LocaleLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <NextIntlClientProvider locale={locale}>
-              <SessionProvider>
+              <SessionProvider session={session}>
                 {children}
               </SessionProvider>
               <CookiesBanner />

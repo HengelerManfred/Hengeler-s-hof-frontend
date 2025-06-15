@@ -4,11 +4,22 @@ export async function http<T>(
 ): Promise<T> {
   const base = process.env.NEXT_PUBLIC_API_URL;
   const url = `${base}${path}`;
-  console.log("Fetching URL:", url);
+  
+  if (!base)
+    throw new Error("NEXT_PUBLIC_API_URL is not defined");
   const res = await fetch(url, {
     headers: { "Content-Type": "application/json" },
     ...options,
   });
-  if (!res.ok) throw new Error(`HTTP ${res.status}: ${await res.text()}`);
+  if (!res.ok) throw new HttpError(res.status, await res.text());
   return res.json();
+}
+
+export class HttpError extends Error {
+  status: number;
+  constructor(status: number, message: string) {
+    super(message);
+    this.status = status;
+    this.name = "HttpError";
+  }
 }

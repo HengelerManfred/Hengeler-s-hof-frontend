@@ -1,6 +1,7 @@
 import type { NextAuthConfig } from "next-auth";
 import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
+import { Roles, User } from "./entities/model/user";
 
 export const authConfig: NextAuthConfig = {
   providers: [
@@ -12,80 +13,76 @@ export const authConfig: NextAuthConfig = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        try {
-          const res = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}Auth/login`,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                email: credentials?.email,
-                password: credentials?.password,
-              }),
-            }
-          );
-
-          if (!res.ok) {
-            return null;
-          }
-
-          const user = await res.json();
-
-          return user;
-        } catch (e) {
-          console.error("Authorize error:", e);
-          return null;
-        }
-      },
-    }),
-  ],
-  session: {
-    strategy: "jwt",
-  },
-  callbacks: {
-    async jwt({ token, user, account }) {
-      if (account?.provider === "google" && user?.email) {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}auth/socialCreate`,
+          `${process.env.NEXT_PUBLIC_API_URL}Auth/login`,
           {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "Content-Type": "application/json",
+            },
             body: JSON.stringify({
-              email: user.email,
-              username: user.name,
-              profilePictureUrl: user.image,
+              email: credentials?.email,
+              password: credentials?.password,
             }),
           }
         );
 
         if (!res.ok) {
-          console.error("Failed to create or fetch social user");
-          throw new Error("Social user fetch failed");
+          return null;
         }
 
-        const savedUser = await res.json();
-        token.id = savedUser.id;
-        token.email = savedUser.email;
-        token.role = savedUser.role;
-      }
+        const user = await res.json();
+        return user;
+      },
+    }),
+  ],
+  pages: {
+    signIn: "/auth/login",
+    error: "/auth/login",
+  },
+  session: {
+    strategy: "jwt",
+  },
+  callbacks: {
+    async jwt({ token, user, account }) {
+      if (account && user) {
+        let appUser: User = user as User;
 
-      if (account?.provider === "credentials" && user) {
-        token.id = user.id;
-        token.email = user.email;
-        token.role = user.role;
-        token.image = user.profilePictureUrl;
-      }
+        if (account.provider === "google" && user.email) {
+          const res = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}auth/socialCreate`,
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                email: user.email,
+                username: user.name,
+                profilePictureUrl: user.image,
+              }),
+            }
+          );
+          if (res.ok) {
+            appUser = await res.json();
+          }
+        }
 
+        token.id = appUser.id;
+        token.role = appUser.role;
+        token.username = appUser.username;
+        token.picture = appUser.profilePictureUrl;
+        token.email = appUser.email;
+      }
       return token;
     },
 
     async session({ session, token }) {
-      session.user.id = token.id;
-      session.user.email = token.email;
-      session.user.role = token.role;
-      session.user.image = token.image;
+      session.user.id = token.id as string;
+      session.user.role = token.role as Roles;
+      session.user.username = token.username as string;
+      if (token.email) {
+        session.user.email = token.email;
+      }
+      session.user.image = token.picture;
       return session;
     },
 

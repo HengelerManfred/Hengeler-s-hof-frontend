@@ -196,5 +196,50 @@
       "invalidRange": "Das Anreisedatum muss vor dem Abreisedatum liegen.",
       "rangeUnavailable": "Der ausgewählte Zeitraum ist nicht verfügbar."
     }
+  },
+  "LoginForm": {
+    "title": "Anmeldung",
+    "emailLabel": "E-Mail",
+    "passwordLabel": "Passwort",
+    "loginButton": "Anmelden",
+    "googleButton": "Mit Google fortfahren",
+    "registerPrompt": "Haben Sie noch kein Konto?",
+    "registerLink": "Registrieren",
+    "errors": {
+      "emailRequired": "E-Mail ist erforderlich.",
+      "emailInvalid": "Ungültige E-Mail-Adresse.",
+      "passwordRequired": "Passwort ist erforderlich.",
+      "passwordMinLength": "Das Passwort muss mindestens 8 Zeichen lang sein.",
+      "invalidCredentials": "Die eingegebene E-Mail oder das Passwort ist falsch.",
+      "unknownError": "Ein unbekannter Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+    }
+  },
+  "RegisterForm": {
+    "title": "Registrieren",
+    "firstNameLabel": "Vorname",
+    "lastNameLabel": "Nachname",
+    "emailLabel": "E-Mail",
+    "phoneLabel": "Telefonnummer",
+    "passwordLabel": "Passwort",
+    "registerButton": "Registrieren",
+    "loginPrompt": "Haben Sie bereits ein Konto?",
+    "loginLink": "Anmelden",
+    "successMessage": "Benutzer erfolgreich registriert",
+    "errors": {
+      "nameRequired": "Name ist erforderlich.",
+      "emailRequired": "E-Mail ist erforderlich.",
+      "emailInvalid": "Ungültige E-Mail-Adresse.",
+      "phoneRequired": "Telefonnummer ist erforderlich.",
+      "phoneInvalid": "Ungültiges Telefonnummernformat.",
+      "passwordRequired": "Passwort ist erforderlich.",
+      "passwordMinLength": "Das Passwort muss mindestens 8 Zeichen lang sein.",
+      "unknownError": "Ein unbekannter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+      "emailHaveTaken": "Diese E-Mail-Adresse wird bereits verwendet. Bitte wähle eine andere."
+    }
+  },
+  "NotFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die von Ihnen gesuchte Seite existiert nicht.",
+    "keywords": "Hengelershof, Urlaub, Ferien, Natur, Niederlande"
   }
 }

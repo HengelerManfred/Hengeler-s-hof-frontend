@@ -196,5 +196,49 @@
       "invalidRange": "Дата заїзду повинна бути раніше дати виїзду.",
       "rangeUnavailable": "Вибраний діапазон дат недоступний."
     }
+  },
+  "LoginForm": {
+    "title": "Вхід",
+    "emailLabel": "Електронна пошта",
+    "passwordLabel": "Пароль",
+    "loginButton": "Увійти",
+    "googleButton": "Продовжити з Google",
+    "registerPrompt": "Немає облікового запису?",
+    "registerLink": "Зареєструватися",
+    "errors": {
+      "emailRequired": "Електронна пошта є обов'язковою.",
+      "emailInvalid": "Неправильна адреса електронної пошти.",
+      "passwordRequired": "Пароль є обов'язковим.",
+      "passwordMinLength": "Пароль повинен містити щонайменше 8 символів.",
+      "invalidCredentials": "Введена електронна пошта або пароль невірні.",
+      "unknownError": "Сталася невідома помилка. Будь ласка, спробуйте ще раз."
+    }
+  },
+  "RegisterForm": {
+    "title": "Реєстрація",
+    "firstNameLabel": "Ім'я",
+    "lastNameLabel": "Прізвище",
+    "emailLabel": "Електронна пошта",
+    "phoneLabel": "Номер телефону",
+    "passwordLabel": "Пароль",
+    "registerButton": "Зареєструватися",
+    "loginPrompt": "Вже є обліковий запис?",
+    "loginLink": "Увійти",
+    "successMessage": "Користувача успішно зареєстровано",
+    "errors": {
+      "nameRequired": "Ім'я є обов'язковим.",
+      "emailRequired": "Електронна пошта є обов'язковою.",
+      "emailInvalid": "Неправильна адреса електронної пошти.",
+      "phoneRequired": "Номер телефону є обов'язковим.",
+      "phoneInvalid": "Неправильний формат номера телефону.",
+      "passwordRequired": "Пароль є обов'язковим.",
+      "passwordMinLength": "Пароль повинен містити щонайменше 8 символів.",
+      "unknownError": "Сталася невідома помилка. Будь ласка, спробуйте ще раз.",
+      "emailHaveTaken": "Ця електронна пошта вже використовується. Виберіть іншу."
+    }
+  },
+  "NotFound": {
+    "title": "Сторінку не знайдено",
+    "description": "Сторінка, яку ви шукаєте, не існує."
   }
 }

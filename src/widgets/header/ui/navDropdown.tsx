@@ -25,10 +25,10 @@ export default function NavDropdown() {
   return (
     <nav
       className={clsx(
-        "top-[-150%] fixed left-0 w-full h-[calc(100vh-74px)] overflow-scroll sm:h-[calc(100vh-128px)] inter bg-[var(--section-bg)] z-10 p-5 text-[24px]",
-        "transition-top duration-300 ease-in-out",
-        isOpen && "block top-[74px] sm:top-[128px]",
-        isOpen ? "pointer-events-auto" : "pointer-events-none"
+        "fixed top-0 left-0 w-full h-[100dvh] bg-[var(--section-bg)] z-10",
+        "overflow-auto inter text-[24px] p-5 sm:pt-[170px] pt-[100px]",
+        "transition-all duration-300 ease-in-out",
+        isOpen ? "translate-y-0 pointer-events-auto" : "-translate-y-full pointer-events-none"
       )}
     >
       <ul className="flex flex-col">
@@ -82,7 +82,7 @@ export default function NavDropdown() {
         <li aria-hidden="true">
           <Divider />
         </li>
-        <li>
+        {/* <li>
           <Link
             onClick={toggle}
             className="block w-full py-[15px]"
@@ -90,7 +90,7 @@ export default function NavDropdown() {
           >
             {t("about")}
           </Link>
-        </li>
+        </li> */}
         <li aria-hidden="true">
           <Divider />
         </li>

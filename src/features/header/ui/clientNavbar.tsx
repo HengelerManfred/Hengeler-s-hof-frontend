@@ -4,7 +4,7 @@ export function ClientNavbar({ t }: { t: Record<string, string> }) {
     <nav className="flex justify-between items-center gap-[15px] inter text-[#fff] text-[20px]">
       <NavLink href="/booking/room1">{t.booking}</NavLink>
       <NavLink href="/events">{t.events}</NavLink>
-      <NavLink href="/about">{t.about}</NavLink>
+      {/* <NavLink href="/about">{t.about}</NavLink> */}
     </nav>
   );
 }

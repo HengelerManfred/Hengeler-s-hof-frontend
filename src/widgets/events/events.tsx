@@ -18,7 +18,7 @@ export async function Events({ events }: { events: EventExample[] }) {
             index % 2 && "xl:flex-row-reverse"
           )}
         >
-          <div className="w-full xl:w-2/3 h-min-[250px] [@media(width<640px)]:h-[300px] [@media(width<1280px)]:h-[600px] relative">
+          <div className="w-full xl:w-2/3 min-h-[250px] [@media(width<640px)]:h-[300px] [@media(width<1280px)]:h-[600px] relative">
             <Image
               alt="Event image"
               src={event.image}
@@ -38,12 +38,19 @@ export async function Events({ events }: { events: EventExample[] }) {
               <CalendarMonth className="text-[var(--secondary-text)]" />
               <span className="text-[var(--secondary-text)]">{event.date}</span>
             </div>
-            <a className="w-full" href={event.link} target="_blank">
-              <Button variant="default" className="w-full gap-2">
-                <ReadMore className="text-[var(--main-bg)]" />
-                <span className="text-nowrap">{t("view")}</span>
-              </Button>
-            </a>
+            {event.link && (
+              <a
+                className="w-full"
+                href={event.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="default" className="w-full gap-2">
+                  <ReadMore className="text-[var(--main-bg)]" />
+                  <span className="text-nowrap">{t("view")}</span>
+                </Button>
+              </a>
+            )}
           </div>
         </div>
       ))}

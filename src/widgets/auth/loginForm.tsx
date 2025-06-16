@@ -1,7 +1,7 @@
 "use client";
 import { signIn } from "next-auth/react";
 import { Button } from "@mui/material";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -122,7 +122,7 @@ export default function LoginForm() {
 
         <Button
           onClick={() =>
-            signIn("google", { callbackUrl: "http://localhost:3000/" })
+            signIn("google", { callbackUrl: process.env.NEXT_PUBLIC_CURRENT_HOST })
           }
           className="flex items-center cursor-pointer text-[var(--primary-text)] gap-2 justify-center !bg-[var(--section-bg)] !normal-case !border !border-[var(--section-border)] rounded-lg p-2"
         >

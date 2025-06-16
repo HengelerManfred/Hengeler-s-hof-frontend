@@ -52,20 +52,25 @@ export const authConfig: NextAuthConfig = {
         let appUser: User = user as User;
 
         if (account.provider === "google" && user.email) {
-          const res = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL}auth/socialCreate`,
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({
-                email: user.email,
-                username: user.name,
-                profilePictureUrl: user.image,
-              }),
+          try {
+            const res = await fetch(
+              `${process.env.NEXT_PUBLIC_API_URL}auth/socialCreate`,
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  email: user.email,
+                  username: user.name,
+                  profilePictureUrl: user.image,
+                }),
+              }
+            );
+            if (res.ok) {
+              appUser = await res.json();
             }
-          );
-          if (res.ok) {
-            appUser = await res.json();
+          } catch {
+            appUser.profilePictureUrl = user.image;
+            console.log("Server error");
           }
         }
 

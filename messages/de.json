@@ -24,7 +24,19 @@
   "Event": {
     "title": "Winterwunderland inklusive",
     "text": "Moderne Skigebiete, rasante Snowboardparks und bestens präparierte Langlaufloipen. Perfekte Bedingungen für kleine und große Schneefans!Ein einmaliges Erlebnis ist auch die Hirschfütterung. Man kann sie im Rahmen einer Kutschfahrt oder bei einem gemütlichem Spaziergang erreichen. Oder Du bleibst einfach bei uns am Hof – Schneeballschlacht, Schneeschuhe laufen runden ihren Urlaub ab.",
-    "view": "View more"
+    "view": "View more",
+    "event3": {
+      "title": "Kunst- und Handwerkermarkt in Immenstadt 2025",
+      "text": "Auf dem Markt finden Sie u.a. Keramiker, verschiedene Schmuckarbeiten, Seifensieder, Kunst aus Metall und Stein, Holz- und Drechselarbeiten, Filz- und Strickarbeiten, Glasbläser und Designer sowie einen Kunstmaler. Der Markt findet bei jeder Witterung im Freien statt und der Eintritt ist frei!"
+    },
+    "event2": {
+      "title": "1525 Peasants' War: We are free and want to remain free! Get your tickets now!",
+      "text": "The Peasants' War of 1525 as a major theatrical event: This summer, visitors to the Allgäu Open-Air Stage in Altusried can expect a spectacular production with around 500 participants, including nearly 40 speaking roles, featuring grand visuals, horses, carts, and pyrotechnics. But you'll also experience a deeply emotional story, as the people of Altusried bring to life the fate of their own ancestors and their fight for freedom and a better future."
+    },
+    "event1": {
+      "title": "Burgfest in Immenstadt 2025 mit Mittelaltermarkt",
+      "text": "Nach 13 Jahren ist es endlich wieder soweit! Das legendäre Burgfest Immenstadt auf der Burgruine Laubenbergerstein kehrt zurück und lädt vom 19. bis 22. Juni 2025 auf eine unvergessliche Reise ins Mittelalter ein!"
+    }
   },
   "Auth": {
     "login": "Anmelden",

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Button } from "@mui/material";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { registerUser } from "@/entities/api/auth.service";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
@@ -86,7 +86,7 @@ export default function RegisterForm() {
     } catch (err: unknown) {
       let message = t("errors.unknownError");
       if (err instanceof HttpError) {
-        if(err.status === 409)  {
+        if (err.status === 409) {
           message = t("errors.emailHaveTaken");
           setErrors((prev) => ({ ...prev, email: message }));
         }

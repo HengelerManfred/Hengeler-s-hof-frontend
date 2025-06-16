@@ -1,14 +1,21 @@
 import { TextLogo } from "@/shared/ui/textLogo";
 import { getTranslations } from "next-intl/server";
-import { PhoneIphone, Email, LocationOn, Instagram, Facebook, Telegram, WhatsApp } from "@mui/icons-material";
-import Link from "next/link";
+import {
+  PhoneIphone,
+  Email,
+  LocationOn,
+  Instagram,
+  Facebook,
+  Telegram,
+  WhatsApp,
+} from "@mui/icons-material";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 
 export async function Footer() {
   const t = await getTranslations("Contacts");
   const tr = await getTranslations("Footer");
   return (
-
     <footer className="p-[5%] lg:p-[10px] w-[100dvw] backface-hidden lg:pb-5 flex justify-center z-5 bg-[var(--accent)] relative">
       <div className="flex flex-col lg:flex-row max-w-[450px] lg:max-w-[auto] lg:min-w-3/4 gap-6 items-center lg:items-end justify-between">
         <address className="flex flex-col max-w-[450px] w-full not-italic inter">
@@ -21,7 +28,10 @@ export async function Footer() {
               {t("phone")}
             </span>
           </a>
-          <a href={`mailto:${t("email")}`} className="flex items-center gap-[15px] w-full ">
+          <a
+            href={`mailto:${t("email")}`}
+            className="flex items-center gap-[15px] w-full "
+          >
             <Email className="size-[40px]! text-[var(--main-bg)] rounded-full gap-2 " />
             <span className="text-[16px] text-[var(--main-bg)]">
               {t("email")}
@@ -29,12 +39,16 @@ export async function Footer() {
           </a>
           <p className="flex items-center">
             <LocationOn className="size-[40px]! text-[var(--main-bg)] rounded-full gap-2 mr-3" />
-            <span className="text-[var(--main-bg)]">
-              {t("address")}
-            </span>
+            <span className="text-[var(--main-bg)]">{t("address")}</span>
           </p>
         </address>
-        <Image className="hidden lg:block" src="/images/cow.png" alt="Farm Icon" width={130} height={130}></Image>
+        <Image
+          className="hidden lg:block"
+          src="/images/cow.png"
+          alt="Farm Icon"
+          width={130}
+          height={130}
+        ></Image>
         <div className="lg:w-[285px] flex flex-col gap-2 text-justify">
           <span className="text-[var(--main-bg)]">{tr("slogan")}</span>
           <div className="flex justify-between text-[var(--main-bg)]">
@@ -52,15 +66,21 @@ export async function Footer() {
             </a>
           </div>
           <div className="flex pt-2 items-center justify-between">
-            <Link href="/privacyPolicy" className="text-[var(--main-bg)] border-b-2 border-transparent underline">
+            <Link
+              href="/privacyPolicy"
+              className="text-[var(--main-bg)] border-b-2 border-transparent underline"
+            >
               {tr("privacyPolicy")}
             </Link>
-            <Link href="/imprint" className="text-[var(--main-bg)] border-b-2 border-transparent underline">
+            <Link
+              href="/imprint"
+              className="text-[var(--main-bg)] border-b-2 border-transparent underline"
+            >
               {tr("imprint")}
             </Link>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

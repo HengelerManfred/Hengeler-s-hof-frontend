@@ -4,4 +4,5 @@ export type EventExample = {
     descriptionKey: string,
     date: string,
     image: string,
+    link?: string,
 }

@@ -5,3 +5,5 @@ export const LANGUAGES: Record<Language, string> = {
   EN: "English",
   UK: "Українська",
 };
+
+export const LANGUAGES_ARR = ["de", "en", "uk"];

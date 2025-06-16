@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@mui/material";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import { UserMenu } from "./userMenu";

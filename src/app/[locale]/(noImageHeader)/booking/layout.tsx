@@ -2,7 +2,7 @@
 
 import { BottomNavigation, BottomNavigationAction } from "@mui/material";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { usePathname } from "next/navigation";
 import HotelIcon from "@mui/icons-material/Hotel";
 import SingleBedIcon from "@mui/icons-material/SingleBed";

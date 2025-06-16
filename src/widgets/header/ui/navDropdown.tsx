@@ -2,7 +2,7 @@
 import { useRouter, usePathname } from "next/navigation";
 import { Button, Divider } from "@mui/material";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import clsx from "clsx";
 import { useBurgerStore } from "@/shared/store/burgerStore";
 import { Contacts } from "./contacts";
@@ -19,7 +19,7 @@ export default function NavDropdown() {
     const parts = pathname.split("/");
     parts[1] = locale;
     const newPath = parts.join("/");
-    router.push(newPath);
+    router.replace(newPath);
   };
 
   return (

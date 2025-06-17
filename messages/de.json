@@ -204,7 +204,9 @@
   },
   "BookingCalendar": {
     "pastDateMessage": "Dieses Datum ist bereits vergangen",
-    "BookedByUser": "Vom Benutzer gebucht",
+    "pending": "Wartet auf die Zahlung eines anderen Nutzers, diese Daten könnten noch freigegeben werden",
+    "booked": "Dieses Datum ist bereits gebucht",
+    "closed": "Vom Administrator für Buchungen gesperrt",
     "DisabledByAdmin": "Vom Administrator deaktiviert"
   },
   "BookingForm": {
@@ -216,11 +218,14 @@
     "additionalPrice": "Bei einer Buchung von weniger als 7 Tagen fällt ein zusätzlicher Tagespreis an: {price}€",
     "withPet": "Ich komme mit mehr als einem Haustier",
     "bookNow": "Jetzt Buchen",
+    "loading": "Lädt...",
     "errors": {
       "invalidFormat": "Ungültiges Format. Verwenden Sie 'TT/MM/JJJJ - TT/MM/JJJJ'.",
       "invalidDate": "Ungültiges Datum. Verwenden Sie das Format 'TT/MM/JJJJ'.",
       "invalidRange": "Das Anreisedatum muss vor dem Abreisedatum liegen.",
-      "rangeUnavailable": "Der ausgewählte Zeitraum ist nicht verfügbar."
+      "rangeUnavailable": "Der ausgewählte Zeitraum ist nicht verfügbar.",
+      "unknownError": "Ein unbekannter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+      "fieldsNotFilled": "Alle Felder müssen ausgefüllt werden."
     }
   },
   "LoginForm": {
@@ -231,6 +236,7 @@
     "googleButton": "Mit Google fortfahren",
     "registerPrompt": "Haben Sie noch kein Konto?",
     "registerLink": "Registrieren",
+    "loadingStripe": "Das Zahlungsformular wird geladen…",
     "errors": {
       "emailRequired": "E-Mail ist erforderlich.",
       "emailInvalid": "Ungültige E-Mail-Adresse.",
@@ -262,6 +268,12 @@
       "unknownError": "Ein unbekannter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
       "emailHaveTaken": "Diese E-Mail-Adresse wird bereits verwendet. Bitte wähle eine andere."
     }
+  },
+  "Success": {
+    "title": "Bestellung erfolgreich aufgegeben",
+    "orderConfirmation": "Ihre Bestellung wurde erfolgreich aufgegeben. Die Buchungsbestätigung und Zahlungsquittung wurden an Ihre E-Mail-Adresse gesendet.",
+    "spamNote": "Wenn Sie keine E-Mail erhalten haben, überprüfen Sie bitte Ihren Spam-Ordner oder kontaktieren Sie uns für eine erneute Zusendung.",
+    "thankYou": "Vielen Dank, dass Sie sich für unseren Service entschieden haben!"
   },
   "NotFound": {
     "title": "Seite nicht gefunden",

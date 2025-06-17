@@ -4,7 +4,7 @@ import { Button } from "@mui/material";
 import { Link } from "@/i18n/navigation";
 import { registerUser } from "@/entities/api/auth.service";
 import { toast } from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import {
   validateEmail,
@@ -17,6 +17,23 @@ import { HttpError } from "@/shared/api/http";
 
 export default function RegisterForm() {
   const t = useTranslations("RegisterForm");
+  const searchParams = useSearchParams();
+  const roomId = searchParams.get("roomId");
+  const price = searchParams.get("price");
+  const numberOfDays = searchParams.get("numberOfDays");
+  const startDate = searchParams.get("startDate");
+  const endDate = searchParams.get("endDate");
+  const moreThanTwoPats = searchParams.get("moreThanTwoPats");
+  const wholeHouse = searchParams.get("wholeHouse");
+  const params = new URLSearchParams({
+    roomId: roomId ?? "",
+    price: price ?? "",
+    numberOfDays: numberOfDays ?? "",
+    startDate: startDate ?? "",
+    endDate: endDate ?? "",
+    moreThanTwoPats: moreThanTwoPats ?? "",
+    wholeHouse: wholeHouse ?? "",
+  });
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -81,7 +98,7 @@ export default function RegisterForm() {
     };
     try {
       await registerUser(data);
-      router.push("/auth/login");
+      router.push(`/auth/login/?${params.toString()}`);
       toast.success(t("successMessage"));
     } catch (err: unknown) {
       let message = t("errors.unknownError");

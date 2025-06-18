@@ -9,6 +9,13 @@
     },
     "bannerText": "Book your vacation at a time that suits you."
   },
+  "AdminSettings": {
+    "adminPanel": "Admin Panel",
+    "events": "Events",
+    "contacts": "Contacts",
+    "palettes": "Palettes",
+    "settings": "Settings"
+  },
   "NavBar": {
     "booking": "Booking",
     "events": "Events",
@@ -293,7 +300,10 @@
       "oauth": {
         "title": "OAuth2 Login",
         "text": "When using Facebook or Google login, we only receive:",
-        "items": ["Your email address", "Your platform ID"],
+        "items": [
+          "Your email address",
+          "Your platform ID"
+        ],
         "additional": "No additional data is collected.",
         "legal": "Legal basis: Art. 6(1)(b) GDPR."
       },
@@ -370,5 +380,15 @@
       "city": "87452 Altusried",
       "country": "Germany"
     }
+  },
+  "Common": {
+    "country": "Country",
+    "plz": "Postal code",
+    "street": "Street",
+    "city": "City",
+    "phone": "Phone number",
+    "email": "Email",
+    "save": "Save",
+    "socialMedia": "Social Media"
   }
 }

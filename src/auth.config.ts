@@ -2,8 +2,20 @@ import type { NextAuthConfig } from "next-auth";
 import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
 import { Roles, User } from "./entities/model/user";
+const isProd = process.env.NODE_ENV === "production";
 
 export const authConfig: NextAuthConfig = {
+  cookies: {
+    sessionToken: {
+      name: isProd ? "__Secure-authjs.session-token" : "authjs.session-token",
+      options: {
+        httpOnly: true,
+        sameSite: isProd ? "none" : "lax",
+        secure: isProd,
+        path: "/",
+      },
+    },
+  },
   providers: [
     Google,
     Credentials({

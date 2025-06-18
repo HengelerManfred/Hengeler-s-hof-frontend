@@ -1,40 +1,48 @@
 import { DateRange } from "react-day-picker";
 import { roomsData } from "./roomsData";
+import { http } from "@/shared/api/http";
+
+export enum BookingStatus {
+  PENDING = "pending",
+  BOOKED = "booked",
+  CLOSED = "closed",
+}
 
 export type BookedDate = {
   roomId: string;
-  from: Date;
-  to: Date;
-  reason: string;
-  withPet: boolean;
+  userId: string;
+  userEmail: string;
+  price: number;
+  numberOfDays: number;
+  startDate: Date;
+  endDate: Date;
+  moreThanTwoPats: boolean;
+  wholeHouse: boolean;
+  status: BookingStatus;
+  userName: string;
+  bookingId: string;
 };
 
-const BOOKINGS_STORAGE_KEY = "bookings";
+export type BookedHint = {
+  status: BookingStatus;
+  userEmail: string;
+  roomId: string;
+  moreThanTwoPats: boolean;
+  numberOfDays: number;
+  userName: string;
+  bookingId: string;
+}
 
-export const loadBookings = (): BookedDate[] => {
-    const storedBookings = localStorage.getItem(BOOKINGS_STORAGE_KEY);
-
-    if (!storedBookings) return [];
-    const parsed = JSON.parse(storedBookings);
-    parsed.forEach((booking: BookedDate) => {
-      booking.from = new Date(booking.from);
-      booking.to = new Date(booking.to);
-    });
-    return parsed;
-};
-
-export const saveBookings = (bookings: BookedDate[]): void => {
-    localStorage.setItem(
-      BOOKINGS_STORAGE_KEY,
-      JSON.stringify(bookings)
-    );
+export const loadBookings = async (): Promise<BookedDate[]> => {
+    const bookings = await http<BookedDate[]>("Booking/get-bookings");
+    return bookings;
 };
 
 export const generateBlockedDatesMap = (
   allBookings: BookedDate[],
   currentRoomId: string
-): Record<string, string> => {
-  const blockedDatesMap: Record<string, string> = {};
+): Record<string, BookedHint> => {
+  const blockedDatesMap: Record<string, BookedHint> = {};
   const roomIds = Array.from(roomsData.keys()).filter((id) => id !== "house");
 
   const conflictingBookings = allBookings.filter((booking) => {
@@ -45,9 +53,17 @@ export const generateBlockedDatesMap = (
   });
 
   conflictingBookings.forEach((booking) => {
-    const currentDate = new Date(booking.from);
-    while (currentDate <= booking.to) {
-      blockedDatesMap[currentDate.toDateString()] = booking.reason;
+    const currentDate = new Date(booking.startDate);
+    while (currentDate <= new Date(booking.endDate)) {
+      blockedDatesMap[currentDate.toISOString().split("T")[0]] = {
+        status: booking.status,
+        userEmail: booking.userEmail,
+        roomId: booking.roomId,
+        moreThanTwoPats: booking.moreThanTwoPats,
+        numberOfDays: booking.numberOfDays,
+        userName: booking.userName,
+        bookingId: booking.bookingId,
+      };
       currentDate.setDate(currentDate.getDate() + 1);
     }
   });
@@ -69,8 +85,8 @@ export const isRangeAvailable = (
 
   for (const booking of allBookings) {
     if (conflictingRoomIds.includes(booking.roomId) && range.from && range.to) {
-      const existingFrom = booking.from.getTime();
-      const existingTo = booking.to.getTime();
+      const existingFrom = booking.startDate.getTime();
+      const existingTo = booking.endDate.getTime();
 
       const newFrom = range.from.getTime();
       const newTo = range.to.getTime();

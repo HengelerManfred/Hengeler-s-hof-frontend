@@ -9,6 +9,13 @@
     },
     "bannerText": "Buchen Sie Ihren Urlaub zu einem für Sie passenden Zeitpunkt."
   },
+  "AdminSettings": {
+    "adminPanel": "Administratorbereich",
+    "events": "Veranstaltungen",
+    "contacts": "Kontakte",
+    "palettes": "Paletten",
+    "settings": "Einstellungen"
+  },
   "MainMap": {
     "title": "Wie findet man uns?",
     "loading": "Karte wird geladen...",
@@ -305,7 +312,10 @@
       "oauth": {
         "title": "OAuth2-Anmeldung",
         "text": "Bei der Nutzung von Facebook oder Google-Login erhalten wir nur:",
-        "items": ["Ihre E-Mail-Adresse", "Ihre Plattform-ID"],
+        "items": [
+          "Ihre E-Mail-Adresse",
+          "Ihre Plattform-ID"
+        ],
         "additional": "Weitere Daten werden nicht erhoben.",
         "legal": "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO."
       },
@@ -382,5 +392,15 @@
       "city": "87452 Altusried",
       "country": "Deutschland"
     }
+  },
+  "Common": {
+    "country": "Land",
+    "plz": "PLZ",
+    "street": "Straße",
+    "city": "Stadt",
+    "phone": "Telefonnummer",
+    "email": "E-Mail",
+    "save": "Speichern",
+    "socialMedia": "Soziale Netzwerke"
   }
 }

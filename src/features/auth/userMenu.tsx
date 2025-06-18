@@ -1,10 +1,11 @@
 "use client";
-
 import { useState } from "react";
 import Image from "next/image";
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import { signOut } from "next-auth/react";
 import type { Session } from "next-auth";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 export function UserMenu({
   session,
@@ -15,7 +16,8 @@ export function UserMenu({
 }) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-
+  const t = useTranslations("AdminSettings");
+  const allowedEmails = ["dexhonesta@gmail.com", "hengeler.shofrohnhofen3@gmail.com"];
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -48,7 +50,14 @@ export function UserMenu({
         transformOrigin={{ horizontal: "center", vertical: "top" }}
         anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
       >
+        {allowedEmails.includes(session.user.email?? "") &&
+          <Link href={"/admin/events"}><MenuItem>{t("events")}</MenuItem></Link> &&
+          <Link href={"/admin/contacts"}><MenuItem>{t("contacts")}</MenuItem></Link> &&
+          <Link href={"/admin/pallets"}><MenuItem>{t("palettes")}</MenuItem></Link> &&
+          <Link href={"/admin/settings"}><MenuItem>{t("settings")}</MenuItem></Link>
+        }
         <MenuItem onClick={handleLogout}>{logoutText}</MenuItem>
+
       </Menu>
     </div>
   );

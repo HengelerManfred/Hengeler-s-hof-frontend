@@ -5,8 +5,8 @@ export async function http<T>(
   const isServer = typeof window === "undefined";
 
   const url = isServer
-    ? `${process.env.URL_TO_PROXY_REQUESTS}api/Booking/get-bookings`
-    : `/dotnetapi/Booking/get-bookings`;
+    ? `${process.env.URL_TO_PROXY_REQUESTS}api/${path}`
+    : `/dotnetapi/${path}`;
 
   const res = await fetch(url, {
     ...options,

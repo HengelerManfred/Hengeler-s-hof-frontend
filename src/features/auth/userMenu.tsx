@@ -28,7 +28,7 @@ export function UserMenu({
 
   const handleLogout = async () => {
     handleClose();
-    await signOut({ callbackUrl: "/" });
+    await signOut({ redirect: false });
   };
 
   return (

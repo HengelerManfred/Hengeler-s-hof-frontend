@@ -79,6 +79,10 @@ export const roomsData = new Map<string, Room>([
       maxGuests: "room3_max_guests",
       size: 25,
       images: [
+        { src: "/images/room3/room1.jpg" },
+        { src: "/images/room3/room2.png" },
+        { src: "/images/room3/room3.jpg" },
+        { src: "/images/room3/room4.jpg" },
         { src: "/images/kitchen/kitchen1.jpg", title: "kitchen" },
         { src: "/images/kitchen/kitchen2.jpg", title: "kitchen" },
         { src: "/images/kitchen/kitchen3.jpg", title: "kitchen" },

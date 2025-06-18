@@ -84,13 +84,25 @@ export function BookingCalendar({
           blockedEnd: "rounded-r-full",
         }}
         components={{
-          DayButton: (props) => (
-            <CustomDayButton
-              {...props}
-              blockedDatesWithReason={blockedDatesWithReason}
-              onBlockedDateClick={handleBlockedDateClick}
-            />
-          ),
+          DayButton: (props) => {
+            const day = props.day.date;
+            const dateKey = new Date(Date.UTC(
+              day.getFullYear(),
+              day.getMonth(),
+              day.getDate()
+            )).toISOString().split("T")[0];
+      
+            const reason = blockedDatesWithReason[dateKey];
+            const status = reason?.status;
+      
+            return (
+              <CustomDayButton
+                {...props}
+                status={status}
+                onBlockedDateClick={handleBlockedDateClick}
+              />
+            );
+          }
         }}
       />
       <Popover

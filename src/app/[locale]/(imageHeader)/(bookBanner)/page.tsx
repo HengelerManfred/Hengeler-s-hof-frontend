@@ -13,7 +13,7 @@ const slides = [
   {
     id: "2",
     titleKey: "slide5.title",
-    textKey: "slide5.text",
+    textKey: "",
     image: "/images/deer.jpg"
   },
   {

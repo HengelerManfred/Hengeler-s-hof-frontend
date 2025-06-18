@@ -2,10 +2,11 @@ export async function http<T>(
   path: string,
   options: RequestInit = {}
 ): Promise<T> {
-  const base = process.env.NEXT_PUBLIC_API_URL;
-  if (!base) throw new Error("NEXT_PUBLIC_API_URL is not defined");
+  const isServer = typeof window === "undefined";
 
-  const url = `${base}${path}`;
+  const url = isServer
+    ? `${process.env.URL_TO_PROXY_REQUESTS}api/${path}`
+    : `/dotnetapi/${path}`;
 
   const res = await fetch(url, {
     ...options,

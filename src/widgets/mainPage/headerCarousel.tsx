@@ -67,12 +67,18 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
               className="object-cover relative select-none pointer-events-none gradient-overlay md:layer-blur"
               priority
             />
-            <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-b from-black/35 to-transparent"></div>
+            <div
+              className={clsx(
+                "w-full h-full absolute top-0 left-0",
+                slide.textKey && "gradient-signature",
+                !slide.textKey && "gradient-no-signature"
+              )}
+            ></div>
             <span
               className={clsx(
-                "flex absolute flex-col gap-20 w-full px-[12.5%]",
+                "flex absolute flex-col gap-20 w-full px-[12.5%] 2xl:px-[20%]",
                 !slide?.textKey && "top-1/3 md:top-1/3",
-                slide?.textKey && "top-1/3 md:top-1/4"
+                slide?.textKey && "top-1/3 md:top-1/3"
               )}
             >
               <h1

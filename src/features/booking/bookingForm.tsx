@@ -1,11 +1,11 @@
 "use client";
 import { useBookingStore } from "@/shared/store/bookingStore";
 import { useTranslations } from "next-intl";
-import { useState, useMemo } from "react";
-import { CalendarMonth } from "@mui/icons-material";
+import { useState, useMemo, useEffect } from "react";
 import { Room } from "@/widgets/booking/model/roomsData";
 import { DateRange } from "react-day-picker";
 import { format } from "date-fns";
+import CheckoutButton from "./checkoutButton";
 
 const differenceInCalendarDays = (dateLeft: Date, dateRight: Date) => {
   const utc1 = Date.UTC(
@@ -31,15 +31,12 @@ const formatDateRange = (range: DateRange | undefined) => {
 
 export function BookingForm({
   room,
-  onBook,
 }: {
   room: Room;
-  onBook: (details: { withPet: boolean }) => void;
 }) {
-  const { range, isSubmitting } = useBookingStore();
+  const { range } = useBookingStore();
   const t = useTranslations("BookingForm");
-  const [withPet, setWithPet] = useState(false);
-
+  const [moreThanTwoPats, setMoreThanTwoPats] = useState(false);
   const numberOfDays = useMemo(() => {
     if (range?.from && range?.to) {
       return differenceInCalendarDays(range.from, range.to);
@@ -52,14 +49,11 @@ export function BookingForm({
       ? numberOfDays * room.price
       : numberOfDays * (room.price + room.additionalPrice);
 
-  const minStay = 3;
+  useEffect(() => {
+    useBookingStore.setState({ price: totalPrice, numberOfDays });
+  }, [totalPrice, numberOfDays]);
 
-  const handleBookClick = () => {
-    if (numberOfDays < minStay) {
-      return;
-    }
-    onBook({ withPet });
-  };
+  const minStay = 3;
 
   return (
     <div className="p-5 w-full [@media(width>1424px)]:w-1/3 h-fit flex flex-col gap-3 bg-[var(--section-bg)]  border border-[var(--section-border)] inter rounded-lg shadow-md">
@@ -110,8 +104,8 @@ export function BookingForm({
           id="withPet"
           name="withPet"
           type="checkbox"
-          checked={withPet}
-          onChange={(e) => setWithPet(e.target.checked)}
+          checked={moreThanTwoPats}
+          onChange={(e) => setMoreThanTwoPats(e.target.checked)}
           className="h-4 w-4 text-[var(--primary-text)] border bg-[var(--section-bg)] border-[var(--section-border)] rounded-lg"
         />
         <label
@@ -122,15 +116,15 @@ export function BookingForm({
         </label>
       </div>
 
-      <button
-        type="button"
-        onClick={handleBookClick}
-        className="w-full flex justify-center py-3 px-4 gap-2 items-center border border-transparent
-          rounded-md shadow-sm text-sm font-medium text-[var(--main-bg)] bg-[var(--accent)] disabled:opacity-50"
-      >
-        <CalendarMonth />
-        {isSubmitting ? "Submitting..." : t("bookNow")}
-      </button>
+      <CheckoutButton
+        roomId={room.id}
+        numberOfDays={numberOfDays}
+        price={totalPrice}
+        startDate={range?.from ?? new Date()}
+        endDate={range?.to ?? new Date()}
+        moreThanTwoPats={moreThanTwoPats}
+        wholeHouse={room.id === "house"}
+      />
     </div>
   );
 }

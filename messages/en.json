@@ -211,7 +211,9 @@
   },
   "BookingCalendar": {
     "pastDateMessage": "This date has already passed",
-    "BookedByUser": "Booked by user",
+    "pending": "Awaiting payment from another user, these dates might still become available",
+    "booked": "This date is already booked",
+    "closed": "Closed for booking by administrator",
     "DisabledByAdmin": "Disabled by admin"
   },
   "BookingForm": {
@@ -223,11 +225,14 @@
     "additionalPrice": "When booking for less than 7 days, an additional charge per day applies: {price}€",
     "withPet": "I will come with more than one pet",
     "bookNow": "Book Now",
+    "loading": "Loading...",
     "errors": {
       "invalidFormat": "Invalid format. Use 'DD/MM/YYYY - DD/MM/YYYY'.",
       "invalidDate": "Invalid date. Use 'DD/MM/YYYY' format.",
       "invalidRange": "Arrival date must be before departure date.",
-      "rangeUnavailable": "The selected date range is unavailable."
+      "rangeUnavailable": "The selected date range is unavailable.",
+      "unknownError": "An unknown error occurred. Please try again later.",
+      "fieldsNotFilled": "All fields must be filled."
     }
   },
   "LoginForm": {
@@ -238,13 +243,14 @@
     "googleButton": "Continue with Google",
     "registerPrompt": "Don't have an account?",
     "registerLink": "Register",
+    "loadingStripe": "Loading payment form...",
     "errors": {
       "emailRequired": "Email is required.",
       "emailInvalid": "Invalid email address.",
       "passwordRequired": "Password is required.",
       "passwordMinLength": "Password must be at least 8 characters long.",
       "invalidCredentials": "The email or password you entered is incorrect.",
-      "unknownError": "An unknown error occurred. Please try again."
+      "unknownError": "An unknown error occurred. Please try again later."
     }
   },
   "RegisterForm": {
@@ -390,5 +396,11 @@
     "email": "Email",
     "save": "Save",
     "socialMedia": "Social Media"
+  },
+  "Success": {
+    "title": "Order Successfully Placed",
+    "orderConfirmation": "Your order has been successfully placed. The booking confirmation and payment receipt have been sent to your email.",
+    "spamNote": "If you haven't received the email, please check your Spam folder or contact us for a resend.",
+    "thankYou": "Thank you for choosing our service!"
   }
 }

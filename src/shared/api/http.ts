@@ -2,8 +2,11 @@ export async function http<T>(
   path: string,
   options: RequestInit = {}
 ): Promise<T> {
+  const isServer = typeof window === "undefined";
 
-  const url = `/dotnetapi/${path}`;
+  const url = isServer
+    ? `${process.env.URL_TO_PROXY_REQUESTS}api/Booking/get-bookings`
+    : `/dotnetapi/Booking/get-bookings`;
 
   const res = await fetch(url, {
     ...options,

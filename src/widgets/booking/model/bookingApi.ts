@@ -19,14 +19,18 @@ export type BookedDate = {
   moreThanTwoPats: boolean;
   wholeHouse: boolean;
   status: BookingStatus;
+  userName: string;
+  bookingId: string;
 };
 
 export type BookedHint = {
   status: BookingStatus;
-  email: string;
+  userEmail: string;
   roomId: string;
   moreThanTwoPats: boolean;
   numberOfDays: number;
+  userName: string;
+  bookingId: string;
 }
 
 export const loadBookings = async (): Promise<BookedDate[]> => {
@@ -53,10 +57,12 @@ export const generateBlockedDatesMap = (
     while (currentDate <= new Date(booking.endDate)) {
       blockedDatesMap[currentDate.toISOString().split("T")[0]] = {
         status: booking.status,
-        email: booking.userEmail,
+        userEmail: booking.userEmail,
         roomId: booking.roomId,
         moreThanTwoPats: booking.moreThanTwoPats,
         numberOfDays: booking.numberOfDays,
+        userName: booking.userName,
+        bookingId: booking.bookingId,
       };
       currentDate.setDate(currentDate.getDate() + 1);
     }

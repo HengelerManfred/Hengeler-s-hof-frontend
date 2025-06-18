@@ -34,7 +34,7 @@ export default function CheckoutButton({
   const t = useTranslations("BookingForm");
 
   const handleClick = async () => {
-    if (!(roomId || price || numberOfDays || startDate || endDate)) {
+    if (!(roomId && price && numberOfDays && startDate && endDate)) {
       toast.error(t("errors.fieldsNotFilled"));
       return;
     }

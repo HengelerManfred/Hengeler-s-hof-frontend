@@ -11,6 +11,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/:locale/dotnetapi/:path*',
+        destination: process.env.URL_TO_PROXY_REQUESTS + 'api/:path*',
+      },
+    ];
+  },
 };
 
 const withNextIntl = createNextIntlPlugin();

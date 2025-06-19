@@ -17,7 +17,13 @@ export async function http<T>(
     credentials: "include",
   });
 
-  if (!res.ok) throw new HttpError(res.status, await res.text());
+  if (!res.ok) {
+    if (isServer) {
+      console.error(res);
+    } else {
+      throw new Error(await res.text());
+    }
+  }
   return res.json();
 }
 

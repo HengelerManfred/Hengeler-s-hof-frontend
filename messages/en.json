@@ -14,7 +14,8 @@
     "events": "Events",
     "contacts": "Contacts",
     "palettes": "Palettes",
-    "settings": "Settings"
+    "settings": "Settings",
+    "logout": "Logout"
   },
   "NavBar": {
     "booking": "Booking",
@@ -214,7 +215,10 @@
     "pending": "Awaiting payment from another user, these dates might still become available",
     "booked": "This date is already booked",
     "closed": "Closed for booking by administrator",
-    "DisabledByAdmin": "Disabled by admin"
+    "DisabledByAdmin": "Disabled by admin",
+    "MyPending": "You started booking these dates but haven’t paid yet",
+    "MyBooked": "You have already booked these dates",
+    "returnToPay": "Return to payment"
   },
   "BookingForm": {
     "title": "Booking schedule",
@@ -306,10 +310,7 @@
       "oauth": {
         "title": "OAuth2 Login",
         "text": "When using Facebook or Google login, we only receive:",
-        "items": [
-          "Your email address",
-          "Your platform ID"
-        ],
+        "items": ["Your email address", "Your platform ID"],
         "additional": "No additional data is collected.",
         "legal": "Legal basis: Art. 6(1)(b) GDPR."
       },

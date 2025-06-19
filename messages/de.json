@@ -14,7 +14,8 @@
     "events": "Veranstaltungen",
     "contacts": "Kontakte",
     "palettes": "Paletten",
-    "settings": "Einstellungen"
+    "settings": "Einstellungen",
+    "logout": "Abmelden"
   },
   "MainMap": {
     "title": "Wie findet man uns?",
@@ -211,10 +212,13 @@
   },
   "BookingCalendar": {
     "pastDateMessage": "Dieses Datum ist bereits vergangen",
-    "pending": "Wartet auf die Zahlung eines anderen Nutzers, diese Daten könnten noch freigegeben werden",
-    "booked": "Dieses Datum ist bereits gebucht",
-    "closed": "Vom Administrator für Buchungen gesperrt",
-    "DisabledByAdmin": "Vom Administrator deaktiviert"
+    "Pending": "Wartet auf die Zahlung eines anderen Nutzers, diese Daten könnten noch freigegeben werden",
+    "Booked": "Dieses Datum ist bereits gebucht",
+    "Сlosed": "Vom Administrator für Buchungen gesperrt",
+    "DisabledByAdmin": "Vom Administrator deaktiviert",
+    "MyPending": "Sie haben begonnen, diese Daten zu buchen, aber noch nicht bezahlt",
+    "MyBooked": "Sie haben diese Daten bereits gebucht",
+    "returnToPay": "Zurück zur Zahlung"
   },
   "BookingForm": {
     "title": "Buchungsplanung",
@@ -312,10 +316,7 @@
       "oauth": {
         "title": "OAuth2-Anmeldung",
         "text": "Bei der Nutzung von Facebook oder Google-Login erhalten wir nur:",
-        "items": [
-          "Ihre E-Mail-Adresse",
-          "Ihre Plattform-ID"
-        ],
+        "items": ["Ihre E-Mail-Adresse", "Ihre Plattform-ID"],
         "additional": "Weitere Daten werden nicht erhoben.",
         "legal": "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO."
       },

@@ -214,7 +214,7 @@
     "pastDateMessage": "Dieses Datum ist bereits vergangen",
     "Pending": "Wartet auf die Zahlung eines anderen Nutzers, diese Daten könnten noch freigegeben werden",
     "Booked": "Dieses Datum ist bereits gebucht",
-    "Сlosed": "Vom Administrator für Buchungen gesperrt",
+    "Closed": "Vom Administrator für Buchungen gesperrt",
     "DisabledByAdmin": "Vom Administrator deaktiviert",
     "MyPending": "Sie haben begonnen, diese Daten zu buchen, aber noch nicht bezahlt",
     "MyBooked": "Sie haben diese Daten bereits gebucht",

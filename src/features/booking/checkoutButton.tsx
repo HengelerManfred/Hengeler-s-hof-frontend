@@ -34,8 +34,15 @@ export default function CheckoutButton({
   const t = useTranslations("BookingForm");
 
   const handleClick = async () => {
-    if (!(roomId && price && numberOfDays && startDate && endDate)) {
-      toast.error(t("errors.fieldsNotFilled"));
+    if (
+      !(roomId && price && numberOfDays && startDate && endDate) ||
+      numberOfDays < 3
+    ) {
+      if (numberOfDays < 3) {
+        toast.error(t("minStay", { count: 3 }));
+      } else {
+        toast.error(t("errors.fieldsNotFilled"));
+      }
       return;
     }
 
@@ -67,8 +74,8 @@ export default function CheckoutButton({
             userId: session.data?.user.id,
             price,
             numberOfDays,
-            startDate: startDate.toISOString(),
-            endDate: endDate.toISOString(),
+            startDate: startDate.toLocaleDateString("sv-SE"),
+            endDate: endDate.toLocaleDateString("sv-SE"),
             moreThanTwoPats,
             wholeHouse,
           }),

@@ -19,7 +19,7 @@ export function NavLink({
     if (href.includes("booking")) {
       setShouldAnimate(pathname.includes("booking"));
     } else {
-      setShouldAnimate(pathname === href || pathname.endsWith(href));
+      setShouldAnimate(pathname === href || pathname.endsWith(href) && !pathname.includes("admin"));
     }
   }, [href, pathname]);
 

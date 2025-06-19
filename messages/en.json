@@ -212,9 +212,9 @@
   },
   "BookingCalendar": {
     "pastDateMessage": "This date has already passed",
-    "pending": "Awaiting payment from another user, these dates might still become available",
-    "booked": "This date is already booked",
-    "closed": "Closed for booking by administrator",
+    "Pending": "Awaiting payment from another user, these dates might still become available",
+    "Booked": "This date is already booked",
+    "Closed": "Closed for booking by administrator",
     "DisabledByAdmin": "Disabled by admin",
     "MyPending": "You started booking these dates but haven’t paid yet",
     "MyBooked": "You have already booked these dates",

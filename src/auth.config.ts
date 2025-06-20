@@ -7,7 +7,7 @@ const isProd = process.env.NODE_ENV === "production";
 export const authConfig: NextAuthConfig = {
   cookies: {
     sessionToken: {
-      name: isProd ? "__Secure-authjs.session-token" : "authjs.session-token",
+      name: !isProd ? "__Secure-authjs.session-token" : "authjs.session-token",
       options: {
         httpOnly: true,
         sameSite: isProd ? "none" : "lax",
@@ -16,6 +16,7 @@ export const authConfig: NextAuthConfig = {
       },
     },
   },
+  trustHost: true,
   providers: [
     Google,
     Credentials({

@@ -10,7 +10,8 @@ const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(",") ?? [];
 
 export default async function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname;
-
+  console.log("secret ", process.env.NEXTAUTH_SECRET);
+  console.log("adminEmails ", process.env.NEXT_PUBLIC_ADMIN_EMAILS);
   const token = await getToken({
     req,
     secret: process.env.NEXTAUTH_SECRET,
@@ -19,6 +20,7 @@ export default async function middleware(req: NextRequest) {
   if (pathname.includes("/admin")) {
     const email = token?.email;
 
+    console.log("email ", email);
     const isAdmin = email && adminEmails.includes(email);
 
     if (!isAdmin) {

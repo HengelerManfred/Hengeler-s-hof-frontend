@@ -70,10 +70,10 @@ export function BookingCalendar({
   };
 
   const blockedStartDates = blockedDatesKeys
-    .filter((d) => clonedDatesWithReason[d].isEffectiveFirst)
+    .filter((d) => clonedDatesWithReason[d].isFirst)
     .map((d) => new Date(d));
   const blockedEndDates = blockedDatesKeys
-    .filter((d) => clonedDatesWithReason[d].isLast)
+    .filter((d) => clonedDatesWithReason[d].isLast) 
     .map((d) => new Date(d));
 
   const [popoverData, setPopoverData] = useState<{

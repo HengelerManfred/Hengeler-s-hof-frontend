@@ -16,7 +16,6 @@ const nextConfig: NextConfig = {
   },
   env: {
     NEXT_PUBLIC_ADMIN_EMAILS: process.env.NEXT_PUBLIC_ADMIN_EMAILS,
-    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
   },
   async rewrites() {
     return [

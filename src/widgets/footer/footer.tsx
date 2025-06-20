@@ -11,8 +11,10 @@ import {
 } from "@mui/icons-material";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
+import { loadContacts } from "@/entities/api/contact.service";
 
 export async function Footer() {
+  const contacts = await loadContacts();
   const t = await getTranslations("Contacts");
   const tr = await getTranslations("Footer");
   return (
@@ -25,7 +27,7 @@ export async function Footer() {
             <span className="text-[var(--main-bg)]">
               {t("phoneAnswer")}
               <br />
-              {t("phone")}
+              {contacts.phoneNumber}
             </span>
           </a>
           <a
@@ -34,12 +36,14 @@ export async function Footer() {
           >
             <Email className="size-[40px]! text-[var(--main-bg)] rounded-full gap-2 " />
             <span className="text-[16px] text-[var(--main-bg)]">
-              {t("email")}
+              {contacts.email}
             </span>
           </a>
           <p className="flex items-center">
             <LocationOn className="size-[40px]! text-[var(--main-bg)] rounded-full gap-2 mr-3" />
-            <span className="text-[var(--main-bg)]">{t("address")}</span>
+            <span className="text-[var(--main-bg)]">
+            {contacts.street}, {contacts.postalCode} {contacts.city}, {contacts.country}
+            </span>
           </p>
         </address>
         <Image
@@ -52,16 +56,16 @@ export async function Footer() {
         <div className="lg:w-[285px] flex flex-col gap-2 text-justify">
           <span className="text-[var(--main-bg)]">{tr("slogan")}</span>
           <div className="flex justify-between text-[var(--main-bg)]">
-            <a href="ссылка" target="_blank" rel="noopener noreferrer">
+            <a href={contacts.facebook} target="_blank" rel="noopener noreferrer">
               <Facebook className="size-[40px]! " />
             </a>
-            <a href="ссылка" target="_blank" rel="noopener noreferrer">
+            <a href={contacts.telegram} target="_blank" rel="noopener noreferrer">
               <Telegram className="size-[40px]!" />
             </a>
-            <a href="ссылка" target="_blank" rel="noopener noreferrer">
+            <a href={contacts.whatsapp} target="_blank" rel="noopener noreferrer">
               <WhatsApp className="size-[40px]!" />
             </a>
-            <a href="ссылка" target="_blank" rel="noopener noreferrer">
+            <a href={contacts.instagram} target="_blank" rel="noopener noreferrer">
               <Instagram className="size-[40px]!" />
             </a>
           </div>

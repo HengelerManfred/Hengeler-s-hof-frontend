@@ -1,3 +1,4 @@
+import { loadContacts } from "@/entities/api/contact.service";
 import { Attractions } from "@/widgets/mainPage/attractions";
 import { HeaderCarousel } from "@/widgets/mainPage/headerCarousel";
 import { MainMap } from "@/widgets/mainPage/mainMap";
@@ -37,13 +38,13 @@ const slides = [
 ];
 
 export default async function Home() {
-
+  const contacts = await loadContacts();
   return (
     <main className="w-[100dvw] flex pb-[24px] flex-col items-center gap-[24px]">
       <HeaderCarousel slides={slides} />
       <Rooms />
       <Attractions />
-      <MainMap />
+      <MainMap contacts={contacts}/>
     </main>
   );
 }

@@ -3,8 +3,9 @@ import { Skeleton } from "@mui/material";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
+import { Contacts } from "@/entities/model/contacts";
 
-export function MainMap() {
+export function MainMap({contacts}:{contacts: Contacts}) {
   const t = useTranslations("MainMap");
 
   const LeafletMap = useMemo(
@@ -22,7 +23,7 @@ export function MainMap() {
         {t("title")}
       </h2>
       <div className="px-[2.5%] lg:p-0">
-        <LeafletMap />
+        <LeafletMap contacts={contacts}/>
       </div>
     </section>
   );

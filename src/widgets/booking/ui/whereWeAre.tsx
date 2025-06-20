@@ -3,8 +3,9 @@ import { Skeleton } from "@mui/material";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { Contacts } from "@/entities/model/contacts";
 
-export function WhereWeAre() {
+export function WhereWeAre({contacts}: {contacts: Contacts}) {
   const t = useTranslations("MainMap");
   const textContainerRef = useRef<HTMLDivElement>(null);
   const [mapHeight, setMapHeight] = useState<number | null>(null);
@@ -55,7 +56,7 @@ export function WhereWeAre() {
         </p>
       </div>
       <div className="sm:w-2/3 w-full px-[5%] sm:px-0 [@media(width>2200px)]:w-full">
-        <LeafletMap height={`${mapHeight}px`} scrollWheelZoom={true} />
+        <LeafletMap contacts={contacts} height={`${mapHeight}px`} scrollWheelZoom={true} />
       </div>
     </div>
   );

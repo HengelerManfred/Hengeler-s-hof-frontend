@@ -3,8 +3,9 @@ import clsx from "clsx";
 import { BurgerButton } from "./burgerButton";
 import NavDropdown from "./navDropdown";
 import { useBurgerStore } from "@/shared/store/burgerStore";
+import { Contacts } from "@/entities/model/contacts";
 
-export default function BurgerHeader({ hasImage }: { hasImage?: boolean }) {
+export default function BurgerHeader({ hasImage, contacts }: { hasImage?: boolean, contacts: Contacts }) {
   const isOpen = useBurgerStore((state) => state.isOpen);
   return (
     <>
@@ -20,7 +21,7 @@ export default function BurgerHeader({ hasImage }: { hasImage?: boolean }) {
       >
         <BurgerButton />
       </header>
-      <NavDropdown />
+      <NavDropdown contacts={contacts} />
     </>
   );
 }

@@ -295,7 +295,7 @@
     "title": "Datenschutzerklärung",
     "responsible": {
       "title": "Verantwortlicher",
-      "operator": "[Name Surname]",
+      "operator": "Manfred Hengeler",
       "address": "Frohnhofen 3, 87452 Altusried, Deutschland",
       "email": "hengeler.shofrohnhofen3@gmail.com",
       "phone": "+49 (0)541 580 587 0"
@@ -379,7 +379,7 @@
     "title": "Impressum",
     "legal": {
       "title": "Angaben gemäß § 5 TMG",
-      "name": "[Name Surname]",
+      "name": "Manfred Hengeler",
       "street": "Frohnhofen 3",
       "city": "87452 Altusried",
       "country": "Deutschland",
@@ -388,7 +388,7 @@
     },
     "content": {
       "title": "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV",
-      "name": "[Name Surname]",
+      "name": "Manfred Hengeler",
       "street": "Frohnhofen 3",
       "city": "87452 Altusried",
       "country": "Deutschland"

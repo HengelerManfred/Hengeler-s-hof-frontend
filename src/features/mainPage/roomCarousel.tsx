@@ -93,7 +93,7 @@ export function RoomCarousel() {
                   alt={t(`rooms.${slide.id}.title`)}
                   fill
                   sizes="(max-width: 768px) 80vw, 50vw"
-                  className="object-cover rounded-[16px] select-none pointer-events-none gradient-overlay md:layer-blur"
+                  className="object-cover rounded-[16px] select-none pointer-events-none"
                   priority={ index === 0 }
                 />
               </div>

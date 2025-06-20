@@ -1,5 +1,8 @@
 import { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const nextConfig: NextConfig = {
   images: {
@@ -10,6 +13,9 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
+  },
+  env: {
+    NEXT_PUBLIC_ADMIN_EMAILS: process.env.NEXT_PUBLIC_ADMIN_EMAILS,
   },
   async rewrites() {
     return [

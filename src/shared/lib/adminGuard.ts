@@ -8,7 +8,7 @@ export const useAdminGuard = () => {
 
   useEffect(() => {
     if (status !== "authenticated") return;
-    if (!process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(",").includes(data?.user.email ?? "")) {
+    if (!process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(",").includes(data?.user?.email ?? "")) {
       router.push("/");
     }
   }, [data, router, status]);

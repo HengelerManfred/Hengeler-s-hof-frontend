@@ -16,6 +16,7 @@ export const authConfig: NextAuthConfig = {
       },
     },
   },
+  trustHost: isProd,
   providers: [
     Google,
     Credentials({

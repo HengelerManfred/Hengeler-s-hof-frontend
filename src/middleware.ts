@@ -18,7 +18,7 @@ export default async function middleware(req: NextRequest) {
     secureCookie: isProd,
     cookieName: isProd ? "__Secure-authjs.session-token" : "authjs.session-token",
   });
-  console.log("token", token);
+
   if (pathname.includes("/admin")) {
     const email = token?.email;
 

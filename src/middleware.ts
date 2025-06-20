@@ -10,11 +10,15 @@ const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(",") ?? [];
 
 export default async function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname;
+  const isProd = process.env.NODE_ENV === "production";
+
   const token = await getToken({
     req,
     secret: process.env.NEXTAUTH_SECRET,
+    secureCookie: isProd,
+    cookieName: isProd ? "__Secure-authjs.session-token" : "authjs.session-token",
   });
-
+  console.log("token", token);
   if (pathname.includes("/admin")) {
     const email = token?.email;
 

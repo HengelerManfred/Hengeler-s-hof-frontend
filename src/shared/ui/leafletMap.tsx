@@ -7,9 +7,10 @@ import "leaflet-defaulticon-compatibility";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import { LatLng } from "leaflet";
 import Image from "next/image";
+import { Contacts } from "@/entities/model/contacts";
 
 
-function LocationMarker() {
+function LocationMarker({contacts}: {contacts: Contacts}) {
   const markerPosition = new LatLng(47.7747, 10.2375995);
   return (
     <Marker position={markerPosition} interactive={true}>
@@ -18,19 +19,19 @@ function LocationMarker() {
           <h2 className="text-[24px] font-bold">Hengeler&apos;s Hof</h2>
           <Image src="/images/cow.png" alt="map" width={100} height={100} />
           <p className="text-[14px] !m-0">
-            Frohnhofen 3, 87452 Altusried, Deutschland
+          {contacts.street}, {contacts.postalCode} {contacts.city}, {contacts.country}
           </p>
         </div>
       </Popup>
       <Tooltip direction="bottom" offset={[-15, 35]} permanent>
         <div className="text-sm font-medium text-black">
-          Frohnhofen 3, 87452 Altusried, Deutschland
+        {contacts.street}, {contacts.postalCode} {contacts.city}, {contacts.country}
         </div>
       </Tooltip>
     </Marker>
   );
 }
-const LeafletMap = ({zoomControl = true, height = "400px", scrollWheelZoom = false }: {zoomControl?: boolean, height?: string, scrollWheelZoom?: boolean }) => {
+const LeafletMap = ({zoomControl = true, height = "400px", scrollWheelZoom = false, contacts}: {zoomControl?: boolean, height?: string, scrollWheelZoom?: boolean, contacts: Contacts }) => {
   return (
     <div>
       <MapContainer
@@ -49,7 +50,7 @@ const LeafletMap = ({zoomControl = true, height = "400px", scrollWheelZoom = fal
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <LocationMarker />
+        <LocationMarker contacts={contacts}/>
       </MapContainer>
     </div>
   );

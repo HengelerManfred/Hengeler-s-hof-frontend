@@ -1,8 +1,11 @@
+"use client";
 import { useTranslations } from "next-intl";
 import { Phone, Email, LocationOn } from "@mui/icons-material";
+import { Contacts as ContactsModel } from "@/entities/model/contacts";
 
-export function Contacts() {
+export function Contacts({ contacts }: { contacts: ContactsModel }) {
   const t = useTranslations("Contacts");
+
   return (
     <address className="flex flex-col gap-2 not-italic inter mt-[15px]">
       <p>{t("contacts")}</p>
@@ -10,7 +13,7 @@ export function Contacts() {
         <Phone className="size-[40px]! text-[var(--main-bg)] bg-[var(--accent)] rounded-full p-1 mr-3" />
         <div className="flex flex-col leading-snug">
           <span className="text-[var(--primary-text)]">
-            {t("phone")}
+          {contacts.phoneNumber}
           </span>
           <span className="text-[16px] text-[var(--secondary-text)]">
             {t("phoneAnswer")}
@@ -20,12 +23,12 @@ export function Contacts() {
       <a href={`mailto:${t("email")}`} className="flex items-center gap-[15px] w-full ">
         <Email className="size-[40px]! text-[var(--main-bg)] bg-[var(--accent)] rounded-full p-1" />
         <span className="flex-1 min-w-0 text-[24px] leading-snug break-words whitespace-normal">
-          {t("email")}
+          {contacts.email}
         </span>
       </a>
       <p>
         <LocationOn className="size-[40px]! text-[var(--main-bg)] bg-[var(--accent)] rounded-full p-1 mr-3" />
-        {t("address")}
+        {contacts.street}, {contacts.postalCode} {contacts.city}, {contacts.country}
       </p>
     </address>
   );

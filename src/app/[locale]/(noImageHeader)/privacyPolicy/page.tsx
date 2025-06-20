@@ -1,19 +1,21 @@
 import { getTranslations } from "next-intl/server";
+import { loadContacts } from "@/entities/api/contact.service";
 
 export default async function PrivacyPolicy() {
   const t = await getTranslations("PrivacyPolicy");
+  const contacts = await loadContacts();
 
   return (
-    <main className="w-3/4 mx-auto py-10">
+    <main className="w-3/4 inter mx-auto py-10">
       <h2 className="text-4xl font-bold">{t("title")}</h2>
       <section>
         <ol className="list-decimal pl-6 space-y-6 marker:text-2xl marker:font-semibold">
           <li>
             <h3 className="text-2xl font-semibold">{t("responsible.title")}</h3>
-            <p className="text-lg font-inter">{t("responsible.operator")}</p>
-            <p>{t("responsible.address")}</p>
-            <p>{t("responsible.email")}</p>
-            <p>{t("responsible.phone")}</p>
+            <p>{t("responsible.operator")}</p>
+            <p>{contacts.street}, {contacts.postalCode} {contacts.city}, {contacts.country}</p>
+            <p>{contacts.email}</p>
+            <p>{contacts.phoneNumber}</p>
           </li>
           <li>
             <h3 className="text-2xl font-semibold">

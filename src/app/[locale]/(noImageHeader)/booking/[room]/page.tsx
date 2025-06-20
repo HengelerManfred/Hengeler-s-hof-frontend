@@ -5,6 +5,7 @@ import { Booking } from "@/widgets/booking/ui/booking";
 import { RoomCard } from "@/widgets/booking/ui/roomCard";
 import { WhereWeAre } from "@/widgets/booking/ui/whereWeAre";
 import { notFound } from "next/navigation";
+import { loadContacts } from "@/entities/api/contact.service";
 
 export default async function RoomPage({
   params,
@@ -13,6 +14,7 @@ export default async function RoomPage({
 }) {
   const { room } = await params;
   const roomData = getRoomData(room);
+  const contacts = await loadContacts();
   if (!roomData) {
     notFound();
   }
@@ -25,12 +27,12 @@ export default async function RoomPage({
         <div className="lg:w-4/10 w-full flex flex-col gap-[12px]">
           <RoomCard room={roomData} />
           <div className="w-full hidden 2xl:block">
-            <WhereWeAre />
+            <WhereWeAre contacts={contacts} />
           </div>
         </div>
       </section>
       <div className="2xl:hidden w-9/10 md:w-3/4">
-        <WhereWeAre />
+        <WhereWeAre contacts={contacts} />
       </div>
       <Benefits />
       <Booking room={roomData} />

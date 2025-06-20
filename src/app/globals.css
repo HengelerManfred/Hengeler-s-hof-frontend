@@ -22,10 +22,12 @@ body {
 }
 .embla__container {
   display: flex;
+  transform: translate3d(0, 0, 0);
 }
 .embla__slide {
   flex: 0 0 100%;
   min-width: 0;
+  transform: translate3d(0, 0, 0);
 }
 
 .gradient-overlay {

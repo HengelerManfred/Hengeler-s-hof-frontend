@@ -9,8 +9,9 @@ import { Contacts } from "./contacts";
 import { AuthBurgerButtons } from "@/features/auth/authBurgerButtons";
 import { useEffect } from "react";
 import { signOut, useSession } from "next-auth/react";
+import { Contacts as ContactsModel } from "@/entities/model/contacts";
 
-export default function NavDropdown() {
+export default function NavDropdown({ contacts }: { contacts: ContactsModel }) {
   const isOpen = useBurgerStore((state) => state.isOpen);
   const router = useRouter();
   const pathname = usePathname();
@@ -106,22 +107,6 @@ export default function NavDropdown() {
         <li aria-hidden="true">
           <Divider />
         </li>
-        {session.status === "authenticated" && (
-          <>
-            <li>
-              <button
-                onClick={() => signOut()}
-                className="block w-full py-[15px] cursor-pointer text-start"
-              >
-                {tAdminSettings("logout")}
-              </button>
-            </li>
-            <li aria-hidden="true">
-              <Divider />
-            </li>
-          </>
-        )}
-
         {process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(",").includes(
           session.data?.user.email ?? ""
         ) && (
@@ -176,8 +161,23 @@ export default function NavDropdown() {
             </li>
           </>
         )}
+        {session.status === "authenticated" && (
+          <>
+            <li>
+              <button
+                onClick={() => signOut()}
+                className="block w-full py-[15px] cursor-pointer text-start"
+              >
+                {tAdminSettings("logout")}
+              </button>
+            </li>
+            <li aria-hidden="true">
+              <Divider />
+            </li>
+          </>
+        )}
       </ul>
-      <Contacts />
+      <Contacts contacts={contacts} />
       {session.status !== "authenticated" && <AuthBurgerButtons />}
     </nav>
   );

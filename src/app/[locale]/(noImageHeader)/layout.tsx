@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./../../globals.css";
 import Header from "@/widgets/header/ui/header";
 import BurgerHeader from "@/widgets/header/ui/burgerHeader";
+import { loadContacts } from "@/entities/api/contact.service";
 
 export const metadata: Metadata = {
   title: "Hengeler's Hof",
@@ -13,10 +14,11 @@ export default async function NoImageHeaderLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const contacts = await loadContacts();
   return (
     <>
       <Header hasImage={false} />
-      <BurgerHeader hasImage={false} />
+      <BurgerHeader contacts={contacts} hasImage={false} />
       {children}
     </>
   );

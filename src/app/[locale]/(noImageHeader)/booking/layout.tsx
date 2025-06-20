@@ -10,6 +10,7 @@ import KingBedIcon from "@mui/icons-material/KingBed";
 import HomeIcon from "@mui/icons-material/Home";
 import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
+import { useBookingStore } from "@/shared/store/bookingStore";
 
 export default function BookingLayout({
   children,
@@ -19,7 +20,7 @@ export default function BookingLayout({
   const t = useTranslations("Booking");
   const pathname = usePathname();
   const [value, setValue] = useState<number | null>(null);
-
+  const setRange = useBookingStore((state) => state.setRange);
   const navLinks = [
     { href: "/booking/room1", label: t("room1") },
     { href: "/booking/room2", label: t("room2") },
@@ -73,6 +74,7 @@ export default function BookingLayout({
                 <Link
                   href={link.href}
                   className={`rounded-lg p-5 text-2xl transition-all duration-300 ease-in-out ${activeClasses}`}
+                  onClick={() => setRange(undefined)}
                 >
                   {link.label}
                 </Link>
@@ -105,6 +107,7 @@ export default function BookingLayout({
                 icon={item.icon}
                 component={Link}
                 href={item.href}
+                onClick={() => setRange(undefined)}
               />
             ))}
           </BottomNavigation>

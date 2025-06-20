@@ -64,7 +64,7 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
               alt={t(slide.titleKey)}
               fill
               sizes="100vw"
-              className="object-cover relative select-none pointer-events-none gradient-overlay md:layer-blur"
+              className="object-cover relative select-none pointer-events-none md:layer-blur"
               priority
             />
             <div

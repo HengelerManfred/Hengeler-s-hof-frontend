@@ -235,7 +235,7 @@ export default function CreateEventForm({
         resetForm();
       }
     } catch {
-      toast.error("errorCheckAllLanguages");
+      toast.error(t("errorCheckAllLanguages"));
     }
   }
 

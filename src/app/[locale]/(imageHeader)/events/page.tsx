@@ -1,6 +1,6 @@
 import { HeaderCarousel } from "@/widgets/mainPage/headerCarousel";
 import { Events } from "@/widgets/events/events";
-import { EventExample } from "@/widgets/events/event";
+import { loadActiveEvents } from "@/entities/api/events.service";
 
 const slides = [
   {
@@ -10,33 +10,38 @@ const slides = [
     scrollArrows: true
   }
 ];
-const events: EventExample[] = [
-  {
-    id: "1",
-    titleKey: "event1.title",
-    descriptionKey: "event2.text",
-    date: "14.06.2025-17.08.2025",
-    image: "/images/events/event5.webp",
-    link: "https://oberallgaeu.info/veranstaltungen-im-oberallg%C3%A4u/1525-bauernkrieg-inszenierung-auf-der-freilichtbuhne-altusried",
-  },
-  {
-    id: "2",
-    titleKey: "event2.title",
-    descriptionKey: "event2.text",
-    date: "19.06.2025-22.06.2025",
-    image: "/images/events/event3.webp",
-    link: "https://oberallgaeu.info/veranstaltungen-im-oberallg%C3%A4u/burgfest-in-immenstadt-2025-mit-mittelaltermarkt"
-  },
-  {
-    id: "3",
-    titleKey: "event3.title",
-    descriptionKey: "event3.text",
-    date: "19.06.2025-20.06.2025",
-    image: "/images/events/event4.webp",
-    link: "https://oberallgaeu.info/veranstaltungen-im-oberallg%C3%A4u/kunst-und-handwerkermarkt-in-immenstadt-2025"
-  },
-];
-export default function EventPage() {
+// const events: EventExample[] = [
+//   {
+//     id: "1",
+//     titleKey: "event1.title",
+//     descriptionKey: "event2.text",
+//     date: "14.06.2025-17.08.2025",
+//     image: "/images/events/event5.webp",
+//     link: "https://oberallgaeu.info/veranstaltungen-im-oberallg%C3%A4u/1525-bauernkrieg-inszenierung-auf-der-freilichtbuhne-altusried",
+//   },
+//   {
+//     id: "2",
+//     titleKey: "event2.title",
+//     descriptionKey: "event2.text",
+//     date: "19.06.2025-22.06.2025",
+//     image: "/images/events/event3.webp",
+//     link: "https://oberallgaeu.info/veranstaltungen-im-oberallg%C3%A4u/burgfest-in-immenstadt-2025-mit-mittelaltermarkt"
+//   },
+//   {
+//     id: "3",
+//     titleKey: "event3.title",
+//     descriptionKey: "event3.text",
+//     date: "19.06.2025-20.06.2025",
+//     image: "/images/events/event4.webp",
+//     link: "https://oberallgaeu.info/veranstaltungen-im-oberallg%C3%A4u/kunst-und-handwerkermarkt-in-immenstadt-2025"
+//   },
+// ];
+
+
+
+export default async function EventPage() {
+  const events = await loadActiveEvents();
+
   return (
     <main className="flex flex-col gap-6 items-center">
       <HeaderCarousel slides={slides} />

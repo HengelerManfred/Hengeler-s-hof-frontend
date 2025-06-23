@@ -4,6 +4,9 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+const imageHost = process.env.NEXT_IMAGE_HOST || 'localhost';
+const imagePort = process.env.NEXT_IMAGE_PORT || '5154';
+
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -12,6 +15,12 @@ const nextConfig: NextConfig = {
         hostname: "lh3.googleusercontent.com",
         pathname: "/**",
       },
+      {
+        protocol: "http",
+        hostname: imageHost,
+        pathname: "/images/**",
+        port: imagePort
+      }
     ],
   },
   env: {

@@ -28,7 +28,15 @@
     "save": "Speichern",
     "chooseImage": "Bild auswählen",
     "eventText": "Veranstaltungstext",
-    "eventTextPlaceholder": "Hier können Sie den Text für die Veranstaltung eingeben. Er wird auf der Veranstaltungsseite angezeigt auf"
+    "eventTextPlaceholder": "Hier können Sie den Text für die Veranstaltung eingeben. Er wird auf der Veranstaltungsseite angezeigt.",
+    "eventDeleted": "Veranstaltung wurde gelöscht!",
+    "eventDeleteFailed": "Ein Fehler ist aufgetreten, die Veranstaltung konnte nicht gelöscht werden!",
+    "eventsList": "Veranstaltungsliste",
+    "visibilityChanged": "Sichtbarkeit des Clubs wurde geändert",
+    "visibilityChangeFailed": "Die Sichtbarkeit des Clubs konnte nicht geändert werden",
+    "eventSaved": "Veranstaltung wurde gespeichert!",
+    "errorCheckAllLanguages": "Ein Fehler ist aufgetreten, bitte überprüfen Sie, ob alle Sprachen ausgefüllt sind",
+    "eventLink": "Veranstaltungslink"
   },
   "MainMap": {
     "title": "Wie findet man uns?",
@@ -329,10 +337,7 @@
       "oauth": {
         "title": "OAuth2-Anmeldung",
         "text": "Bei der Nutzung von Facebook oder Google-Login erhalten wir nur:",
-        "items": [
-          "Ihre E-Mail-Adresse",
-          "Ihre Plattform-ID"
-        ],
+        "items": ["Ihre E-Mail-Adresse", "Ihre Plattform-ID"],
         "additional": "Weitere Daten werden nicht erhoben.",
         "legal": "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO."
       },

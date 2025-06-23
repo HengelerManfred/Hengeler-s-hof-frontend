@@ -310,10 +310,7 @@
       "oauth": {
         "title": "OAuth2 Login",
         "text": "When using Facebook or Google login, we only receive:",
-        "items": [
-          "Your email address",
-          "Your platform ID"
-        ],
+        "items": ["Your email address", "Your platform ID"],
         "additional": "No additional data is collected.",
         "legal": "Legal basis: Art. 6(1)(b) GDPR."
       },
@@ -383,7 +380,15 @@
     "save": "Save",
     "chooseImage": "Choose Image",
     "eventText": "Event Text",
-    "eventTextPlaceholder": "Enter event text here..."
+    "eventTextPlaceholder": "Enter event text here...",
+    "eventDeleted": "Event has been deleted!",
+    "eventDeleteFailed": "An error occurred, the event could not be deleted!",
+    "eventsList": "Events list",
+    "visibilityChanged": "Club visibility has been changed",
+    "visibilityChangeFailed": "Failed to change club visibility",
+    "eventSaved": "Event has been saved!",
+    "errorCheckAllLanguages": "An error occurred, please check if all languages are filled in",
+    "eventLink": "Event link"
   },
   "Imprint": {
     "title": "Legal Notice",

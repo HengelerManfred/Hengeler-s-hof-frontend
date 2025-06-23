@@ -8,6 +8,7 @@ import {
   Radio,
   ClickAwayListener,
   Button,
+  Popper,
 } from "@mui/material";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
@@ -41,6 +42,9 @@ export default function CreateEventForm({
   const [multidayEndDate, setMultidayEndDate] = useState<Date>();
   const [multidayTime, setMultidayTime] = useState<string>("");
   const [eventLink, setEventLink] = useState<string>("");
+  const [pickerAnchorEl, setPickerAnchorEl] = useState<HTMLElement | null>(
+    null
+  );
   const [pickerOpen, setPickerOpen] = useState<{
     mode: EventType;
     field: "begin" | "end" | "time";
@@ -51,7 +55,16 @@ export default function CreateEventForm({
     en: enUS,
     de: de,
   };
-  
+
+  const handleOpenPicker = (
+    mode: EventType,
+    field: "begin" | "end" | "time",
+    e: React.MouseEvent<Element>
+  ) => {
+    setPickerAnchorEl(e.currentTarget as HTMLElement);
+    setPickerOpen({ mode, field });
+  };
+
   const inputBaseClass =
     "bg-[var(--section-bg)] border border-[var(--section-border)] rounded-lg h-[30px]";
   const disabledStyle = "opacity-50 pointer-events-none select-none";
@@ -215,14 +228,14 @@ export default function CreateEventForm({
       }
 
       if (response) {
-        toast.success("Подію збережено");
-        if(closeDialog) {
+        toast.success(t("eventSaved"));
+        if (closeDialog) {
           closeDialog();
         }
         resetForm();
       }
     } catch {
-      toast.error("Виникла якась помилка, перевірте, чи ви заповнили усі мови");
+      toast.error("errorCheckAllLanguages");
     }
   }
 
@@ -247,7 +260,6 @@ export default function CreateEventForm({
         event ? "w-full" : "w-1/2 border border-[var(--section-border)]"
       )}
     >
-
       <span className="text-[20px] font-medium">{t("createEvent")}</span>
       {closeDialog && (
         <button
@@ -301,6 +313,7 @@ export default function CreateEventForm({
             control={
               <Radio sx={{ "&.Mui-checked": { color: "var(--accent)" } }} />
             }
+            className="!w-fit"
             label={t("multiDay")}
           />
           <div
@@ -319,12 +332,11 @@ export default function CreateEventForm({
                     name="multidayBegin"
                     readOnly
                     className="bg-transparent outline-none h-full flex-grow"
+                    onClick={(e) => handleOpenPicker("multiday", "begin", e)}
                     value={formatDate(multidayBeginDate)}
                   />
                   <CalendarToday
-                    onClick={() =>
-                      setPickerOpen({ mode: "multiday", field: "begin" })
-                    }
+                    onClick={(e) => handleOpenPicker("multiday", "begin", e)}
                     sx={{ cursor: "pointer", ml: 1 }}
                     fontSize="small"
                   />
@@ -341,11 +353,10 @@ export default function CreateEventForm({
                     readOnly
                     className="bg-transparent outline-none h-full flex-grow"
                     value={formatDate(multidayEndDate)}
+                    onClick={(e) => handleOpenPicker("multiday", "end", e)}
                   />
                   <CalendarToday
-                    onClick={() =>
-                      setPickerOpen({ mode: "multiday", field: "end" })
-                    }
+                    onClick={(e) => handleOpenPicker("multiday", "end", e)}
                     sx={{ cursor: "pointer", ml: 1 }}
                     fontSize="small"
                   />
@@ -365,9 +376,7 @@ export default function CreateEventForm({
                   value={multidayTime}
                 />
                 <AccessTimeIcon
-                  onClick={() =>
-                    setPickerOpen({ mode: "multiday", field: "time" })
-                  }
+                  onClick={(e) => handleOpenPicker("multiday", "time", e)}
                   sx={{ cursor: "pointer", ml: 1 }}
                   fontSize="small"
                 />
@@ -380,6 +389,7 @@ export default function CreateEventForm({
             control={
               <Radio sx={{ "&.Mui-checked": { color: "var(--accent)" } }} />
             }
+            className="!w-fit"
             label={t("oneDay")}
           />
           <div
@@ -399,11 +409,10 @@ export default function CreateEventForm({
                     readOnly
                     className="bg-transparent outline-none h-full flex-grow"
                     value={formatDate(onedayBeginDate)}
+                    onClick={(e) => handleOpenPicker("oneday", "begin", e)}
                   />
                   <CalendarToday
-                    onClick={() =>
-                      setPickerOpen({ mode: "oneday", field: "begin" })
-                    }
+                    onClick={(e) => handleOpenPicker("oneday", "begin", e)}
                     sx={{ cursor: "pointer", ml: 1 }}
                     fontSize="small"
                   />
@@ -422,9 +431,7 @@ export default function CreateEventForm({
                     value={onedayTime}
                   />
                   <AccessTimeIcon
-                    onClick={() =>
-                      setPickerOpen({ mode: "oneday", field: "time" })
-                    }
+                    onClick={(e) => handleOpenPicker("oneday", "time", e)}
                     sx={{ cursor: "pointer", ml: 1 }}
                     fontSize="small"
                   />
@@ -436,10 +443,10 @@ export default function CreateEventForm({
       </FormControl>
 
       <div className="flex flex-col gap-2">
-        <label className="text-[16px] font-medium">Посилання на подію</label>
+        <label className="text-[16px] font-medium">{t("eventLink")}</label>
         <input
           className="w-1/2 border border-[var(--section-border)] rounded-lg px-2 h-7"
-          placeholder="Посилання на подію"
+          placeholder={t("eventLink")}
           value={eventLink}
           onChange={(e) => {
             setEventLink(() => e.target.value);
@@ -499,41 +506,48 @@ export default function CreateEventForm({
         {t("save")}
       </Button>
 
-      {pickerOpen && (
-        <ClickAwayListener onClickAway={() => setPickerOpen(null)}>
-          <div className="absolute p-5 bg-[var(--section-bg)] border border-[var(--section-border)] rounded-lg">
-            {pickerOpen.field === "time" ? (
-              <input
-                type="time"
-                autoFocus
-                className="outline-none"
-                value={pickerOpen.mode === "oneday" ? onedayTime : multidayTime}
-                onChange={(e) => {
-                  const val = e.target.value;
-                  if (pickerOpen.mode === "oneday") setOnedayTime(val);
-                  else setMultidayTime(val);
-                }}
-                onBlur={() => setPickerOpen(null)}
-              />
-            ) : (
-              <DayPicker
-                mode="single"
-                locale={localeMap[locale as keyof typeof localeMap]}
-                selected={
-                  pickerOpen.mode === "oneday"
-                    ? pickerOpen.field === "begin"
-                      ? onedayBeginDate
-                      : onedayEndDate
-                    : pickerOpen.field === "begin"
-                    ? multidayBeginDate
-                    : multidayEndDate
-                }
-                onSelect={handleDaySelect}
-              />
-            )}
-          </div>
-        </ClickAwayListener>
-      )}
+      <Popper
+        open={!!pickerOpen}
+        anchorEl={pickerAnchorEl}
+        placement="bottom-start"
+      >
+        {pickerOpen && (
+          <ClickAwayListener onClickAway={() => setPickerOpen(null)}>
+            <div className="p-5 bg-[var(--section-bg)] border border-[var(--section-border)] rounded-lg shadow-lg z-50">
+              {pickerOpen.field === "time" ? (
+                <input
+                  type="time"
+                  autoFocus
+                  value={
+                    pickerOpen.mode === "oneday" ? onedayTime : multidayTime
+                  }
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    if (pickerOpen.mode === "oneday") setOnedayTime(val);
+                    else setMultidayTime(val);
+                  }}
+                  onBlur={() => setPickerOpen(null)}
+                />
+              ) : (
+                <DayPicker
+                  mode="single"
+                  locale={localeMap[locale as keyof typeof localeMap]}
+                  selected={
+                    pickerOpen.mode === "oneday"
+                      ? pickerOpen.field === "begin"
+                        ? onedayBeginDate
+                        : onedayEndDate
+                      : pickerOpen.field === "begin"
+                      ? multidayBeginDate
+                      : multidayEndDate
+                  }
+                  onSelect={handleDaySelect}
+                />
+              )}
+            </div>
+          </ClickAwayListener>
+        )}
+      </Popper>
     </div>
   );
 }

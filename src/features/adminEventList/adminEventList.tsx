@@ -1,6 +1,9 @@
 "use client";
 
-import { changeEventVisibility, deleteEvent } from "@/entities/api/events.service";
+import {
+  changeEventVisibility,
+  deleteEvent,
+} from "@/entities/api/events.service";
 import CreateEventForm from "@/widgets/events/createEventForm";
 import { EventExample } from "@/widgets/events/event";
 import { Delete, Edit, Visibility, VisibilityOff } from "@mui/icons-material";
@@ -17,23 +20,28 @@ export default function AdminEventsList({
 }) {
   const t = useTranslations("");
   const [selectedEvent, setSelectedEvent] = useState<null | EventExample>(null);
-  const handleVisibilityChange = async (id: string, visiblity: boolean) => {
-    await changeEventVisibility(id, visiblity);
+  const handleVisibilityChange = async (id: string, visibility: boolean) => {
+    try {
+      await changeEventVisibility(id, visibility);
+      toast.success(t("AdminEvents.visibilityChanged"));
+    } catch {
+      toast.error(t("AdminEvents.visibilityChangeFailed"));
+    }
   };
 
   const handleDeleteEvent = async (id: string) => {
     try {
       await deleteEvent(id);
-      toast.success("Подія видалена!");
+      toast.success(t("AdminEvents.eventDeleted"));
     } catch {
-      toast.error("Невдалося видалити подію!");
+      toast.error(t("AdminEvents.eventDeleteFailed"));
     }
-  }
+  };
 
   return (
     <div className="flex w-1/2 flex-col bg-[var(--section-bg)] border rounded-lg border-[var(--section-border)] p-5 ">
       <h2 className="w-full text-center text-[24px] inter font-medium text-[var(--primary-text)]">
-        Cписок подій
+        {t("AdminEvents.eventsList")}
       </h2>
       <div className=" flex flex-col gap-2">
         {events.map((event) => (

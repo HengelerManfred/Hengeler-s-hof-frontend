@@ -47,6 +47,7 @@ export function ImagePicker({
   const replaceIndexRef = useRef<number | null>(null);
 
   const update = (newFiles: File[]) => {
+    previews.forEach(url => URL.revokeObjectURL(url));
     setFiles(newFiles);
     onPreviewsChange(newFiles);
     setPreviews(newFiles.map((file) => URL.createObjectURL(file)));

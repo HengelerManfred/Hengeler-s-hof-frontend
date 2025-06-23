@@ -6,7 +6,7 @@ export type Translation = {
   en: string;
 };
 export async function loadTranslations() {
-  const response = await fetch(`http://localhost:5154/api/translations`, {
+  const response = await fetch(`${process.env.URL_TO_PROXY_REQUESTS}api/translations`, {
     cache: "force-cache",
     next: {
       tags: ["translation"],

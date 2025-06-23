@@ -15,6 +15,7 @@
     "contacts": "Contacts",
     "palettes": "Palettes",
     "settings": "Settings",
+    "mainpage": "Main Page",
     "logout": "Logout",
     "DisableBookingTitle": "Disable booking days",
     "DisableBookingText": "Here you can close dates for booking. The specified dates will be unavailable to users. They will also see the reason you provide.",
@@ -373,6 +374,14 @@
       "validFrom": "This privacy policy is valid from June 15, 2024.",
       "changes": "We reserve the right to make changes when necessary."
     }
+  },
+  "AdminSlides": {
+    "createSlide": "Create Slide",
+    "name": "Name",
+    "save": "Save",
+    "chooseImage": "Choose Image",
+    "slideText": "Slide Text",
+    "slideTextPlaceholder": "Enter slide text here..."
   },
   "AdminEvents": {
     "createEvent": "Create Event",

@@ -15,6 +15,7 @@
     "contacts": "Kontakte",
     "palettes": "Paletten",
     "settings": "Einstellungen",
+    "mainpage": "Hauptseite",
     "logout": "Abmelden",
     "DisableBookingTitle": "Buchungstage deaktivieren",
     "DisableBookingText": "Hier können Sie Buchungsdaten sperren. Die angegebenen Daten sind für Nutzer nicht verfügbar. Sie sehen auch den von Ihnen angegebenen Grund.",
@@ -41,6 +42,14 @@
     "eventSaved": "Veranstaltung wurde gespeichert!",
     "errorCheckAllLanguages": "Ein Fehler ist aufgetreten, bitte überprüfen Sie, ob alle Sprachen ausgefüllt sind",
     "eventLink": "Veranstaltungslink"
+  },
+  "AdminSlides": {
+    "createSlide": "Slide erstellen",
+    "name": "Name",
+    "save": "Speichern",
+    "chooseImage": "Bild auswählen",
+    "slideText": "Slide-Text",
+    "slideTextPlaceholder": "Hier können Sie den Text für den Slide eingeben. Er wird auf der Hauptseite angezeigt."
   },
   "MainMap": {
     "title": "Wie findet man uns?",

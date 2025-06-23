@@ -1,12 +1,18 @@
 "use client";
 
-import React, { useState, useRef, useCallback, CSSProperties } from "react";
+import React, {
+  useState,
+  useRef,
+  useCallback,
+  CSSProperties,
+  useEffect,
+} from "react";
 import { useDropzone } from "react-dropzone";
 import CloseIcon from "@mui/icons-material/Close";
 
 type ImagePickerProps = {
-  onPreviewsChange: (previews: string[]) => void;
-  initialPreviews?: string[];
+  onPreviewsChange: (previews: File[]) => void;
+  initialPreviews?: File[];
   maxFiles?: number;
   width?: number | string;
   height?: number | string;
@@ -21,31 +27,46 @@ export function ImagePicker({
   height = 80,
   className = "",
 }: ImagePickerProps) {
-  const [previews, setPreviews] = useState<string[]>(initialPreviews);
+  const [files, setFiles] = useState<File[]>(initialPreviews);
+  const [previews, setPreviews] = useState<string[]>([]);
+
+  useEffect(() => {
+    const objectUrls = files.map((file) => URL.createObjectURL(file));
+    setPreviews(objectUrls);
+
+    return () => {
+      objectUrls.forEach((url) => URL.revokeObjectURL(url));
+    };
+  }, [files]);
+
+  useEffect(() => {
+    setFiles(initialPreviews);
+  }, [initialPreviews]);
+
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const replaceIndexRef = useRef<number | null>(null);
 
-  const updatePreviews = (newPreviews: string[]) => {
-    setPreviews(newPreviews);
-    onPreviewsChange(newPreviews);
+  const update = (newFiles: File[]) => {
+    setFiles(newFiles);
+    onPreviewsChange(newFiles);
+    setPreviews(newFiles.map((file) => URL.createObjectURL(file)));
   };
 
   const onDrop = useCallback(
     (accepted: File[]) => {
       if (!accepted.length) return;
-      const newUrls = accepted.map((file) => URL.createObjectURL(file));
 
       if (replaceIndexRef.current !== null) {
-        const updated = [...previews];
-        updated[replaceIndexRef.current] = newUrls[0];
-        updatePreviews(updated);
+        const newList = [...files];
+        newList[replaceIndexRef.current] = accepted[0];
+        update(newList);
         replaceIndexRef.current = null;
       } else {
-        const combined = [...previews, ...newUrls].slice(0, maxFiles);
-        updatePreviews(combined);
+        const combined = [...files, ...accepted].slice(0, maxFiles);
+        update(combined);
       }
     },
-    [previews, maxFiles]
+    [files, maxFiles]
   );
 
   const { getRootProps, getInputProps, open } = useDropzone({
@@ -62,8 +83,8 @@ export function ImagePicker({
   };
 
   const removeImage = (index: number) => {
-    const updated = previews.filter((_, i) => i !== index);
-    updatePreviews(updated);
+    const updated = files.filter((_, i) => i !== index);
+    update(updated);
   };
 
   const boxStyle: CSSProperties = {
@@ -82,18 +103,30 @@ export function ImagePicker({
   };
 
   return (
-    <div className={`flex flex-wrap gap-3 items-center ${className}`} {...getRootProps()}>
-      {previews.length < maxFiles && (
+    <div
+      className={`flex flex-wrap gap-3 items-center ${className}`}
+      {...getRootProps()}
+    >
+      {files.length < maxFiles && (
         <div style={boxStyle} onClick={open}>
           <input {...getInputProps()} />
-          <span style={{ fontSize: 24, color: "var(--section-border)", userSelect: "none" }}>
+          <span
+            style={{
+              fontSize: 24,
+              color: "var(--section-border)",
+              userSelect: "none",
+            }}
+          >
             +
           </span>
         </div>
       )}
 
       {previews.map((src, idx) => (
-        <div key={idx} style={{ ...boxStyle, border: "1px solid var(--section-border)" }}>
+        <div
+          key={idx}
+          style={{ ...boxStyle, border: "1px solid var(--section-border)" }}
+        >
           <img
             src={src}
             alt={`preview-${idx}`}
@@ -126,7 +159,7 @@ export function ImagePicker({
         onChange={(e) => {
           if (!e.target.files?.length) return;
           onDrop([e.target.files[0]]);
-          e.target.value = ""; // Сброс
+          e.target.value = "";
         }}
       />
     </div>

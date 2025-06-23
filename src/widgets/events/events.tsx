@@ -6,7 +6,8 @@ import { EventExample } from "../events/event";
 import clsx from "clsx";
 
 export async function Events({ events }: { events: EventExample[] }) {
-  const t = await getTranslations("Event");
+  const t = await getTranslations("");
+  const tEvents = await getTranslations("Event");
 
   return (
     <>
@@ -21,7 +22,10 @@ export async function Events({ events }: { events: EventExample[] }) {
           <div className="w-full xl:w-2/3 min-h-[250px] [@media(width<640px)]:h-[300px] [@media(width<1280px)]:h-[600px] relative">
             <Image
               alt="Event image"
-              src={event.image}
+              src={
+                process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) +
+                event.imageUrl
+              }
               fill
               className="object-cover"
             />
@@ -36,7 +40,15 @@ export async function Events({ events }: { events: EventExample[] }) {
             </span>
             <div className="flex items-center gap-2">
               <CalendarMonth className="text-[var(--secondary-text)]" />
-              <span className="text-[var(--secondary-text)]">{event.date}</span>
+              <span className="text-[var(--secondary-text)]">
+                {event.oneDayEvent
+                  ? event?.startDate + " " + event?.startTime.slice(0, 5)
+                  : event?.startDate +
+                    " — " +
+                    event?.endDate +
+                    " " +
+                    event?.startTime.slice(0, 5) }
+              </span>
             </div>
             {event.link && (
               <a
@@ -47,7 +59,7 @@ export async function Events({ events }: { events: EventExample[] }) {
               >
                 <Button variant="default" className="w-full gap-2">
                   <ReadMore className="text-[var(--main-bg)]" />
-                  <span className="text-nowrap">{t("view")}</span>
+                  <span className="text-nowrap">{tEvents("view")}</span>
                 </Button>
               </a>
             )}

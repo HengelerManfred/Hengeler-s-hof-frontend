@@ -98,12 +98,12 @@ body {
   .gradient-signature {
     background: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.3) 0%,
-      rgba(0, 0, 0, 0.35) 25%,
-      rgba(0, 0, 0, 0.4) 30%,
-      rgba(0, 0, 0, 0.5) 50%,
-      rgba(0, 0, 0, 0.4) 65%,
-      rgba(0, 0, 0, 0.3) 80%,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.15) 25%,
+      rgba(0, 0, 0, 0.2) 30%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.3) 65%,
+      rgba(0, 0, 0, 0.2) 80%,
       transparent 100%
     );
   }
@@ -112,9 +112,12 @@ body {
 .gradient-signature {
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.5) 40%,
-    rgba(0, 0, 0, 0.5) 60%,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.15) 30%,
+    rgba(0, 0, 0, 0.3) 38%,
+    rgba(0, 0, 0, 0.15) 50%,
+    rgba(0, 0, 0, 0.35) 60%,
+    rgba(0, 0, 0, 0.35) 85%,
     rgba(0, 0, 0, 0.2) 100%
   );
 }
@@ -122,8 +125,10 @@ body {
 .gradient-no-signature {
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.15) 30%,
+    rgba(0, 0, 0, 0.3) 40%,
+    rgba(0, 0, 0, 0.3) 55%,
     transparent 100%
   );
 }

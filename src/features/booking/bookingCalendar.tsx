@@ -4,27 +4,35 @@ import { useState } from "react";
 import Popover from "@mui/material/Popover";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import { loadStripe } from '@stripe/stripe-js';
+import { loadStripe } from "@stripe/stripe-js";
 
 import { uk, enUS, de } from "react-day-picker/locale";
 import { useLocale, useTranslations } from "next-intl";
 import { CustomDayButton } from "./customDayButton";
 import type { ReasonMap } from "./types";
 import { useBookingStore } from "@/shared/store/bookingStore";
-import { BookingStatus } from "@/widgets/booking/model/bookingApi";
+import {
+  BookedHint,
+  BookingStatus,
+  deleteBooking,
+} from "@/widgets/booking/model/bookingApi";
 import { useSession } from "next-auth/react";
 import Button from "@mui/material/Button";
-import EuroSymbolIcon from '@mui/icons-material/EuroSymbol';
+import EuroSymbolIcon from "@mui/icons-material/EuroSymbol";
+import { useRouter } from "next/navigation";
 
 export function BookingCalendar({
   blockedDatesWithReason = {},
+  adminMode,
 }: {
   blockedDatesWithReason?: ReasonMap;
+  adminMode?: boolean;
 }) {
   const clonedDatesWithReason = structuredClone(blockedDatesWithReason);
   const { range, setRange } = useBookingStore();
   const blockedDatesKeys = Object.keys(blockedDatesWithReason);
   const session = useSession();
+  const router = useRouter();
   const t = useTranslations("BookingCalendar");
   const myPendingDates = blockedDatesKeys
     .filter((d) => {
@@ -62,6 +70,10 @@ export function BookingCalendar({
     )
     .map((d) => new Date(d));
 
+  const blockedByAdmin = blockedDatesKeys
+    .filter((d) => clonedDatesWithReason[d].status === BookingStatus.CLOSED)
+    .map((d) => new Date(d));
+
   const locale = useLocale();
   const localeMap = {
     uk: uk,
@@ -73,14 +85,14 @@ export function BookingCalendar({
     .filter((d) => clonedDatesWithReason[d].isFirst)
     .map((d) => new Date(d));
   const blockedEndDates = blockedDatesKeys
-    .filter((d) => clonedDatesWithReason[d].isLast) 
+    .filter((d) => clonedDatesWithReason[d].isLast)
     .map((d) => new Date(d));
 
   const [popoverData, setPopoverData] = useState<{
     top: number;
     left: number;
     content: string;
-    status?: BookingStatus;
+    booking?: BookedHint;
     stripeId?: string;
   } | null>(null);
   const [isPopoverOpen, setPopoverOpen] = useState(false);
@@ -92,26 +104,40 @@ export function BookingCalendar({
   const handleBlockedDateClick = ({
     event,
     content,
-    status,
+    booking,
     stripeId,
   }: {
     event: React.MouseEvent<HTMLButtonElement>;
     content: string;
-    status?: BookingStatus;
+    booking?: BookedHint;
     stripeId?: string;
   }) => {
     setPopoverData({
       top: event.clientY,
       left: event.clientX,
       content,
-      status,
+      booking,
       stripeId,
     });
     setPopoverOpen(true);
   };
 
+  const handleDeleteBooking = async (bookingId: string | undefined) => {
+    if (bookingId) {
+      try {
+        await deleteBooking(bookingId);
+        const url = new URL(window.location.href);
+        url.searchParams.set("_", Date.now().toString());
+        router.push(url.toString());
+        setPopoverOpen(false);
+      } catch {}
+    }
+  };
+
   const redirectToStripe = async (stripeId?: string) => {
-    const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? "");
+    const stripe = await loadStripe(
+      process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY ?? ""
+    );
     if (stripe) {
       await stripe.redirectToCheckout({ sessionId: stripeId ?? "" });
     }
@@ -125,7 +151,14 @@ export function BookingCalendar({
         selected={range}
         onSelect={setRange}
         numberOfMonths={2}
-        disabled={[...blockedDates, ...myBookedDates, ...myPendingDates, ...otherPendingDates,  { before: new Date() }]}
+        disabled={[
+          ...blockedDates,
+          ...myBookedDates,
+          ...myPendingDates,
+          ...otherPendingDates,
+          ...blockedByAdmin,
+          { before: new Date() },
+        ]}
         excludeDisabled
         modifiers={{
           blocked: blockedDates,
@@ -134,6 +167,7 @@ export function BookingCalendar({
           blockedStart: blockedStartDates,
           blockedEnd: blockedEndDates,
           myBooked: myBookedDates,
+          blockedByAdmin: blockedByAdmin,
         }}
         modifiersClassNames={{
           blocked: "!bg-red-200",
@@ -143,6 +177,7 @@ export function BookingCalendar({
           blockedStart: "rounded-l-full",
           blockedEnd: "rounded-r-full",
           myBooked: "!bg-green-200",
+          blockedByAdmin: "!bg-purple-200",
         }}
         components={{
           DayButton: (props) => {
@@ -154,13 +189,12 @@ export function BookingCalendar({
               .split("T")[0];
 
             const reason = clonedDatesWithReason[dateKey];
-            const status = reason?.status;
             const stripeId = reason?.stripeId;
 
             return (
               <CustomDayButton
                 {...props}
-                status={status}
+                booking={reason}
                 onBlockedDateClick={handleBlockedDateClick}
                 stripeId={stripeId}
               />
@@ -197,8 +231,35 @@ export function BookingCalendar({
             <CloseIcon />
           </IconButton>
           {popoverData?.content}
-          {popoverData?.status === BookingStatus.MY_PENDING && (
-            <Button variant="default" onClick={() => redirectToStripe(popoverData.stripeId)} className="flex items-center gap-2"><EuroSymbolIcon />   {t("returnToPay")}</Button>
+          {popoverData?.booking?.status === BookingStatus.MY_PENDING && (
+            <Button
+              variant="default"
+              onClick={() => redirectToStripe(popoverData.stripeId)}
+              className="flex items-center gap-2"
+            >
+              <EuroSymbolIcon /> {t("returnToPay")}
+            </Button>
+          )}
+          {adminMode && popoverData?.booking?.bookingId && (
+            <>
+              <div className="flex flex-col items-start inter text-[14px] text-[var(--primary-text)]">
+                <p>{popoverData.booking.roomId}</p>
+                <p>{popoverData.booking.userName}</p>
+                <p>{popoverData.booking.userEmail}</p>
+                <p>{popoverData.booking?.userPhone}</p>
+                {popoverData.booking.moreThanTwoPets && (
+                  <p> Більше двох тварин</p>
+                )}
+              </div>
+              <Button
+                onClick={() => {
+                  handleDeleteBooking(popoverData?.booking?.bookingId);
+                }}
+                variant="default"
+              >
+                {t("cancelBooking")}
+              </Button>
+            </>
           )}
         </div>
       </Popover>

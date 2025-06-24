@@ -15,7 +15,11 @@
     "contacts": "Kontakte",
     "palettes": "Paletten",
     "settings": "Einstellungen",
-    "logout": "Abmelden"
+    "logout": "Abmelden",
+    "DisableBookingTitle": "Buchungstage deaktivieren",
+    "DisableBookingText": "Hier können Sie Buchungsdaten sperren. Die angegebenen Daten sind für Nutzer nicht verfügbar. Sie sehen auch den von Ihnen angegebenen Grund.",
+    "DisableDates": "Daten, für die die Buchung deaktiviert wird",
+    "DisableDatesButton": "Ausgewählte Daten deaktivieren"
   },
   "AdminEvents": {
     "createEvent": "Veranstaltung erstellen",
@@ -229,13 +233,14 @@
     "parking": "Kostenloser Parkplatz",
     "noSmoking": "Rauchen verboten",
     "view": "Fensterausblick",
-    "crib": "Kinderbett auf Anfrage"
+    "crib": "Kinderbett auf Anfrage",
+    "cancelBooking": "Buchung stornieren"
   },
   "BookingCalendar": {
     "pastDateMessage": "Dieses Datum ist bereits vergangen",
     "Pending": "Wartet auf die Zahlung eines anderen Nutzers, diese Daten könnten noch freigegeben werden",
     "Booked": "Dieses Datum ist bereits gebucht",
-    "Closed": "Vom Administrator für Buchungen gesperrt",
+    "ClosedByAdmin": "Vom Administrator für Buchungen gesperrt",
     "DisabledByAdmin": "Vom Administrator deaktiviert",
     "MyPending": "Sie haben begonnen, diese Daten zu buchen, aber noch nicht bezahlt",
     "MyBooked": "Sie haben diese Daten bereits gebucht",
@@ -424,5 +429,18 @@
     "email": "E-Mail",
     "save": "Speichern",
     "socialMedia": "Soziale Netzwerke"
+  },
+  "RoomSettings": {
+    "Settings": "Zimmereinstellungen für Zimmer ",
+    "startTime": "Check-in Zeit",
+    "time": "Check-out Zeit",
+    "name": "Zimmername",
+    "pricerPerDay": "Preis pro Tag (EUR)",
+    "additionalPricePerDay": "Zusätzlicher Preis pro Tag (EUR, für <7 Tage)",
+    "description": "Zimmerbeschreibung",
+    "SaveChanges": "Änderungen speichern",
+    "required": "Dieses Feld ist erforderlich.",
+    "onlyIntegers": "Nur positive ganze Zahlen erlaubt.",
+    "shouldBeMoreThan0": "Der Wert muss größer als 0 sein."
   }
 }

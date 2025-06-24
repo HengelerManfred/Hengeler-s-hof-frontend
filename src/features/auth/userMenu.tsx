@@ -59,7 +59,7 @@ export function UserMenu({
           <Link key={3} href="/admin/pallets">
             <MenuItem>{t("palettes")}</MenuItem>
           </Link>,
-          <Link key={4} href="/admin/settings">
+          <Link key={4} href="/admin/settings/room1">
             <MenuItem>{t("settings")}</MenuItem>
           </Link>,
         ]}

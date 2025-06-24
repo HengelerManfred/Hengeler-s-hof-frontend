@@ -9,7 +9,7 @@ import {
 
 export async function Booking({ room }: { room: Room }) {
 
-    const bookings = await loadBookings();
+  const bookings = await loadBookings();
 
   const blockedDates = generateBlockedDatesMap(bookings, room.id);
 

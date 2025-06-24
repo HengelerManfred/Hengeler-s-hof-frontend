@@ -1,32 +1,32 @@
 "use client";
 import { DayButton } from "react-day-picker";
 import { useTranslations } from "next-intl";
-import { BookingStatus } from "@/widgets/booking/model/bookingApi";
+import { BookedHint } from "@/widgets/booking/model/bookingApi";
 
 type CustomDayButtonProps = React.ComponentProps<typeof DayButton> & {
-  status?: BookingStatus;
+  booking?: BookedHint;
   stripeId?: string;
   onBlockedDateClick: (data: {
     event: React.MouseEvent<HTMLButtonElement>;
     content: string;
     stripeId?: string;
-    status?: BookingStatus;
+    booking?: BookedHint;
   }) => void;
 };
 
 export function CustomDayButton({
-  status,
+  booking,
   onBlockedDateClick,
   stripeId,
   ...props
 }: CustomDayButtonProps) {
   const t = useTranslations("BookingCalendar");
 
-  if (!status && !props.modifiers.disabled) {
+  if (!booking?.status && !props.modifiers.disabled) {
     return <DayButton {...props} />;
   }
 
-  const contentKey = status || "pastDateMessage";
+  const contentKey = booking?.status || "pastDateMessage";
   const content = t(contentKey);
 
   return (
@@ -38,7 +38,7 @@ export function CustomDayButton({
           event: e,
           content,
           stripeId,
-          status
+          booking
         })
       }
     />

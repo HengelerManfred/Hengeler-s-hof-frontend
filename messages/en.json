@@ -15,7 +15,11 @@
     "contacts": "Contacts",
     "palettes": "Palettes",
     "settings": "Settings",
-    "logout": "Logout"
+    "logout": "Logout",
+    "DisableBookingTitle": "Disable booking days",
+    "DisableBookingText": "Here you can close dates for booking. The specified dates will be unavailable to users. They will also see the reason you provide.",
+    "DisableDates": "Dates for which booking will be disabled",
+    "DisableDatesButton": "Disable selected dates"
   },
   "NavBar": {
     "booking": "Booking",
@@ -214,11 +218,12 @@
     "pastDateMessage": "This date has already passed",
     "Pending": "Awaiting payment from another user, these dates might still become available",
     "Booked": "This date is already booked",
-    "Closed": "Closed for booking by administrator",
+    "ClosedByAdmin": "Closed for booking by administrator",
     "DisabledByAdmin": "Disabled by admin",
-    "MyPending": "You started booking these dates but haven’t paid yet",
+    "MyPending": "You started booking these dates but haven't paid yet",
     "MyBooked": "You have already booked these dates",
-    "returnToPay": "Return to payment"
+    "returnToPay": "Return to payment",
+    "cancelBooking": "Cancel booking"
   },
   "BookingForm": {
     "title": "Booking schedule",
@@ -424,5 +429,18 @@
     "orderConfirmation": "Your order has been successfully placed. The booking confirmation and payment receipt have been sent to your email.",
     "spamNote": "If you haven't received the email, please check your Spam folder or contact us for a resend.",
     "thankYou": "Thank you for choosing our service!"
+  },
+  "RoomSettings": {
+    "Settings": "Room settings for room ",
+    "startTime": "Check-in time",
+    "time": "Check-out time",
+    "name": "Room name",
+    "pricerPerDay": "Price per day (EUR)",
+    "additionalPricePerDay": "Additional price per day (EUR, for <7 days)",
+    "description": "Room description",
+    "SaveChanges": "Save changes",
+    "required": "This field is required.",
+    "onlyIntegers": "Only positive integers are allowed.",
+    "shouldBeMoreThan0": "Value must be greater than 0."
   }
 }

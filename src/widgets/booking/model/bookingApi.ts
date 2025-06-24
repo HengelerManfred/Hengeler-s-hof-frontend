@@ -7,21 +7,23 @@ export enum BookingStatus {
   BOOKED = "Booked",
   MY_PENDING = "MyPending",
   MY_BOOKED = "MyBooked",
-  CLOSED = "Closed",
+  CLOSED = "ClosedByAdmin",
 }
 
 export type BookedDate = {
+  id: string;
   roomId: string;
   userId: string;
-  userEmail: string;
+  customerEmail: string;
   price: number;
   numberOfDays: number;
   startDate: Date;
   endDate: Date;
-  moreThanTwoPats: boolean;
+  moreThanTwoPets: boolean;
   wholeHouse: boolean;
   status: BookingStatus;
-  userName: string;
+  customerName: string;
+  customerPhone?: string;
   bookingId: string;
   stripeId: string;
 };
@@ -30,15 +32,24 @@ export type BookedHint = {
   status: BookingStatus;
   userEmail: string;
   roomId: string;
-  moreThanTwoPats: boolean;
+  moreThanTwoPets: boolean;
   numberOfDays: number;
   userName: string;
   bookingId: string;
   isFirst?: boolean;
+  userPhone?: string;
   isLast?: boolean;
   isEffectiveFirst?: boolean;
   stripeId: string;
   userId: string;
+};
+
+export type CreteBookByAdmin = {
+  roomId: string;
+  userId: string;
+  startDate: string;
+  endDate: string;
+  wholeHouse: boolean;
 };
 
 export const loadBookings = async (): Promise<BookedDate[]> => {
@@ -46,17 +57,24 @@ export const loadBookings = async (): Promise<BookedDate[]> => {
   return bookings;
 };
 
+export const deleteBooking = async (id: string): Promise<void> => {
+  await http<void>(`Booking?id=${id}`, { method: "DELETE" });
+};
+
+export const bookByAdmin = async (
+  createBookByAdmin: CreteBookByAdmin
+): Promise<void> => {
+  await http<void>("Booking/book-by-admin", {
+    method: "POST",
+    body: JSON.stringify(createBookByAdmin),
+  });
+};
+
 export const generateBlockedDatesMap = (
   allBookings: BookedDate[],
   currentRoomId: string
-): Record<
-  string,
-  BookedHint
-> => {
-  const blockedDatesMap: Record<
-    string,
-    BookedHint
-  > = {};
+): Record<string, BookedHint> => {
+  const blockedDatesMap: Record<string, BookedHint> = {};
 
   const roomIds = Array.from(roomsData.keys()).filter((id) => id !== "house");
 
@@ -105,13 +123,14 @@ export const generateBlockedDatesMap = (
 
       blockedDatesMap[key] = {
         status: booking.status,
-        userEmail: booking.userEmail,
+        userEmail: booking.customerEmail,
         roomId: booking.roomId,
-        moreThanTwoPats: booking.moreThanTwoPats,
+        moreThanTwoPets: booking.moreThanTwoPets,
         numberOfDays: booking.numberOfDays,
-        userName: booking.userName,
-        bookingId: booking.bookingId,
+        userName: booking.customerName,
+        bookingId: booking.id,
         stripeId: booking.stripeId,
+        userPhone: booking.customerPhone,
         userId: booking.userId,
         isFirst,
         isLast,

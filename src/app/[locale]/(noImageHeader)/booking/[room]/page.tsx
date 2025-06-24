@@ -16,7 +16,7 @@ export default async function RoomPage({
   const roomData = getRoomData(room);
   const contacts = await loadContacts();
   if (!roomData) {
-    notFound();
+    return notFound();
   }
   return (
     <main className="w-[100dvw] flex flex-col pb-20 [@media(width>1424px)]:h-[1550px] 2xl:h-[1700px] xl:h-[1800px]  [@media(width>2000px)]:h-[1400px] items-center gap-[24px]">

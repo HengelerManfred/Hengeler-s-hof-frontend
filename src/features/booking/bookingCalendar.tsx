@@ -1,6 +1,6 @@
 "use client";
 import { DayPicker } from "react-day-picker";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Popover from "@mui/material/Popover";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
@@ -11,12 +11,20 @@ import { groupConsecutiveDates } from "./utils/dateUtils";
 import { CustomDayButton } from "./customDayButton";
 import type { ReasonMap } from "./types";
 import { useBookingStore } from "@/shared/store/bookingStore";
+import { useScrollRefStore } from "@/shared/store/scrollRefStore";
 
 export function BookingCalendar({
   blockedDatesWithReason = {},
 }: {
   blockedDatesWithReason?: ReasonMap;
 }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const { setWrapperRef } = useScrollRefStore();
+  useEffect(() => {
+    if (scrollRef.current) {
+      setWrapperRef(scrollRef);
+    }
+  }, []);
   const { range, setRange } = useBookingStore();
   const blockedDates = Object.keys(blockedDatesWithReason).map(
     (d) => new Date(d)
@@ -63,7 +71,7 @@ export function BookingCalendar({
   };
 
   return (
-    <div className="relative p-5 bg-[var(--section-bg)] border border-[var(--section-border)] rounded-lg">
+    <div ref={scrollRef} className="relative p-5 bg-[var(--section-bg)] border border-[var(--section-border)] rounded-lg">
       <DayPicker
         locale={localeMap[locale as keyof typeof localeMap]}
         mode="range"

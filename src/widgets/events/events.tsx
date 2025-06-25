@@ -1,16 +1,25 @@
+"use client";
 import { CalendarMonth, ReadMore } from "@mui/icons-material";
 import Button from "@mui/material/Button";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { EventExample } from "../events/event";
 import clsx from "clsx";
-
-export async function Events({ events }: { events: EventExample[] }) {
-    const t = await getTranslations("Event");
-
+import { useEffect, useRef } from "react";
+import { useScrollRefStore } from "@/shared/store/scrollRefStore";
+export function Events({ events }: { events: EventExample[] }) {
+    const t = useTranslations("Event");
+    const scrollRef = useRef<HTMLDivElement>(null);
+    const { setWrapperRef } = useScrollRefStore();
+    useEffect(() => {
+        if (scrollRef.current) {
+            setWrapperRef(scrollRef);
+        }
+    }, []);
     return (<>
         {events.map((event, index) => (
             <div
+                ref={index ? null : scrollRef}
                 key={event.id}
                 className={clsx(
                     "flex flex-col xl:flex-row bg-[var(--section-bg)] h-full border rounded-xl border-[var(--section-border)] overflow-hidden",

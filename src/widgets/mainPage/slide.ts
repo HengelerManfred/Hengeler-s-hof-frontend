@@ -1,7 +1,8 @@
 export type Slide = {
   id: string,
   titleKey: string,
-  textKey?: string,
-  image: string,
+  descriptionKey?: string,
+  price?: string,
+  imageUrl: string,
   scrollArrows?: boolean
 }

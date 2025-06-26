@@ -15,7 +15,7 @@
     "contacts": "Kontakte",
     "palettes": "Paletten",
     "settings": "Einstellungen",
-    "mainpage": "Hauptseite",
+    "slides": "Slides",
     "logout": "Abmelden",
     "DisableBookingTitle": "Buchungstage deaktivieren",
     "DisableBookingText": "Hier können Sie Buchungsdaten sperren. Die angegebenen Daten sind für Nutzer nicht verfügbar. Sie sehen auch den von Ihnen angegebenen Grund.",
@@ -49,7 +49,12 @@
     "save": "Speichern",
     "chooseImage": "Bild auswählen",
     "slideText": "Slide-Text",
-    "slideTextPlaceholder": "Hier können Sie den Text für den Slide eingeben. Er wird auf der Hauptseite angezeigt."
+    "slideTextPlaceholder": "Hier können Sie den Text für den Slide eingeben. Er wird auf der Hauptseite angezeigt.",
+    "slides": "Slides",
+    "slideTitle": "Foliensatz-Titel",
+    "price": "Preis (kann für bestimmte Folien erforderlich sein)",
+    "slideSaved": "Folie gespeichert",
+    "errorSavingSlide": "Fehler beim Speichern der Folie. Bitte überprüfen Sie, ob alle Sprachen ausgefüllt sind"
   },
   "MainMap": {
     "title": "Wie findet man uns?",
@@ -450,6 +455,10 @@
     "SaveChanges": "Änderungen speichern",
     "required": "Dieses Feld ist erforderlich.",
     "onlyIntegers": "Nur positive ganze Zahlen erlaubt.",
-    "shouldBeMoreThan0": "Der Wert muss größer als 0 sein."
-  }
+    "shouldBeMoreThan0": "Der Wert muss größer als 0 sein.",
+    "selectSlide": "Dia auswählen",
+    "guestQuantity": "Anzahl der Gäste",
+    "size": "Zimmergröße"
+  },
+  "slideWithPrice": "Dia mit Preis"
 }

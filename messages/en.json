@@ -15,7 +15,7 @@
     "contacts": "Contacts",
     "palettes": "Palettes",
     "settings": "Settings",
-    "mainpage": "Main Page",
+    "slides": "Slides",
     "logout": "Logout",
     "DisableBookingTitle": "Disable booking days",
     "DisableBookingText": "Here you can close dates for booking. The specified dates will be unavailable to users. They will also see the reason you provide.",
@@ -381,7 +381,12 @@
     "save": "Save",
     "chooseImage": "Choose Image",
     "slideText": "Slide Text",
-    "slideTextPlaceholder": "Enter slide text here..."
+    "slideTextPlaceholder": "Enter slide text here...",
+    "slides": "Slides",
+    "slideTitle": "Slide title",
+    "price": "Price (may be required for certain slides)",
+    "slideSaved": "Slide saved",
+    "errorSavingSlide": "Error saving slide. Please check if all languages are filled in"
   },
   "AdminEvents": {
     "createEvent": "Create Event",
@@ -450,6 +455,10 @@
     "SaveChanges": "Save changes",
     "required": "This field is required.",
     "onlyIntegers": "Only positive integers are allowed.",
-    "shouldBeMoreThan0": "Value must be greater than 0."
-  }
+    "shouldBeMoreThan0": "Value must be greater than 0.",
+    "selectSlide": "Select slide",
+    "guestQuantity": "Number of guests",
+    "size": "Room size"
+  },
+  "slideWithPrice": "Slide with price"
 }

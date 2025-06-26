@@ -1,5 +1,6 @@
 
-import { loadSlides } from "@/entities/api/slide.service";import { CreateSlide} from "@/widgets/settings/createSlide";
+import { loadSlides } from "@/entities/api/slide.service";
+import { CreateSlide} from "@/widgets/settings/createSlide";
 import { SlideList } from "@/widgets/settings/slideList";
 // const slides = [
 //     {

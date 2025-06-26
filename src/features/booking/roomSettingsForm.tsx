@@ -120,16 +120,12 @@ export default function RoomSettingsForm({
       newErrors.pricePerDay = t("required");
     } else if (!isInteger(pricePerDay)) {
       newErrors.pricePerDay = t("onlyIntegers");
-    } else if (Number.parseInt(pricePerDay) <= 0) {
-      newErrors.pricePerDay = t("shouldBeMoreThan0");
     }
 
     if (!additionalPricePerDay) {
       newErrors.additionalPricePerDay = t("required");
     } else if (!isInteger(additionalPricePerDay)) {
       newErrors.additionalPricePerDay = t("onlyIntegers");
-    } else if (Number.parseInt(pricePerDay) <= 0) {
-      newErrors.additionalPricePerDay = t("shouldBeMoreThan0");
     }
 
     setErrors(newErrors);

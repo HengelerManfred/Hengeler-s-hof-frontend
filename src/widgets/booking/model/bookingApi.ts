@@ -44,7 +44,7 @@ export type BookedHint = {
   userId: string;
 };
 
-export type CreteBookByAdmin = {
+export type CreateBookByAdmin = {
   roomId: string;
   userId: string;
   startDate: string;
@@ -62,7 +62,7 @@ export const deleteBooking = async (id: string): Promise<void> => {
 };
 
 export const bookByAdmin = async (
-  createBookByAdmin: CreteBookByAdmin
+  createBookByAdmin: CreateBookByAdmin
 ): Promise<void> => {
   await http<void>("Booking/book-by-admin", {
     method: "POST",

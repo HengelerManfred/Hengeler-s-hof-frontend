@@ -28,21 +28,21 @@ export default function RoomLayout({
   ];
   const mobileNavItems = [
     {
-      href: "/settings/room1",
+      href: "/admin/settings/room1",
       label: t("room1"),
       icon: <HotelIcon />,
     },
     {
-      href: "/settings/room2",
+      href: "/admin/settings/room2",
       label: t("room2"),
       icon: <SingleBedIcon />,
     },
     {
-      href: "/settings/room3",
+      href: "/admin/settings/room3",
       label: t("room3"),
       icon: <KingBedIcon />,
     },
-    { href: "/settings/house", label: t("house"), icon: <HomeIcon /> },
+    { href: "/admin/settings/house", label: t("house"), icon: <HomeIcon /> },
   ];
 
   useEffect(() => {

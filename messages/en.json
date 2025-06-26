@@ -11,7 +11,7 @@
   },
   "AdminSettings": {
     "adminPanel": "Admin Panel",
-    "events": "Events",
+    "events": "Events settings",
     "contacts": "Contacts",
     "palettes": "Palettes",
     "settings": "Settings",
@@ -238,7 +238,7 @@
     "numberOfDays": "Number of nights: {count}",
     "minStay": "Minimum stay: {count} nights",
     "priceForPeriod": "Price for the period: {price}€",
-    "additionalPrice": "When booking for less than 7 days, an additional charge per night applies: {price}€",
+    "additionalPrice": "When booking for less than 7 nights, an additional charge per night applies: {price}€",
     "withPet": "I will come with more than one pet",
     "bookNow": "Book Now",
     "loading": "Loading...",

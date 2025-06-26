@@ -10,36 +10,40 @@ import { useEffect, useRef } from "react";
 import { useScrollRefStore } from "@/shared/store/scrollRefStore";
 
 export function Events({ events }: { events: EventExample[] }) {
-    const tEvents = useTranslations("Event");
-    const t = useTranslations("");
-    const scrollRef = useRef<HTMLDivElement>(null);
-    const { setWrapperRef } = useScrollRefStore();
-    useEffect(() => {
-        if (scrollRef.current) {
-            setWrapperRef(scrollRef);
-        }
-    }, []);
-    return (<>
-        {events.map((event, index) => (
-            <div
-                ref={index ? null : scrollRef}
-                key={event.id}
-                className={clsx(
-                  "flex flex-col xl:flex-row bg-[var(--section-bg)] min-h-auto xl:min-h-[400px] h-full border rounded-xl border-[var(--section-border)] overflow-hidden",
-                  index % 2 && "xl:flex-row-reverse"
-                )}
-              >
-                <div className="w-full xl:w-2/3 min-h-[250px] [@media(width<640px)]:h-[300px] [@media(width<1280px)]:h-[600px] relative">
-                  <Image
-                    alt="Event image"
-                    src={
-                      process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) +
-                      event.imageUrl
-                    }
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+  const tEvents = useTranslations("Event");
+  const t = useTranslations("");
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const { setWrapperRef } = useScrollRefStore();
+  useEffect(() => {
+    if (scrollRef.current) {
+      setWrapperRef(scrollRef);
+    }
+    return () => {
+      setWrapperRef(null);
+    };
+  }, [setWrapperRef]);
+  return (
+    <>
+      {events.map((event, index) => (
+        <div
+          ref={index ? null : scrollRef}
+          key={event.id}
+          className={clsx(
+            "flex flex-col xl:flex-row bg-[var(--section-bg)] min-h-auto xl:min-h-[400px] h-full border rounded-xl border-[var(--section-border)] overflow-hidden",
+            index % 2 && "xl:flex-row-reverse"
+          )}
+        >
+          <div className="w-full xl:w-2/3 min-h-[250px] [@media(width<640px)]:h-[300px] [@media(width<1280px)]:h-[600px] relative">
+            <Image
+              alt="Event image"
+              src={
+                process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) +
+                event.imageUrl
+              }
+              fill
+              className="object-cover"
+            />
+          </div>
 
           <div className="w-full xl:w-1/3 flex flex-col justify-between gap-5 p-5">
             <span className="text-3xl xl:text-4xl text-[var(--primary-text)]">
@@ -57,7 +61,7 @@ export function Events({ events }: { events: EventExample[] }) {
                     " — " +
                     event?.endDate +
                     " " +
-                    event?.startTime.slice(0, 5) }
+                    event?.startTime.slice(0, 5)}
               </span>
             </div>
             {event.link && (

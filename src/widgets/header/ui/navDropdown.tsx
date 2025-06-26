@@ -135,15 +135,6 @@ export default function NavDropdown({ contacts }: { contacts: ContactsModel }) {
             <li aria-hidden="true">
               <Divider />
             </li>
-            <li>
-              <Link
-                onClick={toggle}
-                className="block w-full py-[15px]"
-                href="/admin/pallets"
-              >
-                {tAdminSettings("palettes")}
-              </Link>
-            </li>
             <li aria-hidden="true">
               <Divider />
             </li>
@@ -151,7 +142,7 @@ export default function NavDropdown({ contacts }: { contacts: ContactsModel }) {
               <Link
                 onClick={toggle}
                 className="block w-full py-[15px]"
-                href="/admin/settings"
+                href="/admin/settings/room1"
               >
                 {tAdminSettings("settings")}
               </Link>

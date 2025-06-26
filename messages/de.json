@@ -11,7 +11,7 @@
   },
   "AdminSettings": {
     "adminPanel": "Administratorbereich",
-    "events": "Veranstaltungen",
+    "events": "Veranstaltungen einstellungen",
     "contacts": "Kontakte",
     "palettes": "Paletten",
     "settings": "Einstellungen",
@@ -272,7 +272,7 @@
     "numberOfDays": "Anzahl der Nächte: {count}",
     "minStay": "Mindestaufenthalt: {count} Nachten",
     "priceForPeriod": "Preis für den Zeitraum: {price}€",
-    "additionalPrice": "For bookings shorter than 7 nights, an additional price per night applies: {price}€",
+    "additionalPrice": "Bei Buchungen unter 7 Nächten fällt ein Aufpreis pro Nacht an: {price}€",
     "withPet": "Ich komme mit mehr als einem Haustier",
     "bookNow": "Jetzt Buchen",
     "loading": "Lädt...",

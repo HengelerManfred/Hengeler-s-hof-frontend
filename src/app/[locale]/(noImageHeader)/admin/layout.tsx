@@ -24,10 +24,6 @@ export default function Home({
             , pathname.includes("contacts") && "after:scale-x-100")}>
             {t("contacts")}
           </Link>
-          <Link href={"/admin/pallets"} className={clsx("relative inline-block after:block after:h-[2px] after:bg-[var(--accent)] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-center"
-            , pathname.includes("pallets") && "after:scale-x-100")}>
-            {t("palettes")}
-          </Link>
           <Link href={"/admin/settings/room1"} className={clsx("relative inline-block after:block after:h-[2px] after:bg-[var(--accent)] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-center"
             , pathname.includes("settings") && "after:scale-x-100")}>
             {t("settings")}

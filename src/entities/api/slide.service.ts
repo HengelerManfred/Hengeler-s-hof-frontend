@@ -50,6 +50,7 @@ export const updateSlide = async (formData: FormData, id: string) => {
   revalidateTag("HeaderSlider");
   revalidateTag("RoomSlider");
   revalidateTag("translation");
+  revalidateTag("rooms");
   revalidateTag("slides");
   return true;
 };

@@ -4,5 +4,6 @@ export type Slide = {
   descriptionKey?: string,
   price?: string,
   imageUrl: string,
-  scrollArrows?: boolean
+  scrollArrows?: boolean,
+  localLink?: boolean
 }

@@ -11,7 +11,7 @@ export async function Booking({ room }: { room: Room }) {
 
   const bookings = await loadBookings();
 
-  const blockedDates = generateBlockedDatesMap(bookings, room.id);
+  const blockedDates = generateBlockedDatesMap(bookings, room.roomId);
 
   return (
     <div className="flex flex-col [@media(width>1424px)]:flex-row gap-3 w-9/10 lg:w-3/4 justify-center ">

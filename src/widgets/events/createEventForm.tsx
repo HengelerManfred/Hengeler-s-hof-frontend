@@ -257,7 +257,7 @@ export default function CreateEventForm({
     <div
       className={clsx(
         "relative rounded bg-[var(--section-bg)] py-[10px] px-5 flex flex-col gap-4",
-        event ? "w-full" : "w-1/2 border border-[var(--section-border)]"
+        event ? "w-full" : "w-full lg:w-1/2 border border-[var(--section-border)]"
       )}
     >
       <span className="text-[20px] font-medium">{t("createEvent")}</span>
@@ -317,11 +317,12 @@ export default function CreateEventForm({
             label={t("multiDay")}
           />
           <div
-            className={
-              selectedEventType !== "multiday" ? disabledStyle : undefined
-            }
+            className={clsx(
+              selectedEventType !== "multiday" ? disabledStyle : undefined,
+              "w-full"
+            )}
           >
-            <div className="flex justify-between gap-4 mb-2">
+            <div className="flex justify-between w-full gap-4 mb-2 flex-wrap">
               <div className="flex flex-col w-[48%]">
                 <label htmlFor="multiday-begin" className="text-[16px]">
                   {t("begin")}
@@ -393,11 +394,12 @@ export default function CreateEventForm({
             label={t("oneDay")}
           />
           <div
-            className={
-              selectedEventType !== "oneday" ? disabledStyle : undefined
-            }
+            className={clsx(
+              selectedEventType !== "oneday" ? disabledStyle : undefined,
+              "w-full"
+            )}
           >
-            <div className="flex justify-between gap-4 mb-2">
+            <div className="flex justify-between gap-4 mb-2 w-full flex-wrap">
               <div className="flex flex-col w-[48%]">
                 <label htmlFor="oneday-begin" className="text-[16px]">
                   {t("begin")}

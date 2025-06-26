@@ -1,12 +1,15 @@
 import { HeaderCarousel } from "@/widgets/mainPage/headerCarousel";
 import { Events } from "@/widgets/events/events";
 import { loadActiveEvents } from "@/entities/api/events.service";
+import { EventExample } from "@/widgets/events/event";
+import { Slide } from "@/widgets/mainPage/slide";
 
-const slides = [
+const slides: Slide[] = [
   {
     id: "2",
-    titleKey: "slide2.title",
-    image: "/images/eventsMain.png",
+    titleKey: "eventTitle",
+    imageUrl: "/images/eventsMain.png",
+    localLink: true,
     scrollArrows: true
   }
 ];
@@ -40,7 +43,7 @@ const slides = [
 
 
 export default async function EventPage() {
-  const events = await loadActiveEvents();
+  const events: EventExample[] = await loadActiveEvents();
 
   return (
     <main className="flex flex-col gap-6 items-center">

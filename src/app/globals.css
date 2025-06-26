@@ -22,7 +22,6 @@ body {
 }
 .embla__container {
   display: flex;
-  transform: translate3d(0, 0, 0);
 }
 .embla__slide {
   flex: 0 0 100%;

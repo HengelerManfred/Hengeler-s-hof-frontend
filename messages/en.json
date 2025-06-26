@@ -20,7 +20,13 @@
     "DisableBookingTitle": "Disable booking days",
     "DisableBookingText": "Here you can close dates for booking. The specified dates will be unavailable to users. They will also see the reason you provide.",
     "DisableDates": "Dates for which booking will be disabled",
-    "DisableDatesButton": "Disable selected dates"
+    "DisableDatesButton": "Disable selected dates",
+    "Save": "Save",
+    "HeaderSlider": "Homepage Header Slider",
+    "Success": "Slider saved successfully",
+    "Error": "Something went wrong",
+    "Slider": "Slider Settings",
+    "RoomSlider": "Homepage Room Slider"
   },
   "NavBar": {
     "booking": "Booking",
@@ -229,10 +235,10 @@
   "BookingForm": {
     "title": "Booking schedule",
     "dateRange": "Arrival and departure dates",
-    "numberOfDays": "Number of days: {count}",
-    "minStay": "Minimum stay: {count} days",
+    "numberOfDays": "Number of nights: {count}",
+    "minStay": "Minimum stay: {count} nights",
     "priceForPeriod": "Price for the period: {price}€",
-    "additionalPrice": "When booking for less than 7 days, an additional charge per day applies: {price}€",
+    "additionalPrice": "When booking for less than 7 days, an additional charge per night applies: {price}€",
     "withPet": "I will come with more than one pet",
     "bookNow": "Book Now",
     "loading": "Loading...",
@@ -449,8 +455,8 @@
     "startTime": "Check-in time",
     "time": "Check-out time",
     "name": "Room name",
-    "pricerPerDay": "Price per day (EUR)",
-    "additionalPricePerDay": "Additional price per day (EUR, for <7 days)",
+    "pricerPerDay": "Price per night (EUR)",
+    "additionalPricePerDay": "Additional price per night (EUR, for <7 nights)",
     "description": "Room description",
     "SaveChanges": "Save changes",
     "required": "This field is required.",
@@ -460,5 +466,6 @@
     "guestQuantity": "Number of guests",
     "size": "Room size"
   },
-  "slideWithPrice": "Slide with price"
+  "slideWithPrice": "Slide with price",
+  "eventTitle": "Upcoming events!"
 }

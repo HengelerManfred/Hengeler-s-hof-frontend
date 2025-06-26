@@ -49,18 +49,23 @@ export function UserMenu({
         transformOrigin={{ horizontal: "center", vertical: "top" }}
         anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
       >
-        {process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(",").includes(session.user.email ?? "") && [
+        {process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(",").includes(
+          session.user.email ?? ""
+        ) && [
           <Link key={1} href="/admin/events">
             <MenuItem>{t("events")}</MenuItem>
           </Link>,
           <Link key={2} href="/admin/contacts">
             <MenuItem>{t("contacts")}</MenuItem>
           </Link>,
-          <Link key={3} href="/admin/pallets">
-            <MenuItem>{t("palettes")}</MenuItem>
-          </Link>,
-          <Link key={4} href="/admin/settings/room1">
+          <Link key={3} href="/admin/settings/room1">
             <MenuItem>{t("settings")}</MenuItem>
+          </Link>,
+          <Link key={4} href="/admin/slides">
+            <MenuItem>{t("slides")}</MenuItem>
+          </Link>,
+          <Link key={5} href="/admin/sliders">
+            <MenuItem>{t("Slider")}</MenuItem>
           </Link>,
         ]}
         <MenuItem onClick={handleLogout}>{logoutText}</MenuItem>

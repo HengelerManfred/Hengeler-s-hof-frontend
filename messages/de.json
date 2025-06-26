@@ -20,7 +20,13 @@
     "DisableBookingTitle": "Buchungstage deaktivieren",
     "DisableBookingText": "Hier können Sie Buchungsdaten sperren. Die angegebenen Daten sind für Nutzer nicht verfügbar. Sie sehen auch den von Ihnen angegebenen Grund.",
     "DisableDates": "Daten, für die die Buchung deaktiviert wird",
-    "DisableDatesButton": "Ausgewählte Daten deaktivieren"
+    "DisableDatesButton": "Ausgewählte Daten deaktivieren",
+    "Save": "Speichern",
+    "HeaderSlider": "Header-Slider der Startseite",
+    "Success": "Slider wurde erfolgreich gespeichert",
+    "Error": "Etwas ist schiefgelaufen",
+    "Slider": "Slider-Einstellungen",
+    "RoomSlider": "Zimmer-Slider der Startseite"
   },
   "AdminEvents": {
     "createEvent": "Veranstaltung erstellen",
@@ -263,10 +269,10 @@
   "BookingForm": {
     "title": "Buchungsplanung",
     "dateRange": "An- und Abreisedatum",
-    "numberOfDays": "Anzahl der Tage: {count}",
-    "minStay": "Mindestaufenthalt: {count} Tage",
+    "numberOfDays": "Anzahl der Nächte: {count}",
+    "minStay": "Mindestaufenthalt: {count} Nachten",
     "priceForPeriod": "Preis für den Zeitraum: {price}€",
-    "additionalPrice": "Bei einer Buchung von weniger als 7 Tagen fällt ein zusätzlicher Tagespreis an: {price}€",
+    "additionalPrice": "For bookings shorter than 7 nights, an additional price per night applies: {price}€",
     "withPet": "Ich komme mit mehr als einem Haustier",
     "bookNow": "Jetzt Buchen",
     "loading": "Lädt...",
@@ -449,8 +455,8 @@
     "startTime": "Check-in Zeit",
     "time": "Check-out Zeit",
     "name": "Zimmername",
-    "pricerPerDay": "Preis pro Tag (EUR)",
-    "additionalPricePerDay": "Zusätzlicher Preis pro Tag (EUR, für <7 Tage)",
+    "pricerPerDay": "Preis pro Nacht (EUR)",
+    "additionalPricePerDay": "Zusätzlicher Preis pro Nacht (EUR, bei weniger als 7 Nächten)",
     "description": "Zimmerbeschreibung",
     "SaveChanges": "Änderungen speichern",
     "required": "Dieses Feld ist erforderlich.",
@@ -460,5 +466,6 @@
     "guestQuantity": "Anzahl der Gäste",
     "size": "Zimmergröße"
   },
-  "slideWithPrice": "Dia mit Preis"
+  "slideWithPrice": "Dia mit Preis",
+  "eventTitle": "Kommende Veranstaltungen!"
 }

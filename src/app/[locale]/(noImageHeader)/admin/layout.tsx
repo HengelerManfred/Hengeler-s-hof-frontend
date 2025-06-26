@@ -38,7 +38,7 @@ export default function Home({
           </Link>
           <Link href={"/admin/sliders"} className={clsx("relative inline-block after:block after:h-[2px] after:bg-[var(--accent)] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-center"
             , pathname.includes("sliders") && "after:scale-x-100")}>
-            {t("sliders")}
+            {t("Slider")}
           </Link>
         </div>
       </nav>

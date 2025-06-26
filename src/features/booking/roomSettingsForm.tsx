@@ -100,9 +100,8 @@ export default function RoomSettingsForm({
           de: translations.de[room.maxGuestsKey],
         });
 
-        const selected = slides.filter((s) =>
-          room.slides.map((sl) => sl.id).includes(s.id)
-        );
+        const selected = room.slides;
+
         setSelectedSlides(selected);
       } catch (error) {
         console.error("Ошибка при загрузке переводов или слайдов:", error);
@@ -159,7 +158,7 @@ export default function RoomSettingsForm({
         descriptionEn: descText["en"],
         price: parseInt(pricePerDay),
         additionalPrice: parseInt(additionalPricePerDay),
-        slideIds: slides.map((s) => s.id),
+        slideIds: selectedSlides.map((s) => s.id),
         checkIn: startTime,
         checkOut: endTime,
         size: size,
@@ -178,7 +177,7 @@ export default function RoomSettingsForm({
         descriptionEn: descText["en"],
         price: parseInt(pricePerDay),
         additionalPrice: parseInt(additionalPricePerDay),
-        slideIds: slides.map((s) => s.id),
+        slideIds: selectedSlides.map((s) => s.id),
         checkIn: startTime,
         checkOut: endTime,
         size: size,
@@ -389,6 +388,7 @@ export default function RoomSettingsForm({
         <SlidePicker
           allSlides={slides}
           selectedSlides={selectedSlides}
+          maxSlides={15}
           onChange={setSelectedSlides}
         ></SlidePicker>
       </div>

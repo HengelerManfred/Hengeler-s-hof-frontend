@@ -47,6 +47,7 @@ export const createRoom = async (roomDto: CreateRoomDto) => {
     throw new Error(res.status.toString());
   }
 
+  revalidateTag("translation");
   revalidateTag("rooms");
   return await res.json();
 };

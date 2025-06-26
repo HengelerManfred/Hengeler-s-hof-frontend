@@ -155,10 +155,10 @@ export function CreateSlide({
   return (
     <div
       className={clsx(
-        "relative h-fit rounded bg-[var(--section-bg)] py-[10px] px-5  flex flex-col gap-4",
+        "relative h-full rounded bg-[var(--section-bg)] py-[10px] px-5  flex flex-col gap-4",
         selectedSlide
           ? "w-full"
-          : "w-[45%] border border-[var(--section-border)]"
+          : "w-full lg:w-[45%] border border-[var(--section-border)]"
       )}
     >
       <span className="text-[20px] font-medium">{t("createSlide")}</span>

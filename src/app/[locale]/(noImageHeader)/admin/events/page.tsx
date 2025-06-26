@@ -8,7 +8,7 @@ export default async function AdminEvents() {
 
 
   return (
-    <div className="flex w-3/4 gap-3">
+    <div className="flex w-9/10 lg:w-3/4 flex-col lg:flex-row gap-3">
       <CreateEventForm></CreateEventForm>
       <AdminEventsList events={events}></AdminEventsList>
     </div>

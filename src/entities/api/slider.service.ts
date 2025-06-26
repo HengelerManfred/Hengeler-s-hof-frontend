@@ -30,6 +30,7 @@ export const updateHeaderSlider = async (imageIds: string[], id?: string) => {
     throw new Error(res.status.toString());
   }
 
+  revalidateTag("translation");
   revalidateTag("HeaderSlider");
   return await res.json();
 };
@@ -55,6 +56,7 @@ export const updateRoomSlider = async (imageIds: string[], id?: string) => {
     throw new Error(res.status.toString());
   }
 
+  revalidateTag("translation");
   revalidateTag("RoomSlider");
   return await res.json();
 };

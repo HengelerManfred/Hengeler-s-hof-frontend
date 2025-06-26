@@ -1,32 +1,32 @@
 "use client";
 import { Button } from "@mui/material";
-import { RoomImage } from "../model/roomsData";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import { useTranslations } from "next-intl";
+import { Slide } from "@/widgets/mainPage/slide";
 
-export default function BookingCarousel({ images }: { images: RoomImage[] }) {
+export default function BookingCarousel({ slides }: { slides: Slide[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-  const t = useTranslations("Booking");
+  const t = useTranslations("");
   return (
     <div className="embla w-full relative h-full rounded-lg transition-opacity animate-fadeIn" ref={emblaRef}>
       <div className="embla__container h-full flex">
-        {images.map((image) => (
+        {slides.map((image) => (
           <div
-            key={image.src}
+            key={image.id}
             className="embla__slide h-full shrink-0 grow-0 basis-full"
           >
             <div className="relative w-full h-full rounded overflow-hidden">
               <Image
-                src={image.src}
+                src={process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) + image.imageUrl}
                 alt="Foto vom Zimmer"
                 fill
                 sizes="(max-width: 768px) 90vw, 60vw"
                 className="object-cover"
               />
             </div>
-            {image.title && <h3 className="text-white text-[36px] absolute bottom-10 w-full text-center">{t(image.title)}</h3>}
+            {image.titleKey && <h3 className="text-white text-[36px] absolute bottom-10 w-full text-center">{t(image.titleKey)}</h3>}
           </div>
         ))}
       </div>

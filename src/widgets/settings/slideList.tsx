@@ -8,6 +8,7 @@ import { Dialog, DialogContent } from "@mui/material";
 import { useState } from "react";
 import { CreateSlide } from "./createSlide";
 import CloseIcon from "@mui/icons-material/Close";
+import { deleteSlide } from "@/entities/api/slide.service";
 export function SlideList({ slides }: { slides: Slide[] }) {
   const tAdminSlides = useTranslations("AdminSlides");
   const t = useTranslations("");
@@ -15,13 +16,20 @@ export function SlideList({ slides }: { slides: Slide[] }) {
   const closeDialog = () => {
     setSelectedSlide(null);
   };
+  const handleDelete = async (id: string) => {
+    try {
+      await deleteSlide(id);
+    } catch {
+      console.error("failed to delete");
+    }
+  }
   return (
-    <div className="relative w-[54%] rounded bg-[var(--section-bg)] py-[10px] px-5 border border-[var(--section-border)] flex flex-col gap-4">
+    <div className="relative w-full lg:w-[54%] rounded bg-[var(--section-bg)] h-full py-[10px] px-5 border border-[var(--section-border)] overflow-y-scroll flex flex-col gap-4">
       <span className="text-[20px] font-medium">{tAdminSlides("slides")}</span>
       {slides.map((slide) => (
         <div
           key={slide.id}
-          className="flex justify-start relative border border-[var(--section-border)] rounded gap-3"
+          className="flex justify-start relative h-9/10 border border-[var(--section-border)] rounded gap-3"
         >
           <Image
             src={
@@ -36,18 +44,18 @@ export function SlideList({ slides }: { slides: Slide[] }) {
           />
           <div className="flex flex-col w-full gap-2">
             <label className="text-[16px] font-medium">
-              {t(slide.titleKey)}
+              {slide.titleKey && <div>{t(slide.titleKey)}</div>}
             </label>
             {slide.descriptionKey && <div> {t(slide.descriptionKey)}</div>}
           </div>
-          <div className="flex flex-col justify-around border-l border-[var(--section-border)] items-center gap-2 w-[5.5%]">
+          <div className="flex flex-col justify-around border-l border-[var(--section-border)] items-center gap-2 min-w-[35px]">
             <EditIcon
               onClick={() => {
                 setSelectedSlide(slide);
               }}
               className="text-[var(--accent-2)] cursor-pointer !size-auto"
             />
-            <DeleteIcon className="text-[var(--accent-2)] cursor-pointer !size-auto" />
+            <DeleteIcon onClick={()=>handleDelete(slide.id)} className="text-[var(--accent-2)] cursor-pointer !size-auto" />
           </div>
         </div>
       ))}

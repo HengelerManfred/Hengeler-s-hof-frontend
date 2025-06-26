@@ -34,6 +34,7 @@ export function SlidePicker({
 }: SlidePickerProps) {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("");
+
   const handleSelect = (slide: Slide) => {
     if (selectedSlides.find((s) => s.id === slide.id)) return;
     if (selectedSlides.length >= maxSlides) return;
@@ -133,9 +134,10 @@ export function SlidePicker({
 
             <DialogContent
               sx={{
-                display: "grid",
-                gridTemplateColumns: "repeat(2, 1fr)",
+                display: "flex",
+                flexWrap: "wrap",
                 gap: 2,
+                rowGap: "30px",
                 height: "80vh",
                 overflowY: "auto",
               }}
@@ -147,11 +149,13 @@ export function SlidePicker({
                     borderRadius: 2,
                     overflow: "hidden",
                     cursor: "pointer",
+
                     position: "relative",
                     padding: "20px",
                     height: "fit-content",
                     border: "1px solid var(--section-border)",
                   }}
+                  className="w-full lg:w-[49%]"
                   onClick={() => {
                     handleSelect(slide);
                     setIsOpen(false);
@@ -178,9 +182,11 @@ export function SlidePicker({
                       className="rounded-lg"
                     />
                   </Box>
-                  <p>{t(slide.titleKey)}</p>
+                  {slide.titleKey && <p className="mt-4 font-bold">{t(slide.titleKey)}</p>}
                   {slide.descriptionKey && <p>{t(slide.descriptionKey)}</p>}
-                  {slide.price && <p>{t("slideWithPrice") + ": " + slide.price}</p>}
+                  {slide.price && (
+                    <p>{t("slideWithPrice") + ": " + slide.price}</p>
+                  )}
                 </Box>
               ))}
             </DialogContent>

@@ -89,7 +89,7 @@ export function BookingForm({
               {t("priceForPeriod", { price: totalPrice })}
             </p>
             <div>
-              {numberOfDays < 7 && numberOfDays > minStay && (
+              {numberOfDays < 7 && numberOfDays >= minStay && (
                 <div className="break-words overflow-hidden whitespace-normal">
                   {t("additionalPrice", { price: room.additionalPrice })}
                 </div>
@@ -117,13 +117,13 @@ export function BookingForm({
       </div>
 
       <CheckoutButton
-        roomId={room.id}
+        roomId={room.roomId}
         numberOfDays={numberOfDays}
         price={totalPrice}
         startDate={range?.from ?? new Date()}
         endDate={range?.to ?? new Date()}
         moreThanTwoPats={moreThanTwoPats}
-        wholeHouse={room.id === "house"}
+        wholeHouse={room.roomId === "house"}
       />
     </div>
   );

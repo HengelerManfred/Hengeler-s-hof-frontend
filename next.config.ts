@@ -8,6 +8,11 @@ const imageHost = process.env.NEXT_IMAGE_HOST || 'localhost';
 const imagePort = process.env.NEXT_IMAGE_PORT || '5154';
 
 const nextConfig: NextConfig = {
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '10mb',
+    },
+  },
   images: {
     remotePatterns: [
       {

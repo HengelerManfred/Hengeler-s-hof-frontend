@@ -11,11 +11,22 @@
   },
   "AdminSettings": {
     "adminPanel": "Administratorbereich",
-    "events": "Veranstaltungen",
+    "events": "Veranstaltungen einstellungen",
     "contacts": "Kontakte",
     "palettes": "Paletten",
     "settings": "Einstellungen",
-    "logout": "Abmelden"
+    "slides": "Slides",
+    "logout": "Abmelden",
+    "DisableBookingTitle": "Buchungstage deaktivieren",
+    "DisableBookingText": "Hier können Sie Buchungsdaten sperren. Die angegebenen Daten sind für Nutzer nicht verfügbar. Sie sehen auch den von Ihnen angegebenen Grund.",
+    "DisableDates": "Daten, für die die Buchung deaktiviert wird",
+    "DisableDatesButton": "Ausgewählte Daten deaktivieren",
+    "Save": "Speichern",
+    "HeaderSlider": "Header-Slider der Startseite",
+    "Success": "Slider wurde erfolgreich gespeichert",
+    "Error": "Etwas ist schiefgelaufen",
+    "Slider": "Slider-Einstellungen",
+    "RoomSlider": "Zimmer-Slider der Startseite"
   },
   "AdminEvents": {
     "createEvent": "Veranstaltung erstellen",
@@ -37,6 +48,19 @@
     "eventSaved": "Veranstaltung wurde gespeichert!",
     "errorCheckAllLanguages": "Ein Fehler ist aufgetreten, bitte überprüfen Sie, ob alle Sprachen ausgefüllt sind",
     "eventLink": "Veranstaltungslink"
+  },
+  "AdminSlides": {
+    "createSlide": "Slide erstellen",
+    "name": "Name",
+    "save": "Speichern",
+    "chooseImage": "Bild auswählen",
+    "slideText": "Slide-Text",
+    "slideTextPlaceholder": "Hier können Sie den Text für den Slide eingeben. Er wird auf der Hauptseite angezeigt.",
+    "slides": "Slides",
+    "slideTitle": "Foliensatz-Titel",
+    "price": "Preis (kann für bestimmte Folien erforderlich sein)",
+    "slideSaved": "Folie gespeichert",
+    "errorSavingSlide": "Fehler beim Speichern der Folie. Bitte überprüfen Sie, ob alle Sprachen ausgefüllt sind"
   },
   "MainMap": {
     "title": "Wie findet man uns?",
@@ -229,13 +253,14 @@
     "parking": "Kostenloser Parkplatz",
     "noSmoking": "Rauchen verboten",
     "view": "Fensterausblick",
-    "crib": "Kinderbett auf Anfrage"
+    "crib": "Kinderbett auf Anfrage",
+    "cancelBooking": "Buchung stornieren"
   },
   "BookingCalendar": {
     "pastDateMessage": "Dieses Datum ist bereits vergangen",
     "Pending": "Wartet auf die Zahlung eines anderen Nutzers, diese Daten könnten noch freigegeben werden",
     "Booked": "Dieses Datum ist bereits gebucht",
-    "Closed": "Vom Administrator für Buchungen gesperrt",
+    "ClosedByAdmin": "Vom Administrator für Buchungen gesperrt",
     "DisabledByAdmin": "Vom Administrator deaktiviert",
     "MyPending": "Sie haben begonnen, diese Daten zu buchen, aber noch nicht bezahlt",
     "MyBooked": "Sie haben diese Daten bereits gebucht",
@@ -244,10 +269,10 @@
   "BookingForm": {
     "title": "Buchungsplanung",
     "dateRange": "An- und Abreisedatum",
-    "numberOfDays": "Anzahl der Tage: {count}",
-    "minStay": "Mindestaufenthalt: {count} Tage",
+    "numberOfDays": "Anzahl der Nächte: {count}",
+    "minStay": "Mindestaufenthalt: {count} Nachten",
     "priceForPeriod": "Preis für den Zeitraum: {price}€",
-    "additionalPrice": "Bei einer Buchung von weniger als 7 Tagen fällt ein zusätzlicher Tagespreis an: {price}€",
+    "additionalPrice": "Bei Buchungen unter 7 Nächten fällt ein Aufpreis pro Nacht an: {price}€",
     "withPet": "Ich komme mit mehr als einem Haustier",
     "bookNow": "Jetzt Buchen",
     "loading": "Lädt...",
@@ -424,5 +449,23 @@
     "email": "E-Mail",
     "save": "Speichern",
     "socialMedia": "Soziale Netzwerke"
-  }
+  },
+  "RoomSettings": {
+    "Settings": "Zimmereinstellungen für Zimmer ",
+    "startTime": "Check-in Zeit",
+    "time": "Check-out Zeit",
+    "name": "Zimmername",
+    "pricerPerDay": "Preis pro Nacht (EUR)",
+    "additionalPricePerDay": "Zusätzlicher Preis pro Nacht (EUR, bei weniger als 7 Nächten)",
+    "description": "Zimmerbeschreibung",
+    "SaveChanges": "Änderungen speichern",
+    "required": "Dieses Feld ist erforderlich.",
+    "onlyIntegers": "Nur positive ganze Zahlen erlaubt.",
+    "shouldBeMoreThan0": "Der Wert muss größer als 0 sein.",
+    "selectSlide": "Dia auswählen",
+    "guestQuantity": "Anzahl der Gäste",
+    "size": "Zimmergröße"
+  },
+  "slideWithPrice": "Dia mit Preis",
+  "eventTitle": "Kommende Veranstaltungen!"
 }

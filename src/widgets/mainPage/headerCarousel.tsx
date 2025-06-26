@@ -12,8 +12,10 @@ import { Button } from "@mui/material";
 import { Slide } from "./slide";
 import clsx from "clsx";
 import { ScrollArrows } from "@/shared/ui/scrollArrows/scrollArrows";
+import { useScrollRefStore } from "@/shared/store/scrollRefStore";
 
 export function HeaderCarousel({ slides }: { slides: Slide[] }) {
+  const {wrapperRef} = useScrollRefStore();
   const singleSlide = slides.length === 1;
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
@@ -23,7 +25,7 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
   const [isPlaying, setIsPlaying] = useState(true);
   const duration = 10000;
   const tick = 100;
-  const t = useTranslations("MainCarousel");
+  const t = useTranslations("");
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -57,10 +59,12 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
         {slides.map((slide) => (
           <div
             className="embla__slide relative h-[100dvh] w-[100dvw]"
-            key={slide.id}
-          >
+            key={slide.id}>
             <Image
-              src={slide.image}
+              src={
+                !slide.localLink ?  (process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) +
+                slide.imageUrl) : slide.imageUrl
+              }
               alt={t(slide.titleKey)}
               fill
               sizes="100vw"
@@ -70,33 +74,36 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
             <div
               className={clsx(
                 "w-full h-full absolute top-0 left-0",
-                slide.textKey && "gradient-signature",
-                !slide.textKey && "gradient-no-signature"
+                slide.descriptionKey && "gradient-signature",
+                !slide.descriptionKey && "gradient-no-signature"
               )}
             ></div>
             <span
               className={clsx(
                 "flex absolute flex-col gap-20 w-full px-[12.5%] 2xl:px-[20%]",
-                !slide?.textKey && "top-1/3 md:top-1/3",
-                slide?.textKey && "top-1/3 md:top-1/3"
+                !slide?.descriptionKey && "top-1/3 md:top-1/3",
+                slide?.descriptionKey && "top-1/3 md:top-1/3"
               )}
             >
-              <h1
-                className={clsx(
-                  "text-white font-medium text-[24px] md:text-[48px] lg:text-[64px] inter text-center text-4xl",
-                  singleSlide && ""
-                )}
-              >
-                {t(slide.titleKey)}
-              </h1>
-              {slide.textKey && (
+              {slide.titleKey && (
+                <h1
+                  className={clsx(
+                    "text-white font-medium text-[24px] md:text-[48px] lg:text-[64px] inter text-center text-4xl",
+                    singleSlide && ""
+                  )}
+                >
+                  {t(slide.titleKey)}
+                </h1>
+              )}
+              {slide.descriptionKey && (
                 <p className="text-white font-medium text-[16px] md:text-[20px] lg:text-[28px] inter text-justify text-4xl">
-                  {t(slide.textKey)}
+                  {t(slide.descriptionKey)}
                 </p>
               )}
             </span>
             {slide.scrollArrows && (
-              <span className="absolute w-full top-2/3 left-0 items-center justify-center flex">
+              <span onClick={()=> wrapperRef?.current?.scrollIntoView({ behavior: "smooth" })} 
+              className="absolute w-full top-2/3 left-0 items-center justify-center flex">
                 <ScrollArrows />
               </span>
             )}

@@ -39,7 +39,7 @@ export default function AdminEventsList({
   };
 
   return (
-    <div className="flex w-1/2 flex-col bg-[var(--section-bg)] border rounded-lg border-[var(--section-border)] p-5 ">
+    <div className="flex w-full lg:w-1/2 flex-col bg-[var(--section-bg)] border rounded-lg border-[var(--section-border)] p-5 ">
       <h2 className="w-full text-center text-[24px] inter font-medium text-[var(--primary-text)]">
         {t("AdminEvents.eventsList")}
       </h2>

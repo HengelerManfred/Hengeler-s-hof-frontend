@@ -1,3 +1,5 @@
+import { Slide } from "@/widgets/mainPage/slide";
+
 export const roomsData = new Map<string, Room>([
   [
     "room1",
@@ -139,21 +141,18 @@ export const roomsData = new Map<string, Room>([
 
 export interface Room {
   id: string;
-  name: string;
-  description: string;
+  roomId: string;
+  nameKey: string;
+  descriptionKey: string;
+  maxGuestsKey: string;
   price: number;
   additionalPrice: number;
   checkIn: string;
   checkOut: string;
-  maxGuests: string;
   size: number;
-  images: RoomImage[];
+  slides: Slide[];
 }
 
-export interface RoomImage {
-  src: string;
-  title?: string;
-}
 
 export const getRoomData = (roomId: string): Room | undefined => {
   return roomsData.get(roomId);

@@ -22,6 +22,7 @@ export const createEvent = async (formData: FormData) => {
     throw new Error(res.status.toString());
   }
 
+  revalidateTag("translation");
   revalidateTag("events");
   return await res.json();
 };
@@ -113,6 +114,7 @@ export const changeEventVisibility = async (id: string, isActive: boolean) => {
     throw new Error(res.status.toString());
   }
 
+  revalidateTag("translation");
   revalidateTag("events");
 };
 

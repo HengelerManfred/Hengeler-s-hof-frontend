@@ -24,7 +24,12 @@ export async function http<T>(
       throw new Error(await res.text());
     }
   }
-  return res.json();
+
+    try {
+      return await res.json();
+    } catch {
+      return {} as T;
+    }
 }
 
 export class HttpError extends Error {

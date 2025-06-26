@@ -1,0 +1,85 @@
+"use client";
+import { useTranslations } from "next-intl";
+import { Slide } from "./../mainPage/slide";
+import Image from "next/image";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { Dialog, DialogContent } from "@mui/material";
+import { useState } from "react";
+import { CreateSlide } from "./createSlide";
+import CloseIcon from "@mui/icons-material/Close";
+import { deleteSlide } from "@/entities/api/slide.service";
+export function SlideList({ slides }: { slides: Slide[] }) {
+  const tAdminSlides = useTranslations("AdminSlides");
+  const t = useTranslations("");
+  const [selectedSlide, setSelectedSlide] = useState<Slide | null>(null);
+  const closeDialog = () => {
+    setSelectedSlide(null);
+  };
+  const handleDelete = async (id: string) => {
+    try {
+      await deleteSlide(id);
+    } catch {
+      console.error("failed to delete");
+    }
+  }
+  return (
+    <div className="relative w-full lg:w-[54%] rounded bg-[var(--section-bg)] h-full py-[10px] px-5 border border-[var(--section-border)] overflow-y-scroll flex flex-col gap-4">
+      <span className="text-[20px] font-medium">{tAdminSlides("slides")}</span>
+      {slides.map((slide) => (
+        <div
+          key={slide.id}
+          className="flex justify-start relative h-9/10 border border-[var(--section-border)] rounded gap-3"
+        >
+          <Image
+            src={
+              process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) +
+              slide.imageUrl
+            }
+            alt="Slide preview"
+            sizes="15vw"
+            width={184}
+            height={114}
+            className="static h-auto aspect-video rounded object-cover"
+          />
+          <div className="flex flex-col w-full gap-2">
+            <label className="text-[16px] font-medium">
+              {slide.titleKey && <div>{t(slide.titleKey)}</div>}
+            </label>
+            {slide.descriptionKey && <div> {t(slide.descriptionKey)}</div>}
+          </div>
+          <div className="flex flex-col justify-around border-l border-[var(--section-border)] items-center gap-2 min-w-[35px]">
+            <EditIcon
+              onClick={() => {
+                setSelectedSlide(slide);
+              }}
+              className="text-[var(--accent-2)] cursor-pointer !size-auto"
+            />
+            <DeleteIcon onClick={()=>handleDelete(slide.id)} className="text-[var(--accent-2)] cursor-pointer !size-auto" />
+          </div>
+        </div>
+      ))}
+      <Dialog
+        open={Boolean(selectedSlide)}
+        onClose={() => {
+          setSelectedSlide(null);
+        }}
+        maxWidth="md"
+        fullWidth
+      >
+        <DialogContent className="flex flex-col items-end">
+          <CloseIcon
+            onClick={closeDialog}
+            className="cursor-pointer text-[var(--accent-2)]"
+          />
+          <CreateSlide
+            closeDialog={() => {
+              setSelectedSlide(null);
+            }}
+            selectedSlide={selectedSlide}
+          ></CreateSlide>
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+}

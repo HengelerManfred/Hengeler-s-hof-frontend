@@ -47,14 +47,6 @@ export const generateMetadata = async ({
       images: [`${process.env.NEXT_PUBLIC_CURRENT_HOST}/favicon.ico`],
     },
     metadataBase: new URL(process.env.NEXT_PUBLIC_CURRENT_HOST!),
-    alternates: {
-      canonical: "/",
-      languages: {
-        en: "/en",
-        de: "/de",
-        uk: "/uk",
-      },
-    },
     keywords: t("Meta.keywords"),
     robots: { index: true, follow: true }
   };

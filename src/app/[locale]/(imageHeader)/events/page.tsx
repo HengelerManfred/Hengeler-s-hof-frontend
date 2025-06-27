@@ -19,9 +19,18 @@ export const generateMetadata = async ({
     title: t("EventsMeta.title"),
     description: t("EventsMeta.description"),
     keywords: t("EventsMeta.keywords"),
-    robots: { index: true, follow: false }, // потому что ссылки на чужие события
+    alternates: {
+      canonical: `/${locale}/events`,
+      languages: {
+        en: `/en/events`,
+        de: `/de/events`,
+        uk: `/uk/events`,
+      }
+    },
+    robots: { index: true, follow: false },
   };
 };
+
 
 
 const slides: Slide[] = [

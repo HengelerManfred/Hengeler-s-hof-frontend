@@ -33,8 +33,8 @@ export const generateMetadata = async ({
       images: [
         {
           url: `${process.env.NEXT_PUBLIC_CURRENT_HOST}/favicon.ico`,
-          width: 600,
-          height: 600,
+          width: 1200,
+          height: 630,
         },
       ],
       locale: locale,

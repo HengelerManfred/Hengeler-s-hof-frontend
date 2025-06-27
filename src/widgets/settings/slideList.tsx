@@ -29,7 +29,7 @@ export function SlideList({ slides }: { slides: Slide[] }) {
       {slides.map((slide) => (
         <div
           key={slide.id}
-          className="flex justify-start relative h-9/10 border border-[var(--section-border)] rounded gap-3"
+          className="flex flex-col lg:flex-row justify-start relative h-9/10 border border-[var(--section-border)] rounded gap-3"
         >
           <Image
             src={
@@ -40,7 +40,7 @@ export function SlideList({ slides }: { slides: Slide[] }) {
             sizes="15vw"
             width={184}
             height={114}
-            className="static h-auto aspect-video rounded object-cover"
+            className="static h-auto aspect-video w-full lg:w-auto rounded object-cover"
           />
           <div className="flex flex-col w-full gap-2">
             <label className="text-[16px] font-medium">
@@ -48,14 +48,14 @@ export function SlideList({ slides }: { slides: Slide[] }) {
             </label>
             {slide.descriptionKey && <div> {t(slide.descriptionKey)}</div>}
           </div>
-          <div className="flex flex-col justify-around border-l border-[var(--section-border)] items-center gap-2 min-w-[35px]">
+          <div className="flex lg:flex-col justify-around border-l border-[var(--section-border)] items-center gap-2 min-w-[35px]">
             <EditIcon
               onClick={() => {
                 setSelectedSlide(slide);
               }}
-              className="text-[var(--accent-2)] cursor-pointer !size-auto"
+              className="text-[var(--accent-2)] cursor-pointer lg:!size-auto"
             />
-            <DeleteIcon onClick={()=>handleDelete(slide.id)} className="text-[var(--accent-2)] cursor-pointer !size-auto" />
+            <DeleteIcon onClick={()=>handleDelete(slide.id)} className="text-[var(--accent-2)] cursor-pointer lg:!size-auto" />
           </div>
         </div>
       ))}

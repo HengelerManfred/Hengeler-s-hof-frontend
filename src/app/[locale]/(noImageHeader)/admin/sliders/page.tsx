@@ -22,7 +22,7 @@ export default async function Sliders () {
     notFound();
   }
 
-  return <div className="w-3/4">
+  return <div className="w-9/10 lg:w-3/4">
     <HeaderSlidePicker slider={headerSlider} slides={slides}></HeaderSlidePicker>
     <RoomSlidePicker slider={roomSlider} slides={slides}></RoomSlidePicker>
   </div>

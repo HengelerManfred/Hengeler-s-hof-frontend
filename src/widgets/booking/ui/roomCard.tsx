@@ -20,11 +20,11 @@ export function RoomCard({ room }: { room: Room }) {
       <div className="flex flex-col text-[var(--primary-text)] text-[16px] gap-2">
         <div className="flex justify-between">
           <span>
-            <span className="font-extralight">{tBooking("checkIn") }: </span>
+            <span className="text-[var(--secondary-text)]">{tBooking("checkIn") }: </span>
             {room.checkIn.slice(0, 5)}
           </span>
           <span>
-            <span className="font-extralight">{tBooking("checkOut")}: </span>
+            <span className="text-[var(--secondary-text)]">{tBooking("checkOut")}: </span>
             {room.checkOut.slice(0, 5)}
           </span>
         </div>
@@ -32,18 +32,18 @@ export function RoomCard({ room }: { room: Room }) {
           t(room.maxGuestsKey).length>10 && "flex-col lg:flex-row "
         )}>
           <span>
-            <span className="font-extralight">{tBooking("maxGuests")}: </span>
+            <span className="text-[var(--secondary-text)]">{tBooking("maxGuests")}: </span>
             {t(room.maxGuestsKey)}
           </span>
           <span className="text-nowrap">
-            <span className="font-extralight">{tBooking("size")}: </span>
+            <span className="text-[var(--secondary-text)]">{tBooking("size")}: </span>
             {room.size}
             {tBooking("m2")}
           </span>
         </div>
       </div>
       <p className="text-[var(--primary-text)] text-[16px]">
-        <span className="font-extralight">{tBooking("price")}: </span>
+        <span className="text-[var(--secondary-text)]">{tBooking("price")}: </span>
         {room.price}€ {tBooking("perNight")}
       </p>
       <Button onClick={()=> wrapperRef?.current?.scrollIntoView({ behavior: "smooth" })} variant="default" className="flex items-center gap-2">

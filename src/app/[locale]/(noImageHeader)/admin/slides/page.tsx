@@ -47,7 +47,7 @@ export default async function AdminMainPage() {
     const slides = await loadSlides() ?? [];
 
     return (
-        <div className="relative w-6/8 flex h-[1600px] mb-10 flex-col lg:flex-row lg:h-[800px] gap-3">
+        <div className="relative w-9/10 lg:w-3/4 flex h-[1600px] mb-10 flex-col lg:flex-row lg:h-[800px] gap-3">
             <CreateSlide />
             <SlideList slides={slides} />
         </div>

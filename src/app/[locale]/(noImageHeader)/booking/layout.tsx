@@ -74,7 +74,7 @@ export default function BookingLayout({
                 <Link
                   aria-current={isActive ? "page" : undefined}
                   href={link.href}
-                  className={`rounded-lg p-5 text-2xl transition-all duration-300 ease-in-out ${activeClasses}`}
+                  className={`rounded-lg p-5 text-2xl transition-all font-medium duration-300 ease-in-out hover:border-[var(--accent)] ${activeClasses}`}
                   onClick={() => setRange(undefined)}
                 >
                   {link.label}

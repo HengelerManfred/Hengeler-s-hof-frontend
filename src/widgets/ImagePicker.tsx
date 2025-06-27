@@ -109,7 +109,7 @@ export function ImagePicker({
       {...getRootProps()}
     >
       {files.length < maxFiles && (
-        <div style={boxStyle} onClick={open}>
+        <div style={boxStyle} className="min-h-[80px]" onClick={open}>
           <input {...getInputProps()} />
           <span
             style={{
@@ -127,11 +127,13 @@ export function ImagePicker({
         <div
           key={idx}
           style={{ ...boxStyle, border: "1px solid var(--section-border)" }}
+          className="min-h-[80px]"
         >
           <img
             src={src}
             alt={`preview-${idx}`}
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            className="!min-h-[80px]"
             onClick={() => triggerReplace(idx)}
           />
           <CloseIcon
@@ -155,6 +157,7 @@ export function ImagePicker({
       <input
         type="file"
         accept="image/*"
+        className="!min-h-[80px]"
         ref={fileInputRef}
         style={{ display: "none" }}
         onChange={(e) => {

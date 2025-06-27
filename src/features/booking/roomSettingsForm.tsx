@@ -414,7 +414,7 @@ export default function RoomSettingsForm({
 
           <textarea
             rows={2}
-            className="bg-[var(--section-bg)] border px-2 border-[var(--section-border)] rounded-lg h-[50px] outline-none resize-none"
+            className="bg-[var(--section-bg)] h-[150px] border px-2 border-[var(--section-border)] rounded-lg outline-none resize-none"
             value={descText[currentDescLang]}
             onChange={(e) =>
               setDescText({

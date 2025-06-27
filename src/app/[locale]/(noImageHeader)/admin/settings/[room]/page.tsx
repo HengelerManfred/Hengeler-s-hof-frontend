@@ -39,7 +39,7 @@ export default async function AdminSettings({
 
   const blockedDates = generateBlockedDatesMap(bookings, roomData?.roomId);
   return (
-    <div className="flex w-3/4 flex-col gap-3">
+    <div className="flex w-9/10 lg:w-3/4 flex-col gap-3">
       <div className="flex w-full md:flex-row flex-col gap-3">
         <BookingCalendar
           adminMode={true}

@@ -4,8 +4,8 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const imageHost = process.env.NEXT_IMAGE_HOST || 'localhost';
-const imagePort = process.env.NEXT_IMAGE_PORT || '5154';
+const imageHost = process.env.NEXT_IMAGE_HOST;
+const imagePort = process.env.NEXT_IMAGE_PORT;
 
 const nextConfig: NextConfig = {
   experimental: {
@@ -20,17 +20,16 @@ const nextConfig: NextConfig = {
         hostname: "lh3.googleusercontent.com",
         pathname: "/**",
       },
-      {
+       {
         protocol: "http",
-        hostname: imageHost,
+        hostname: imageHost!,
         pathname: "/images/**",
-        port: imagePort
+        port: imagePort!
       },
       {
         protocol: "https",
-        hostname: imageHost,
-        pathname: "/images/**",
-        port: imagePort
+        hostname: imageHost!,
+        pathname: "/images/**"
       }
     ],
   },

@@ -32,7 +32,7 @@ export const generateMetadata = async ({
       siteName: "Hengeler's Hof",
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_CURRENT_HOST}/favicon.ico`,
+          url: `${process.env.NEXT_PUBLIC_CURRENT_HOST}/cow.png`,
           width: 1200,
           height: 630,
         },

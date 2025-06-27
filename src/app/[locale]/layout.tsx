@@ -33,8 +33,8 @@ export const generateMetadata = async ({
       images: [
         {
           url: `${process.env.NEXT_PUBLIC_CURRENT_HOST}cow.png`,
-          width: 1200,
-          height: 630,
+          width: 792,
+          height: 789,
         },
       ],
       locale: locale,

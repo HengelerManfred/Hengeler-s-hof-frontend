@@ -72,6 +72,7 @@ export default function BookingLayout({
             return (
               <li key={link.href} className="transition-all duration-300">
                 <Link
+                  aria-current={isActive ? "page" : undefined}
                   href={link.href}
                   className={`rounded-lg p-5 text-2xl transition-all duration-300 ease-in-out ${activeClasses}`}
                   onClick={() => setRange(undefined)}

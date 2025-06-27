@@ -467,5 +467,20 @@
     "size": "Room size"
   },
   "slideWithPrice": "Slide with price",
-  "eventTitle": "Upcoming events!"
+  "eventTitle": "Upcoming events!",
+  "Meta": {
+    "title": "Hengeler's Hof – Nature Holidays",
+    "description": "Book a comfortable house near nature in Germany. Best price guarantee and easy online booking.",
+    "keywords": "house, Germany, booking, comfort, nature, farm, Hengeler's Hof"
+  },
+  "BookingMeta": {
+    "title": "Room Booking – Hengeler's Hof",
+    "description": "Quick and easy room booking with best price guarantee. Choose your comfortable room now!",
+    "keywords": "booking, rooms, hotel, Hengeler's Hof, online booking, prices"
+  },
+   "EventsMeta": {
+    "title": "Events & Activities – Hengeler's Hof",
+    "description": "Discover upcoming events, festivals, and local activities near Hengeler's Hof. Stay updated with the latest happenings.",
+    "keywords": "events, activities, festivals, Germany, Hengeler's Hof, things to do"
+  }
 }

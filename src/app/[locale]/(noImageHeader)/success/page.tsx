@@ -1,5 +1,13 @@
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import { Metadata } from "next";
+
+export const generateMetadata = (): Metadata => ({
+  robots: {
+    index: false,
+    follow: false,
+  },
+});
 
 export default async function SuccessPage() {
   const t = await getTranslations("Success");

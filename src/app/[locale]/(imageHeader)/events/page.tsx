@@ -3,6 +3,26 @@ import { Events } from "@/widgets/events/events";
 import { loadActiveEvents } from "@/entities/api/events.service";
 import { EventExample } from "@/widgets/events/event";
 import { Slide } from "@/widgets/mainPage/slide";
+import { createTranslator } from "next-intl";
+import { Metadata } from "next";
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> => {
+  const locale = (await params).locale;
+  const messages = (await import(`@/../messages/${locale}.json`)).default;
+  const t = createTranslator({ locale, messages });
+
+  return {
+    title: t("EventsMeta.title"),
+    description: t("EventsMeta.description"),
+    keywords: t("EventsMeta.keywords"),
+    robots: { index: true, follow: false }, // потому что ссылки на чужие события
+  };
+};
+
 
 const slides: Slide[] = [
   {

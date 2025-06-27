@@ -29,6 +29,16 @@ body {
   transform: translate3d(0, 0, 0);
 }
 
+:root {
+  --accent: #769C40;
+  --accent-2: #2C2C2C;
+  --section-bg: #FFFFFF;
+  --primary-text: #000000;
+  --section-border: #E5E5E5;
+  --main-bg: #F8F8F8;
+  --secondary-text: #454545;
+}
+
 .gradient-overlay {
   background: linear-gradient(
     180deg,

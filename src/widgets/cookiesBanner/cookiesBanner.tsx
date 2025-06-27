@@ -15,7 +15,7 @@ export async function CookiesBanner() {
   return (
     <div className=" flex flex-col w-full py-5 px-[12.5%] px-auto fixed bottom-0 left-0 bg-[var(--accent)] text-[16px] text-[var(--main-bg)] inter z-1000">
       <p>{t("mainText")}</p>
-      <p>
+      <p className="pb-3">
         {t("moreInfo")}{" "}
         <Link href="/privacyPolicy" className="underline">
           {t("privacyPolicy")}

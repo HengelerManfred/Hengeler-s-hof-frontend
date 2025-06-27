@@ -1,5 +1,5 @@
 import { routing } from "@/i18n/routing";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { createTranslator, hasLocale, NextIntlClientProvider } from "next-intl";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { notFound } from "next/navigation";
 import { roundhand, inter } from "../fonts";
@@ -11,7 +11,54 @@ import { Toaster } from "react-hot-toast";
 import "@/app/datePicker.css";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
+import { Metadata } from "next";
 
+export const generateMetadata = async ({
+  params,
+}: {
+  params:  Promise<{ locale: string }>;
+}): Promise<Metadata> => {
+  const locale = (await params).locale;
+  const messages = (await import(`@/../messages/${locale}.json`)).default;
+  const t = createTranslator({ locale: locale, messages });
+
+  return {
+    title: t("Meta.title"),
+    description: t("Meta.description"),
+    openGraph: {
+      title:  t("Meta.title"),
+      description: t("Meta.description"),
+      url: process.env.NEXT_PUBLIC_CURRENT_HOST,
+      siteName: "Hengeler's Hof",
+      images: [
+        {
+          url: `${process.env.NEXT_PUBLIC_CURRENT_HOST}/favicon.ico`,
+          width: 600,
+          height: 600,
+        },
+      ],
+      locale: locale,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("Meta.title"),
+      description: t("Meta.description"),
+      images: [`${process.env.NEXT_PUBLIC_CURRENT_HOST}/favicon.ico`],
+    },
+    metadataBase: new URL(process.env.NEXT_PUBLIC_CURRENT_HOST!),
+    alternates: {
+      canonical: "/",
+      languages: {
+        en: "/en",
+        de: "/de",
+        uk: "/uk",
+      },
+    },
+    keywords: t("Meta.keywords"),
+    robots: { index: true, follow: true }
+  };
+};
 
 export default async function LocaleLayout({
   children,
@@ -29,11 +76,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${roundhand.variable} ${inter.variable}`}>
       <head>
-        <link rel="stylesheet" href="/theme.css" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
       </head>
       <body className="relative">
         <NextIntlClientProvider key={locale} locale={locale}>

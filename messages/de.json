@@ -467,5 +467,20 @@
     "size": "Zimmergröße"
   },
   "slideWithPrice": "Dia mit Preis",
-  "eventTitle": "Kommende Veranstaltungen!"
+  "eventTitle": "Kommende Veranstaltungen!",
+  "Meta": {
+    "title": "Hengeler's Hof – Erholung in der Natur",
+    "description": "Buchen Sie ein komfortables Haus in der Natur in Deutschland. Bestpreisgarantie und einfache Online-Buchung.",
+    "keywords": "Haus, Deutschland, Buchung, Komfort, Natur, Bauernhof, Hengeler's Hof"
+  },
+   "BookingMeta": {
+    "title": "Zimmerbuchung – Hengeler's Hof",
+    "description": "Schnelle und einfache Zimmerbuchung mit Bestpreisgarantie. Wählen Sie jetzt Ihr komfortables Zimmer!",
+    "keywords": "Buchung, Zimmer, Hotel, Hengeler's Hof, Online-Buchung, Preise"
+  },
+   "EventsMeta": {
+    "title": "Veranstaltungen & Aktivitäten – Hengeler's Hof",
+    "description": "Erfahren Sie mehr über kommende Veranstaltungen, Feste und Aktivitäten in der Nähe von Hengeler's Hof. Immer gut informiert.",
+    "keywords": "Veranstaltungen, Aktivitäten, Feste, Deutschland, Hengeler's Hof, Freizeit"
+  }
 }

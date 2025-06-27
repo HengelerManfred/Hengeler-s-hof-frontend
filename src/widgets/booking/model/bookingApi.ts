@@ -1,6 +1,9 @@
 import { DateRange } from "react-day-picker";
-import { roomsData } from "./roomsData";
 import { http } from "@/shared/api/http";
+
+const roomIds = [
+  "room1", "room2", "room3"
+];
 
 export enum BookingStatus {
   PENDING = "Pending",
@@ -76,8 +79,6 @@ export const generateBlockedDatesMap = (
 ): Record<string, BookedHint> => {
   const blockedDatesMap: Record<string, BookedHint> = {};
 
-  const roomIds = Array.from(roomsData.keys()).filter((id) => id !== "house");
-
   const normalizeDate = (date: Date | string): string => {
     const d = new Date(date);
     d.setHours(0, 0, 0, 0);
@@ -147,7 +148,6 @@ export const isRangeAvailable = (
   allBookings: BookedDate[],
   currentRoomId: string
 ): boolean => {
-  const roomIds = Array.from(roomsData.keys()).filter((id) => id !== "house");
 
   const conflictingRoomIds =
     currentRoomId === "house"

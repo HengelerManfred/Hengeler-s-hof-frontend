@@ -1,7 +1,14 @@
 import { loadEvents } from "@/entities/api/events.service";
 import AdminEventsList from "@/features/adminEventList/adminEventList";
 import CreateEventForm from "@/widgets/events/createEventForm";
+import { Metadata } from "next";
 
+export const generateMetadata = (): Metadata => ({
+  robots: {
+    index: false,
+    follow: false,
+  },
+});
 export default async function AdminEvents() {
 
   const events = await loadEvents();

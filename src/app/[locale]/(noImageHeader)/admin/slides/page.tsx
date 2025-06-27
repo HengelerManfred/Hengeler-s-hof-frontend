@@ -2,6 +2,14 @@
 import { loadSlides } from "@/entities/api/slide.service";
 import { CreateSlide} from "@/widgets/settings/createSlide";
 import { SlideList } from "@/widgets/settings/slideList";
+import { Metadata } from "next";
+
+export const generateMetadata = (): Metadata => ({
+  robots: {
+    index: false,
+    follow: false,
+  },
+});
 // const slides = [
 //     {
 //         id: "1",

@@ -8,6 +8,14 @@ import {
   loadBookings,
 } from "@/widgets/booking/model/bookingApi";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
+
+export const generateMetadata = (): Metadata => ({
+  robots: {
+    index: false,
+    follow: false,
+  },
+});
 
 export default async function AdminSettings({
   params,

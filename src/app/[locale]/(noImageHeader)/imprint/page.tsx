@@ -1,5 +1,13 @@
 import { loadContacts } from "@/entities/api/contact.service";
+import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+
+export const generateMetadata = (): Metadata => ({
+  robots: {
+    index: false,
+    follow: false,
+  },
+});
 
 export default async function Imprint() {
   const t = await getTranslations("Imprint");

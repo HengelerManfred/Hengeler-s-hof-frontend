@@ -140,11 +140,13 @@ export function RoomCarousel({ slides }: { slides: Slide[] }) {
       </div>
       <Button
         className="!absolute min-w-[50px] !p-0 top-1/3 [@media(min-width:1500px)]:top-2/5 left-7 !hidden lg:!block"
+        aria-label="Previous slide"
         onClick={() => emblaApi?.scrollPrev()}
       >
         <KeyboardArrowLeftIcon className="text-white !text-[50px] md:!text-[70px] !h-[50px] md:!h-[70px]" />
       </Button>
       <Button
+        aria-label="Next slide"
         className="!absolute top-1/3 [@media(min-width:1500px)]:top-2/5 min-w-[50px] right-10 !p-0 !hidden lg:!block "
         onClick={() => emblaApi?.scrollNext()}
       >

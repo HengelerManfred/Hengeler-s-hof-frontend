@@ -7,6 +7,26 @@ import { WhereWeAre } from "@/widgets/booking/ui/whereWeAre";
 import { notFound } from "next/navigation";
 import { loadContacts } from "@/entities/api/contact.service";
 import { loadRoomById } from "@/entities/api/rooms.service";
+import { createTranslator } from "next-intl";
+import { Metadata } from "next";
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> => {
+  const locale = (await params).locale;
+  const messages = (await import(`@/../messages/${locale}.json`)).default;
+  const t = createTranslator({ locale, messages });
+
+  return {
+    title: t("BookingMeta.title"),
+    description:
+      t("BookingMeta.description"),
+    keywords: t("BookingMeta.keywords"),
+    robots: { index: true, follow: false },
+  };
+};
 
 export default async function RoomPage({
   params,

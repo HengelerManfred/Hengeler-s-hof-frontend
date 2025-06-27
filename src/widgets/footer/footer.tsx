@@ -56,16 +56,16 @@ export async function Footer() {
         <div className="lg:w-[285px] flex flex-col gap-2 text-justify">
           <span className="text-[var(--main-bg)]">{tr("slogan")}</span>
           <div className="flex justify-between text-[var(--main-bg)]">
-            <a href={contacts.facebook} target="_blank" rel="noopener noreferrer">
+            <a href={contacts.facebook} aria-label="Facebook" target="_blank" rel="noopener noreferrer">
               <Facebook className="size-[40px]! " />
             </a>
-            <a href={contacts.telegram} target="_blank" rel="noopener noreferrer">
+            <a href={contacts.telegram} target="_blank" aria-label="Telegram" rel="noopener noreferrer">
               <Telegram className="size-[40px]!" />
             </a>
-            <a href={contacts.whatsapp} target="_blank" rel="noopener noreferrer">
+            <a href={contacts.whatsapp} target="_blank" aria-label="Whatsapp"  rel="noopener noreferrer">
               <WhatsApp className="size-[40px]!" />
             </a>
-            <a href={contacts.instagram} target="_blank" rel="noopener noreferrer">
+            <a href={contacts.instagram} target="_blank" aria-label="Instagram" rel="noopener noreferrer">
               <Instagram className="size-[40px]!" />
             </a>
           </div>

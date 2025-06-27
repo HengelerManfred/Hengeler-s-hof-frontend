@@ -3,6 +3,14 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { usePathname } from "@/i18n/navigation";
 import clsx from "clsx";
+import { Metadata } from "next";
+
+export const generateMetadata = (): Metadata => ({
+  robots: {
+    index: false,
+    follow: false,
+  },
+});
 
 export default function Home({
   children,

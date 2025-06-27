@@ -1,5 +1,13 @@
 import { getTranslations } from "next-intl/server";
 import { loadContacts } from "@/entities/api/contact.service";
+import { Metadata } from "next";
+
+export const generateMetadata = (): Metadata => ({
+  robots: {
+    index: false,
+    follow: false,
+  },
+});
 
 export default async function PrivacyPolicy() {
   const t = await getTranslations("PrivacyPolicy");

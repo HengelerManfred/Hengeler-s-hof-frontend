@@ -19,6 +19,7 @@ export function AcceptButton({ text }: AcceptButtonProps) {
 
   return (
     <button
+      aria-label="Accept cookies"
       className="bg-[var(--main-bg)] text-[var(--primary-text)] px-4 py-2 rounded-md"
       onClick={acceptCookies}
     >

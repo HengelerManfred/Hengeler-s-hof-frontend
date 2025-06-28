@@ -1,16 +1,12 @@
-"use client";
 import { Room } from "../model/roomsData";
-import { Button } from "@mui/material";
-import { CalendarMonth } from "@mui/icons-material";
 import clsx from "clsx";
-import { useScrollRefStore } from "@/shared/store/scrollRefStore";
 import React from "react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { RoomCardButton } from "./roomCardButton";
 
-export function RoomCard({ room }: { room: Room }) {
-  const {wrapperRef} = useScrollRefStore();
-  const tBooking = useTranslations("Booking");
-  const t = useTranslations("");
+export async function RoomCard({ room }: { room: Room }) {
+  const tBooking = await getTranslations("Booking");
+  const t = await getTranslations("");
   return (
     <div className="w-full inter backface-hidden flex flex-col bg-[var(--section-bg)] border border-[var(--section-border)] rounded-[8px] gap-[15px] p-[20px]">
       <h3 className="text-[var(--primary-text)] text-[36px]">{t(room.nameKey)}</h3>
@@ -46,9 +42,7 @@ export function RoomCard({ room }: { room: Room }) {
         <span className="text-[var(--secondary-text)]">{tBooking("price")}: </span>
         {room.price}€ {tBooking("perNight")}
       </p>
-      <Button onClick={()=> wrapperRef?.current?.scrollIntoView({ behavior: "smooth" })} variant="default" className="flex items-center gap-2">
-        <CalendarMonth /> {tBooking("bookNow")}
-      </Button>
+      <RoomCardButton label={tBooking("bookNow")}></RoomCardButton>
     </div>
   );
 }

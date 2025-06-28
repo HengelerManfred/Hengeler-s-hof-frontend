@@ -1,32 +1,20 @@
-"use client";
 import { CalendarMonth, ReadMore } from "@mui/icons-material";
 import Button from "@mui/material/Button";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { EventExample } from "../events/event";
 import clsx from "clsx";
 
-import { useEffect, useRef } from "react";
-import { useScrollRefStore } from "@/shared/store/scrollRefStore";
 
-export function Events({ events }: { events: EventExample[] }) {
-  const tEvents = useTranslations("Event");
-  const t = useTranslations("");
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const { setWrapperRef } = useScrollRefStore();
-  useEffect(() => {
-    if (scrollRef.current) {
-      setWrapperRef(scrollRef);
-    }
-    return () => {
-      setWrapperRef(null);
-    };
-  }, [setWrapperRef]);
+export async function Events({ events }: { events: EventExample[] }) {
+  const tEvents = await getTranslations("Event");
+  const t = await getTranslations("");
+
   return (
     <>
       {events.map((event, index) => (
         <div
-          ref={index ? null : scrollRef}
+          id={"slide"+index}
           key={event.id}
           className={clsx(
             "flex flex-col xl:flex-row bg-[var(--section-bg)] min-h-auto xl:min-h-[400px] h-full border rounded-xl border-[var(--section-border)] overflow-hidden",

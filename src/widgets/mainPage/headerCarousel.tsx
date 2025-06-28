@@ -12,10 +12,8 @@ import { Button } from "@mui/material";
 import { Slide } from "./slide";
 import clsx from "clsx";
 import { ScrollArrows } from "@/shared/ui/scrollArrows/scrollArrows";
-import { useScrollRefStore } from "@/shared/store/scrollRefStore";
 
 export function HeaderCarousel({ slides }: { slides: Slide[] }) {
-  const {wrapperRef} = useScrollRefStore();
   const singleSlide = slides.length === 1;
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
@@ -102,7 +100,7 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
               )}
             </span>
             {slide.scrollArrows && (
-              <span onClick={()=> wrapperRef?.current?.scrollIntoView({ behavior: "smooth" })} 
+              <span onClick={()=> document.getElementById("slide0")?.scrollIntoView({ behavior: "smooth" })} 
               className="absolute w-full top-2/3 left-0 items-center justify-center flex">
                 <ScrollArrows />
               </span>

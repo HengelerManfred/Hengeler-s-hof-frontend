@@ -54,8 +54,8 @@ export default function CheckoutButton({
         roomId,
         price: price.toString(),
         numberOfDays: numberOfDays.toString(),
-        startDate: startDate.toISOString(),
-        endDate: endDate.toISOString(),
+        startDate: startDate.toLocaleDateString("sv-SE"),
+        endDate: endDate.toLocaleDateString("sv-SE"),
         moreThanTwoPats: moreThanTwoPats.toString(),
         wholeHouse: wholeHouse.toString(),
       });
@@ -93,7 +93,7 @@ export default function CheckoutButton({
 
   return (
     <button
-      className="w-full bg-[var(--accent)] text-white px-4 py-2 rounded-md"
+      className="w-full bg-[var(--accent)] text-white px-4 py-2 rounded-md cursor-pointer"
       onClick={handleClick}
       disabled={loading}
     >

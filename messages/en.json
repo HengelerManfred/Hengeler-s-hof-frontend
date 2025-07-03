@@ -299,87 +299,58 @@
   },
   "PrivacyPolicy": {
     "title": "Privacy Policy",
-    "responsible": {
-      "title": "Responsible Party",
-      "operator": "Manfred Hengeler",
-      "address": "Frohnhofen 3, 87452 Altusried, Germany",
-      "email": "hengeler.shofrohnhofen3@gmail.com",
-      "phone": "+49 (0)541 580 587 0"
-    },
-    "dataProcessing": {
-      "title": "Collection and Processing of Personal Data",
-      "registration": {
-        "title": "Registration",
-        "text": "During registration, we collect:",
-        "items": [
-          "First and last name",
-          "Email address",
-          "Phone number (e.g., for notifications)",
-          "Password (stored only as secure hash)"
-        ],
-        "legal": "Legal basis: Art. 6(1)(b) GDPR (contract performance)."
-      },
-      "oauth": {
-        "title": "OAuth2 Login",
-        "text": "When using Facebook or Google login, we only receive:",
-        "items": ["Your email address", "Your platform ID"],
-        "additional": "No additional data is collected.",
-        "legal": "Legal basis: Art. 6(1)(b) GDPR."
-      },
-      "visitData": {
-        "title": "Visit Data",
-        "text": "For planning our offerings, we store the date(s) of your visits.",
-        "legal": "Legal basis: Art. 6(1)(b) GDPR (contract performance)."
-      },
-      "payment": {
-        "title": "Payment Processing",
-        "text": "Payments are processed entirely through Stripe. We do not collect or store payment data.",
-        "legal": "Legal basis: Art. 6(1)(b) GDPR (contract performance)."
-      }
-    },
-    "cookies": {
-      "title": "Use of Cookies",
-      "text": "Our website uses only technically necessary cookies for:",
-      "items": [
-        "managing your login and session",
-        "providing security features"
-      ],
-      "noTracking": "No tracking, analytics, marketing, or A/B testing cookies are used.",
-      "legal": "As these cookies are necessary for operation, consent is not required under Art. 6(1)(f) GDPR."
-    },
-    "thirdParty": {
-      "title": "Third-Party Transfers",
-      "items": [
-        "Payment data: no transfer (processed via Stripe).",
-        "OAuth data: no transfer to other third parties, only to platforms you authorized."
-      ]
-    },
-    "retention": {
-      "title": "Data Retention",
-      "items": [
-        "Registration data: until account deletion, maximum 10 years after last activity.",
-        "Visit data: up to 2 years.",
-        "Cookies: session cookies until end of session."
-      ]
-    },
-    "rights": {
-      "title": "Your Rights",
-      "text": "You have the right to:",
-      "items": [
-        "Information access (Art. 15 GDPR)",
-        "Rectification (Art. 16 GDPR)",
-        "Erasure (Art. 17 GDPR)",
-        "Processing restriction (Art. 18 GDPR)",
-        "Data portability (Art. 20 GDPR)",
-        "Withdrawal of consent (Art. 7(3) GDPR)"
-      ],
-      "contact": "To exercise your rights or for questions, contact:"
-    },
-    "updates": {
-      "title": "Currency and Changes",
-      "validFrom": "This privacy policy is valid from June 15, 2024.",
-      "changes": "We reserve the right to make changes when necessary."
-    }
+    "responsibleTitle": "1. Controller",
+    "responsibleText": "The controller for data processing is:",
+    "responsibleName": "Hengeler's Hof",
+    "responsibleAddress": "{street}, {postalCode} {city}, {country}",
+    "responsibleEmail": "{email}",
+    "responsiblePhone": "{phoneNumber}",
+    "responsibleLaw": "The processing of your personal data is based on the EU General Data Protection Regulation (GDPR), the Federal Data Protection Act (BDSG), and the Telecommunications-Telemedia Data Protection Act (TTDSG). The legal bases are in particular Art. 6(1)(b) GDPR (contract performance), Art. 6(1)(f) GDPR (legitimate interest, e.g. IT security), and, if applicable, Art. 6(1)(a) GDPR (consent). If data is transferred to recipients in third countries, we use EU standard contractual clauses or other appropriate safeguards.",
+    "dataTitle": "2. Collected Data and Cookies",
+    "dataText": "We collect personal data to provide our contractual services (e.g. booking and accommodation), to ensure the security of our IT systems, and to technically provide our website. To secure your data, we use SSL/TLS encryption when you access our website.",
+    "stripeTitle": "2.1 Stripe (stripe.com)",
+    "stripeList": [
+      "stripe.csrf: CSRF protection for payments.",
+      "site-auth: Merchant authorization in the Stripe dashboard.",
+      "private_machine_identifier, machine_identifier: Fraud prevention and device recognition.",
+      "merchant, cid: Stripe account ID and client ID for merchant identification.",
+      "_ga: Stripe-internal Google Analytics (not for our website).",
+      "stripe_sid, stripe_mid: Session IDs for secure assignment of payment sessions.",
+      "stripe_orig_props: Referrer and landing page information for fraud prevention.",
+      "secure-has_logged_in: Display of login status in the Stripe dashboard."
+    ],
+    "stripeText": "Stripe processes your payment data (e.g. credit card information) as an independent controller for the purpose of fraud prevention and payment processing. Our legal basis for transmitting payment data is Art. 6(1)(b) GDPR (contract performance). International data transfers are based on EU standard contractual clauses.",
+    "ownCookiesTitle": "2.2 Own Cookies (hengelershof.com)",
+    "ownCookiesList": [
+      "cookies-accepted: Stores your consent to set non-essential cookies.",
+      "NEXT_LOCALE: Stores the language you have selected (Next.js i18n).",
+      "Secure-authjs.session-token: Access token for your session via NextAuth.js.",
+      "Secure-authjs.callback-url: Stores the URL for redirection after OAuth login.",
+      "__Host-authjs.csrf-token: CSRF token to secure your login via Auth.js."
+    ],
+    "ownCookiesText": "Technically necessary cookies are essential for the operation of the site and are set even without consent. We only set non-essential cookies after your active consent (Art. 6(1)(a) GDPR) via our cookie banner.",
+    "paymentTitle": "3. Payment Processing with Stripe",
+    "paymentText1": "To process your online payment, we use Stripe (Stripe Payments), a payment service from Stripe.com. Your payment data is transmitted directly to Stripe; we only receive confirmation of payment success. Without this transmission, we cannot complete your booking.",
+    "paymentText2": "Legal basis: Art. 6(1)(b) GDPR (contract performance). Stripe processes payment data as an independent provider for fraud prevention and payment processing. International data transfers are secured by EU standard contractual clauses.",
+    "oauthTitle": "4. Login via Google OAuth",
+    "oauthText1": "You can log in to our website using your Google account. We only receive the information (e.g. name, email address) that you explicitly release to us in the Google OAuth consent screen.",
+    "oauthText2": "We use this data exclusively for authentication and management of your user account. Our privacy policy is hosted on the same domain and is linked in the OAuth consent screen as required by Google. We comply with Google's Limited Use Policy.",
+    "rightsTitle": "5. Your Rights",
+    "rightsList": [
+      "Right to information about your stored personal data",
+      "Right to rectification of incorrect or incomplete data",
+      "Right to erasure (‘right to be forgotten’)",
+      "Right to restriction of processing",
+      "Right to data portability",
+      "Right to object to processing based on legitimate interests",
+      "Right to withdraw consent already given",
+      "Right to lodge a complaint with a data protection supervisory authority"
+    ],
+    "rightsText": "To exercise these rights, you can contact us at any time using the contact details provided above.",
+    "retentionTitle": "6. Data Deletion and Retention Period",
+    "retentionText": "Your personal data will be deleted or blocked as soon as the purpose of processing no longer applies. Storage beyond this period only takes place if required by law (e.g. tax retention periods).",
+    "updateTitle": "7. Updating the Privacy Policy",
+    "updateText": "This privacy policy is always available at https://www.hengelershof.com/en/privacypolicy and is updated immediately if our data processing procedures change. Last updated: July 3, 2025."
   },
   "AdminSlides": {
     "createSlide": "Create Slide",
@@ -478,7 +449,7 @@
     "description": "Quick and easy room booking with best price guarantee. Choose your comfortable room now!",
     "keywords": "booking, rooms, hotel, Hengeler's Hof, online booking, prices"
   },
-   "EventsMeta": {
+  "EventsMeta": {
     "title": "Events & Activities – Hengeler's Hof",
     "description": "Discover upcoming events, festivals, and local activities near Hengeler's Hof. Stay updated with the latest happenings.",
     "keywords": "events, activities, festivals, Germany, Hengeler's Hof, things to do"

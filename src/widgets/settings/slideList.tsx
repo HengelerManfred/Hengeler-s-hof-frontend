@@ -9,6 +9,7 @@ import { useState } from "react";
 import { CreateSlide } from "./createSlide";
 import CloseIcon from "@mui/icons-material/Close";
 import { deleteSlide } from "@/entities/api/slide.service";
+import toast from "react-hot-toast";
 export function SlideList({ slides }: { slides: Slide[] }) {
   const tAdminSlides = useTranslations("AdminSlides");
   const t = useTranslations("");
@@ -19,8 +20,10 @@ export function SlideList({ slides }: { slides: Slide[] }) {
   const handleDelete = async (id: string) => {
     try {
       await deleteSlide(id);
-    } catch {
-      console.error("failed to delete");
+      toast.success("Слайд видалено");
+    } catch (error) {
+      console.error(error);
+      toast.error("Щось пішло не так");
     }
   }
   return (

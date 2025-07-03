@@ -9,6 +9,7 @@ import { SlidePicker } from "../slidePicker/slidePicker";
 import { Slide } from "@/widgets/mainPage/slide";
 import { createRoom, CreateRoomDto } from "@/entities/api/rooms.service";
 import { loadTranslations } from "@/entities/api/translation.service";
+import toast from "react-hot-toast";
 
 export default function RoomSettingsForm({
   room,
@@ -104,7 +105,8 @@ export default function RoomSettingsForm({
 
         setSelectedSlides(selected);
       } catch (error) {
-        console.error("Ошибка при загрузке переводов или слайдов:", error);
+        console.error(error);
+        toast.error("Помилка при завантаженні перекладів або слайдів:");
       }
     };
 
@@ -181,8 +183,10 @@ export default function RoomSettingsForm({
     }
     try {
       await createRoom(resultData);
-    } catch {
-      console.log("something wents wrong");
+      toast.success("Дані оновлено");
+    } catch (error) {
+      console.error(error);
+      toast.error("Щось пішло не так");
     }
   };
 

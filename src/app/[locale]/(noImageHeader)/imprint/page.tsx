@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 
 export const generateMetadata = (): Metadata => ({
   robots: {
-    index: false,
+    index: true,
     follow: false,
   },
 });

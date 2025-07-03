@@ -4,7 +4,7 @@ import { Metadata } from "next";
 
 export const generateMetadata = (): Metadata => ({
   robots: {
-    index: false,
+    index: true,
     follow: false,
   },
 });

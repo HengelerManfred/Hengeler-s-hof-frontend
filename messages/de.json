@@ -270,7 +270,7 @@
     "title": "Buchungsplanung",
     "dateRange": "An- und Abreisedatum",
     "numberOfDays": "Anzahl der Nächte: {count}",
-    "minStay": "Mindestaufenthalt: {count} Nachten",
+    "minStay": "Mindestaufenthalt: {count} Nächten",
     "priceForPeriod": "Preis für den Zeitraum: {price}€",
     "additionalPrice": "Bei Buchungen unter 7 Nächten fällt ein Aufpreis pro Nacht an: {price}€",
     "withPet": "Ich komme mit mehr als einem Haustier",
@@ -339,87 +339,58 @@
   },
   "PrivacyPolicy": {
     "title": "Datenschutzerklärung",
-    "responsible": {
-      "title": "Verantwortlicher",
-      "operator": "Manfred Hengeler",
-      "address": "Frohnhofen 3, 87452 Altusried, Deutschland",
-      "email": "hengeler.shofrohnhofen3@gmail.com",
-      "phone": "+49 (0)541 580 587 0"
-    },
-    "dataProcessing": {
-      "title": "Erhebung und Verarbeitung personenbezogener Daten",
-      "registration": {
-        "title": "Registrierung",
-        "text": "Bei der Registrierung erfassen wir:",
-        "items": [
-          "Vor- und Nachname",
-          "E-Mail-Adresse",
-          "Telefonnummer (z.B. für Benachrichtigungen)",
-          "Passwort (nur als sicherer Hash gespeichert)"
-        ],
-        "legal": "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)."
-      },
-      "oauth": {
-        "title": "OAuth2-Anmeldung",
-        "text": "Bei der Nutzung von Facebook oder Google-Login erhalten wir nur:",
-        "items": ["Ihre E-Mail-Adresse", "Ihre Plattform-ID"],
-        "additional": "Weitere Daten werden nicht erhoben.",
-        "legal": "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO."
-      },
-      "visitData": {
-        "title": "Besuchsdaten",
-        "text": "Zur Planung unserer Angebote speichern wir das Datum bzw. die Daten Ihrer Besuche.",
-        "legal": "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)."
-      },
-      "payment": {
-        "title": "Zahlungsabwicklung",
-        "text": "Zahlungen werden vollständig über Stripe abgewickelt. Wir erheben und speichern keine Zahlungsdaten.",
-        "legal": "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung)."
-      }
-    },
-    "cookies": {
-      "title": "Verwendung von Cookies",
-      "text": "Unsere Website verwendet ausschließlich technisch notwendige Cookies für:",
-      "items": [
-        "Verwaltung Ihres Logins und Ihrer Sitzung",
-        "Bereitstellung von Sicherheitsfunktionen"
-      ],
-      "noTracking": "Es werden keine Tracking-, Analyse-, Marketing- oder A/B-Test-Cookies verwendet.",
-      "legal": "Da diese Cookies für den Betrieb erforderlich sind, ist gemäß Art. 6 Abs. 1 lit. f DSGVO keine Einwilligung erforderlich."
-    },
-    "thirdParty": {
-      "title": "Weitergabe an Dritte",
-      "items": [
-        "Zahlungsdaten: keine Weitergabe (Verarbeitung über Stripe).",
-        "OAuth-Daten: keine Weitergabe an andere Dritte, nur an von Ihnen autorisierte Plattformen."
-      ]
-    },
-    "retention": {
-      "title": "Speicherdauer",
-      "items": [
-        "Registrierungsdaten: bis zur Kontolöschung, maximal 10 Jahre nach letzter Aktivität.",
-        "Besuchsdaten: bis zu 2 Jahre.",
-        "Cookies: Session-Cookies bis zum Ende der Sitzung."
-      ]
-    },
-    "rights": {
-      "title": "Ihre Rechte",
-      "text": "Sie haben das Recht auf:",
-      "items": [
-        "Auskunft (Art. 15 DSGVO)",
-        "Berichtigung (Art. 16 DSGVO)",
-        "Löschung (Art. 17 DSGVO)",
-        "Einschränkung der Verarbeitung (Art. 18 DSGVO)",
-        "Datenübertragbarkeit (Art. 20 DSGVO)",
-        "Widerruf erteilter Einwilligungen (Art. 7 Abs. 3 DSGVO)"
-      ],
-      "contact": "Zur Ausübung Ihrer Rechte oder bei Fragen wenden Sie sich an:"
-    },
-    "updates": {
-      "title": "Aktualität und Änderungen",
-      "validFrom": "Diese Datenschutzerklärung ist gültig ab dem 15.06.2024.",
-      "changes": "Wir behalten uns vor, Änderungen bei Bedarf vorzunehmen."
-    }
+    "responsibleTitle": "1. Verantwortlicher",
+    "responsibleText": "Verantwortlich für die Datenverarbeitung ist:",
+    "responsibleName": "Hengeler's Hof",
+    "responsibleAddress": "{street}, {postalCode} {city}, {country}",
+    "responsibleEmail": "{email}",
+    "responsiblePhone": "{phoneNumber}",
+    "responsibleLaw": "Die Verarbeitung Ihrer personenbezogenen Daten erfolgt auf Basis der EU-Datenschutzgrundverordnung (DSGVO), des Bundesdatenschutzgesetzes (BDSG) sowie des Telekommunikation-Telemedien-Datenschutzgesetzes (TTDSG). Rechtsgrundlagen sind insbesondere Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung), Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse, z. B. IT-Sicherheit) und ggf. Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Sofern Daten an Empfänger in Drittländern übermittelt werden, verwenden wir EU-Standardvertragsklauseln oder andere geeignete Garantien.",
+    "dataTitle": "2. Erhobene Daten und Cookies",
+    "dataText": "Wir erheben personenbezogene Daten, um unsere vertraglichen Leistungen (z. B. Buchung und Beherbergung) zu erbringen, die Sicherheit unserer IT-Systeme zu gewährleisten und unsere Webseite technisch bereitzustellen. Zur Sicherung Ihrer Daten verwenden wir beim Aufruf unserer Webseite eine SSL/TLS-Verschlüsselung.",
+    "stripeTitle": "2.1 Stripe (stripe.com)",
+    "stripeList": [
+      "stripe.csrf: CSRF-Schutz bei Zahlungen.",
+      "site-auth: Händler-Autorisierung im Stripe-Dashboard.",
+      "private_machine_identifier, machine_identifier: Betrugsprävention und Geräteerkennung.",
+      "merchant, cid: Stripe-Account-ID und Client-ID zur Identifikation des Händlers.",
+      "_ga: Stripe-internes Google Analytics (nicht für unsere Webseite).",
+      "stripe_sid, stripe_mid: Sitzungs-IDs zur sicheren Zuordnung von Zahlungssitzungen.",
+      "stripe_orig_props: Referrer- und Landing-Page-Informationen zur Betrugsprävention.",
+      "secure-has_logged_in: Anzeige des Login-Status im Stripe-Dashboard."
+    ],
+    "stripeText": "Stripe verarbeitet Ihre Zahlungsdaten (z. B. Kreditkarteninformationen) als eigenständiger Verantwortlicher zum Zweck der Betrugsprävention und Zahlungsabwicklung. Unsere Rechtsgrundlage für die Übermittlung der Zahlungsdaten ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung). Internationale Datenübermittlungen erfolgen auf Basis von EU-Standardvertragsklauseln.",
+    "ownCookiesTitle": "2.2 Eigene Cookies (hengelershof.com)",
+    "ownCookiesList": [
+      "cookies-accepted: Speichert Ihre Einwilligung zum Setzen von nicht notwendigen Cookies.",
+      "NEXT_LOCALE: Speichert die von Ihnen gewählte Sprache (Next.js i18n).",
+      "Secure-authjs.session-token: Zugriffstoken für Ihre Sitzung über NextAuth.js.",
+      "Secure-authjs.callback-url: Speichert die URL für die Rückleitung nach OAuth-Login.",
+      "__Host-authjs.csrf-token: CSRF-Token zur Absicherung Ihres Logins über Auth.js."
+    ],
+    "ownCookiesText": "Technisch notwendige Cookies sind für den Betrieb der Seite unerlässlich und werden auch ohne Einwilligung gesetzt. Nicht notwendige Cookies setzen wir nur nach Ihrer aktiven Zustimmung (Art. 6 Abs. 1 lit. a DSGVO) durch unser Cookie-Banner.",
+    "paymentTitle": "3. Zahlungsabwicklung mit Stripe",
+    "paymentText1": "Für die Abwicklung Ihrer Online-Zahlung verwenden wir Stripe (Stripe Payments), einen Zahlungsdienst der Stripe.com. Ihre Zahlungsdaten werden direkt an Stripe übertragen; wir erhalten lediglich eine Bestätigung über den Zahlungserfolg. Ohne diese Übermittlung können wir Ihre Buchung nicht abschließen.",
+    "paymentText2": "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung). Stripe verarbeitet Zahlungsdaten als eigenverantwortlicher Anbieter zur Betrugsprävention und Zahlungsabwicklung. Internationale Datenübertragungen sind durch EU-Standardvertragsklauseln abgesichert.",
+    "oauthTitle": "4. Anmeldung via Google OAuth",
+    "oauthText1": "Sie können sich auf unserer Website mittels Ihres Google-Accounts anmelden. Dabei erhalten wir nur jene Informationen (z. B. Name, E-Mail-Adresse), die Sie uns im OAuth-Consent-Screen von Google explizit freigeben.",
+    "oauthText2": "Wir verwenden diese Daten ausschließlich zur Authentifizierung und Verwaltung Ihres Nutzerkontos. Unsere Datenschutzerklärung ist auf derselben Domain gehostet und wird im OAuth-Consent-Screen hinterlegt, wie von Google gefordert. Wir halten uns an die Google-Richtlinien zur eingeschränkten Nutzung (Limited Use Policy).",
+    "rightsTitle": "5. Ihre Rechte",
+    "rightsList": [
+      "Recht auf Auskunft über Ihre gespeicherten personenbezogenen Daten",
+      "Recht auf Berichtigung unrichtiger oder unvollständiger Daten",
+      "Recht auf Löschung ('Recht auf Vergessenwerden')",
+      "Recht auf Einschränkung der Verarbeitung",
+      "Recht auf Datenübertragbarkeit",
+      "Widerspruchsrecht gegen Verarbeitung auf Basis berechtigter Interessen",
+      "Recht auf Widerruf bereits erteilter Einwilligungen",
+      "Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde"
+    ],
+    "rightsText": "Zur Ausübung dieser Rechte können Sie uns jederzeit über die oben angegebenen Kontaktdaten kontaktieren.",
+    "retentionTitle": "6. Datenlöschung und Speicherdauer",
+    "retentionText": "Ihre personenbezogenen Daten werden gelöscht oder gesperrt, sobald der Zweck der Verarbeitung entfällt. Eine Speicherung über diesen Zeitraum hinaus erfolgt nur, wenn dies gesetzlich vorgeschrieben ist (z. B. steuerrechtliche Aufbewahrungsfristen).",
+    "updateTitle": "7. Aktualisierung der Datenschutzerklärung",
+    "updateText": "Diese Datenschutzerklärung ist stets auf https://www.hengelershof.com/de/privacypolicy verfügbar und wird bei Änderungen unserer Datenverarbeitungsprozesse umgehend aktualisiert. Datum der letzten Aktualisierung: 03. Juli 2025."
   },
   "Imprint": {
     "title": "Impressum",
@@ -473,12 +444,12 @@
     "description": "Buchen Sie ein komfortables Haus in der Natur in Deutschland. Bestpreisgarantie und einfache Online-Buchung.",
     "keywords": "Haus, Deutschland, Buchung, Komfort, Natur, Bauernhof, Hengeler's Hof"
   },
-   "BookingMeta": {
+  "BookingMeta": {
     "title": "Zimmerbuchung – Hengeler's Hof",
     "description": "Schnelle und einfache Zimmerbuchung mit Bestpreisgarantie. Wählen Sie jetzt Ihr komfortables Zimmer!",
     "keywords": "Buchung, Zimmer, Hotel, Hengeler's Hof, Online-Buchung, Preise"
   },
-   "EventsMeta": {
+  "EventsMeta": {
     "title": "Veranstaltungen & Aktivitäten – Hengeler's Hof",
     "description": "Erfahren Sie mehr über kommende Veranstaltungen, Feste und Aktivitäten in der Nähe von Hengeler's Hof. Immer gut informiert.",
     "keywords": "Veranstaltungen, Aktivitäten, Feste, Deutschland, Hengeler's Hof, Freizeit"

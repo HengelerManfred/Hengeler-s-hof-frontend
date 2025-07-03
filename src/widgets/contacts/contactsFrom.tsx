@@ -11,6 +11,7 @@ import clsx from "clsx";
 import { Contacts } from "@/entities/model/contacts";
 import { updateContacts, updateSocialMedia } from "@/entities/api/contact.service";
 import { useTranslations } from "next-intl";
+import toast from "react-hot-toast";
 
 interface Props {
   initialContacts: Contacts;
@@ -35,7 +36,9 @@ export default function AdminContactsClient({ initialContacts }: Props) {
     setSaving(true);
     try {
       await updateContacts(contacts);
+      toast.success("Контакти оновлено");
     } catch (e) {
+      toast.error("Щось пішло не так");
       console.error(e);
     } finally {
       setSaving(false);

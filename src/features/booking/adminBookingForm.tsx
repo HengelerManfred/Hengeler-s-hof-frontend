@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import { bookByAdmin } from "@/widgets/booking/model/bookingApi";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export default function AdminBookingForm({ roomId }: { roomId: string }) {
   const { range } = useBookingStore();
@@ -31,12 +32,15 @@ export default function AdminBookingForm({ roomId }: { roomId: string }) {
           userId: session.data?.user.id,
           wholeHouse: roomId.includes("house"),
         });
+        
         const url = new URL(window.location.href);
         url.searchParams.set('_', Date.now().toString()); 
         router.push(url.toString());
         setRange(undefined);
+        toast.success("Дати вимкнено для бронювання");
       } catch (e: unknown) {
         console.error(e);
+        toast.error("Щось пішло не так");
       }
     }
   };

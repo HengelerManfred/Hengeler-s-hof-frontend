@@ -45,7 +45,7 @@ export default async function AdminSettings({
           adminMode={true}
           blockedDatesWithReason={blockedDates}
         ></BookingCalendar>
-        <AdminBookingForm roomId={roomData?.id}></AdminBookingForm>
+        <AdminBookingForm roomId={roomData?.roomId}></AdminBookingForm>
       </div>
       <RoomSettingsForm
         slides={slides}

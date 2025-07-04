@@ -16,7 +16,7 @@ import { Metadata } from "next";
 export const generateMetadata = async ({
   params,
 }: {
-  params:  Promise<{ locale: string }>;
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> => {
   const locale = (await params).locale;
   const messages = (await import(`@/../messages/${locale}.json`)).default;
@@ -26,7 +26,7 @@ export const generateMetadata = async ({
     title: t("Meta.title"),
     description: t("Meta.description"),
     openGraph: {
-      title:  t("Meta.title"),
+      title: t("Meta.title"),
       description: t("Meta.description"),
       url: process.env.NEXT_PUBLIC_CURRENT_HOST,
       siteName: "Hengeler's Hof",
@@ -48,7 +48,7 @@ export const generateMetadata = async ({
     },
     metadataBase: new URL(process.env.NEXT_PUBLIC_CURRENT_HOST!),
     keywords: t("Meta.keywords"),
-    robots: { index: true, follow: true }
+    robots: { index: true, follow: true },
   };
 };
 
@@ -56,8 +56,8 @@ export default async function LocaleLayout({
   children,
   params,
 }: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  readonly children: React.ReactNode;
+  readonly params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
   const session = await auth();
@@ -68,7 +68,22 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${roundhand.variable} ${inter.variable}`}>
       <head>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Hengeler's Hof",
+              url: "https://www.hengelershof.com",
+              logo: "https://www.hengelershof.com/cow.png",
+            }),
+          }}
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+        />
       </head>
       <body className="relative">
         <NextIntlClientProvider key={locale} locale={locale}>

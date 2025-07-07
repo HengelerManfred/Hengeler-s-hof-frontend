@@ -15,7 +15,7 @@ export async function HoverAttractionCard({ attraction }: { attraction: Attracti
         <img
           src={attraction.image}
           alt={t(`items.${attraction.id}.title`)}
-          className="w-full object-cover h-full"
+          className="w-full object-cover h-full absolute"
         />
         <div
           className="absolute inset-0 

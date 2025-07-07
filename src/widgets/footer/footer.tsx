@@ -10,7 +10,7 @@ import {
   WhatsApp,
 } from "@mui/icons-material";
 import { Link } from "@/i18n/navigation";
-import Image from "next/image";
+
 import { loadContacts } from "@/entities/api/contact.service";
 
 export async function Footer() {
@@ -42,30 +42,49 @@ export async function Footer() {
           <p className="flex items-center">
             <LocationOn className="size-[40px]! text-[var(--main-bg)] rounded-full gap-2 mr-3" />
             <span className="text-[var(--main-bg)]">
-            {contacts.street}, {contacts.postalCode} {contacts.city}, {contacts.country}
+              {contacts.street}, {contacts.postalCode} {contacts.city},{" "}
+              {contacts.country}
             </span>
           </p>
         </address>
-        <Image
-          className="hidden lg:block"
+        <img
+          className="hidden lg:block h-[130px] w-[130px]"
           src="/images/cow.png"
           alt="Farm Icon"
-          width={130}
-          height={130}
-        ></Image>
+        />
         <div className="lg:w-[285px] flex flex-col gap-2 text-justify">
           <span className="text-[var(--main-bg)]">{tr("slogan")}</span>
           <div className="flex justify-between text-[var(--main-bg)]">
-            <a href={contacts.facebook} aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <a
+              href={contacts.facebook}
+              aria-label="Facebook"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Facebook className="size-[40px]! " />
             </a>
-            <a href={contacts.telegram} target="_blank" aria-label="Telegram" rel="noopener noreferrer">
+            <a
+              href={contacts.telegram}
+              target="_blank"
+              aria-label="Telegram"
+              rel="noopener noreferrer"
+            >
               <Telegram className="size-[40px]!" />
             </a>
-            <a href={contacts.whatsapp} target="_blank" aria-label="Whatsapp"  rel="noopener noreferrer">
+            <a
+              href={contacts.whatsapp}
+              target="_blank"
+              aria-label="Whatsapp"
+              rel="noopener noreferrer"
+            >
               <WhatsApp className="size-[40px]!" />
             </a>
-            <a href={contacts.instagram} target="_blank" aria-label="Instagram" rel="noopener noreferrer">
+            <a
+              href={contacts.instagram}
+              target="_blank"
+              aria-label="Instagram"
+              rel="noopener noreferrer"
+            >
               <Instagram className="size-[40px]!" />
             </a>
           </div>

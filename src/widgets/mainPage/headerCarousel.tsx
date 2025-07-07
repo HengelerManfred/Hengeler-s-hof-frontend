@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import Image from "next/image";
+
 import { Pause, PlayArrow } from "@mui/icons-material";
 import { ProgressCircle } from "@/features/mainPage/progressCircle";
 import { useTranslations } from "next-intl";
@@ -57,17 +57,19 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
         {slides.map((slide) => (
           <div
             className="embla__slide relative h-[100dvh] w-[100dvw]"
-            key={slide.id}>
-            <Image
+            key={slide.id}
+          >
+            <img
               src={
-                !slide.localLink ?  (process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) +
-                slide.imageUrl) : slide.imageUrl
+                !slide.localLink
+                  ? process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(
+                      0,
+                      -1
+                    ) + slide.imageUrl
+                  : slide.imageUrl
               }
               alt={t(slide.titleKey)}
-              fill
-              sizes="100vw"
-              className="object-cover relative select-none pointer-events-none md:layer-blur"
-              priority
+              className="object-cover relative select-none pointer-events-none md:layer-blur h-full w-full"
             />
             <div
               className={clsx(
@@ -100,8 +102,14 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
               )}
             </span>
             {slide.scrollArrows && (
-              <span onClick={()=> document.getElementById("slide0")?.scrollIntoView({ behavior: "smooth" })} 
-              className="absolute w-full top-2/3 left-0 items-center justify-center flex">
+              <span
+                onClick={() =>
+                  document
+                    .getElementById("slide0")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="absolute w-full top-2/3 left-0 items-center justify-center flex"
+              >
                 <ScrollArrows />
               </span>
             )}

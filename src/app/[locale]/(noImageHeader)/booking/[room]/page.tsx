@@ -13,7 +13,7 @@ import { Metadata } from "next";
 export const generateMetadata = async ({
   params,
 }: {
-  params: Promise<{ locale: string, room: string }>;
+  params: Promise<{ locale: string; room: string }>;
 }): Promise<Metadata> => {
   const locale = (await params).locale;
   const room = (await params).room;
@@ -22,19 +22,18 @@ export const generateMetadata = async ({
 
   return {
     title: t("BookingMeta.title"),
-    description:
-      t("BookingMeta.description"),
+    description: t("BookingMeta.description"),
     keywords: t("BookingMeta.keywords"),
-    robots: { index: true, follow: false },
+    robots: { index: true, follow: true },
     metadataBase: new URL(process.env.NEXT_PUBLIC_CURRENT_HOST!),
-     alternates: {
+    alternates: {
       canonical: `/${locale}/booking/${room}`,
       languages: {
         en: `/en/booking/${room}`,
         de: `/de/booking/${room}`,
         uk: `/uk/booking/${room}`,
-      }
-    }
+      },
+    },
   };
 };
 

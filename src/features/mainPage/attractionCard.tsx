@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
 interface AttractionCardProps {
@@ -12,11 +11,10 @@ export async function AttractionCard({ id, image }: AttractionCardProps) {
   return (
     <div className="flex flex-col gap-4 bg-[var(--section-bg)] p-6 rounded-lg border border-[var(--section-border)]">
       <div className="relative aspect-video w-full">
-        <Image
+        <img
           src={image}
           alt={t(`items.${id}.title`)}
-          fill
-          className="object-cover rounded-lg"
+          className="object-fill rounded-lg h-full w-full"
         />
       </div>
       <h3 className="text-xl font-medium text-[var(--primary-text)]">

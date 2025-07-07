@@ -9,7 +9,7 @@ import {
   IconButton,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import Image from "next/image";
+
 import { useTranslations } from "next-intl";
 import { Slide } from "@/widgets/mainPage/slide";
 
@@ -68,14 +68,12 @@ export function SlidePicker({
           key={slide.id}
           style={{ ...boxStyle, border: "1px solid var(--section-border)" }}
         >
-          <Image
+          <img
             src={
               process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) +
               slide.imageUrl
             }
             alt={`slide-${slide.id}`}
-            width={1400}
-            height={1000}
             style={{ width: width, height: height, objectFit: "cover" }}
           />
           <CloseIcon
@@ -168,7 +166,7 @@ export function SlidePicker({
                       position: "relative",
                     }}
                   >
-                    <Image
+                    <img
                       src={
                         process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(
                           0,
@@ -176,13 +174,13 @@ export function SlidePicker({
                         ) + slide.imageUrl
                       }
                       alt={`slide-${slide.id}`}
-                      fill
-                      sizes={"40vw"}
                       style={{ objectFit: "cover" }}
-                      className="rounded-lg"
+                      className="rounded-lg s-[40vw]"
                     />
                   </Box>
-                  {slide.titleKey && <p className="mt-4 font-bold">{t(slide.titleKey)}</p>}
+                  {slide.titleKey && (
+                    <p className="mt-4 font-bold">{t(slide.titleKey)}</p>
+                  )}
                   {slide.descriptionKey && <p>{t(slide.descriptionKey)}</p>}
                   {slide.price && (
                     <p>{t("slideWithPrice") + ": " + slide.price}</p>

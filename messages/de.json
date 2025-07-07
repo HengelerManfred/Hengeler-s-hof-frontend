@@ -338,6 +338,9 @@
     "keywords": "Hengelershof, Urlaub, Ferien, Natur, Niederlande"
   },
   "PrivacyPolicy": {
+    "titleMeta": "Datenschutzerklärung – Hengeler’s Hof",
+    "descriptionMeta": "Erfahren Sie, wie Hengeler’s Hof Ihre personenbezogenen Daten gemäß DSGVO verarbeitet.",
+    "keywords": "Datenschutzerklärung, DSGVO, Hengeler’s Hof, personenbezogene Daten, Datenschutz",
     "title": "Datenschutzerklärung",
     "responsibleTitle": "1. Verantwortlicher",
     "responsibleText": "Verantwortlich für die Datenverarbeitung ist:",
@@ -453,5 +456,10 @@
     "title": "Veranstaltungen & Aktivitäten – Hengeler's Hof",
     "description": "Erfahren Sie mehr über kommende Veranstaltungen, Feste und Aktivitäten in der Nähe von Hengeler's Hof. Immer gut informiert.",
     "keywords": "Veranstaltungen, Aktivitäten, Feste, Deutschland, Hengeler's Hof, Freizeit"
+  },
+  "ImprintMeta": {
+    "title": "Impressum – Hengeler’s Hof",
+    "description": "Gesetzlich vorgeschriebene Anbieterkennzeichnung und Kontaktinformationen für Hengeler’s Hof. Alle Pflichtangaben gemäß § 5 TMG.",
+    "keywords": "Impressum, Anbieterkennzeichnung, Hengeler’s Hof, Kontaktinformationen, Rechtliche Angaben"
   }
 }

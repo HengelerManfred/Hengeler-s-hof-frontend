@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
+
 import { IconButton, Menu, MenuItem } from "@mui/material";
 import { signOut } from "next-auth/react";
 import type { Session } from "next-auth";
@@ -33,12 +33,10 @@ export function UserMenu({
   return (
     <div>
       <IconButton onClick={handleClick} size="small" sx={{ p: 0 }}>
-        <Image
+        <img
           src={session.user?.image ?? "/icons/default_avatar.png"}
           alt="user avatar"
-          className="rounded-full"
-          width={50}
-          height={50}
+          className="object-cover rounded-full h-[50px] w-[50px]"
         />
       </IconButton>
       <Menu

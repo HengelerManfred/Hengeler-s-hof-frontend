@@ -298,6 +298,9 @@
     "keywords": "Hengelershof, vacation, holiday, nature, Netherlands"
   },
   "PrivacyPolicy": {
+    "titleMeta": "Privacy Policy – Hengeler’s Hof",
+    "descriptionMeta": "Read about how Hengeler’s Hof collects and processes your personal data according to GDPR.",
+    "keywords": "Privacy Policy, GDPR, Hengeler’s Hof, Personal Data, Data Protection",
     "title": "Privacy Policy",
     "responsibleTitle": "1. Controller",
     "responsibleText": "The controller for data processing is:",
@@ -453,5 +456,10 @@
     "title": "Events & Activities – Hengeler's Hof",
     "description": "Discover upcoming events, festivals, and local activities near Hengeler's Hof. Stay updated with the latest happenings.",
     "keywords": "events, activities, festivals, Germany, Hengeler's Hof, things to do"
+  },
+  "ImprintMeta": {
+    "title": "Imprint – Hengeler’s Hof",
+    "description": "Legal notice and contact details for Hengeler’s Hof. Find all necessary company information and responsibilities as required by law.",
+    "keywords": "Imprint, Legal Notice, Hengeler’s Hof, Contact Information, Company Details"
   }
 }

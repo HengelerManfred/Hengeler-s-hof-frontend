@@ -2,7 +2,7 @@
 import { signIn, useSession } from "next-auth/react";
 import { Button, CircularProgress } from "@mui/material";
 import { Link } from "@/i18n/navigation";
-import Image from "next/image";
+
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
@@ -20,7 +20,6 @@ const stripePromise = loadStripe(
 );
 
 export default function LoginForm() {
-
   const searchParams = useSearchParams();
   const session = useSession();
   const roomId = searchParams.get("roomId");
@@ -96,7 +95,7 @@ export default function LoginForm() {
     wholeHouse,
     session.data?.user.id,
     t,
-    router
+    router,
   ]);
 
   const redirectUrl = useRedirectStore((state) => state.redirectUrl);
@@ -176,13 +175,17 @@ export default function LoginForm() {
     await signIn("google", { callbackUrl: redirectUrl });
   };
 
-  if(stripeLoading) {
-    return <div className="absolute top-1/2 inter text-[var(--primary-text)] left-1/2 -translate-x-1/2 -translate-y-1/2 w-9/10 md:w-3/4 lg:w-1/2 xl:w-1/3 2xl:w-1/4 bg-[var(--section-bg)] border border-[var(--section-border)] rounded-lg p-5 max-w-md">
-      <div className="flex justify-center flex-col items-center h-full">
-        <CircularProgress className="!text-[var(--accent)] !size-20"/>
-        <p className="text-2xl text-[var(--primary-text)] font-bold text-center">{t("loadingStripe")}</p>
+  if (stripeLoading) {
+    return (
+      <div className="absolute top-1/2 inter text-[var(--primary-text)] left-1/2 -translate-x-1/2 -translate-y-1/2 w-9/10 md:w-3/4 lg:w-1/2 xl:w-1/3 2xl:w-1/4 bg-[var(--section-bg)] border border-[var(--section-border)] rounded-lg p-5 max-w-md">
+        <div className="flex justify-center flex-col items-center h-full">
+          <CircularProgress className="!text-[var(--accent)] !size-20" />
+          <p className="text-2xl text-[var(--primary-text)] font-bold text-center">
+            {t("loadingStripe")}
+          </p>
+        </div>
       </div>
-    </div>
+    );
   }
 
   return (
@@ -237,13 +240,16 @@ export default function LoginForm() {
           onClick={handleGoogleLogin}
           className="flex items-center cursor-pointer text-[var(--primary-text)] gap-2 justify-center !bg-[var(--section-bg)] !normal-case !border !border-[var(--section-border)] rounded-lg p-2"
         >
-          <Image src="/icons/google.svg" alt="Google" width={20} height={20} />
+          <img src="/icons/google.svg" alt="Google" className="w-5 h-5" />
           {t("googleButton")}
         </Button>
 
         <p className="text-center">
           {t("registerPrompt")}{" "}
-          <Link href={`/auth/register?${params.toString()}`} className="text-blue-500 underline">
+          <Link
+            href={`/auth/register?${params.toString()}`}
+            className="text-blue-500 underline"
+          >
             {t("registerLink")}
           </Link>
         </p>

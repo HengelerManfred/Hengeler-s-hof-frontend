@@ -1,7 +1,6 @@
 
 import { Attraction } from "@/shared/types/attraction";
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
 
 export async function HoverAttractionCard({ attraction }: { attraction: Attraction }) {
   const t =  await getTranslations("Attractions");
@@ -13,12 +12,10 @@ export async function HoverAttractionCard({ attraction }: { attraction: Attracti
       tabIndex={0}
     >
       <div className="relative aspect-video w-full will-change-transform transform transition-transform duration-500 group-hover:scale-105 group-focus-within:scale-105">
-        <Image
+        <img
           src={attraction.image}
           alt={t(`items.${attraction.id}.title`)}
-          fill
-          sizes="(max-width: 768px) 100vw, 33vw"
-          style={{ objectFit: "cover" }}
+          className="w-full object-cover h-full"
         />
         <div
           className="absolute inset-0 

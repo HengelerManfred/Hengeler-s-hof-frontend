@@ -9,7 +9,6 @@ import { EventExample } from "@/widgets/events/event";
 import { Delete, Edit, Visibility, VisibilityOff } from "@mui/icons-material";
 import { Dialog, DialogContent } from "@mui/material";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
@@ -47,16 +46,14 @@ export default function AdminEventsList({
         {events.map((event) => (
           <div key={event.id}>
             <div className="relative w-full min-h-[500px]">
-              <Image
+              <img
                 src={
                   process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) +
                   event.imageUrl
                 }
-                sizes="30vw"
-                fill
                 alt={t(event.titleKey)}
-                className="object-cover w-full  rounded-lg"
-              ></Image>
+                className="object-cover w-full h-full rounded-lg absolute inset-0"
+              />
               <div
                 className="w-full h-full absolute"
                 style={{

@@ -158,7 +158,7 @@ export function CreateSlide({
         "relative h-full rounded bg-[var(--section-bg)] py-[10px] px-5  flex flex-col gap-4",
         selectedSlide
           ? "w-full"
-          : "w-full lg:w-[45%] border border-[var(--section-border)]"
+          : "w-full 2xl:w-[45%] border border-[var(--section-border)]"
       )}
     >
       <span className="text-[20px] font-medium">{t("createSlide")}</span>

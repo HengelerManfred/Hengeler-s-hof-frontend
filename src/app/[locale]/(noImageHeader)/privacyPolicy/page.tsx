@@ -2,12 +2,35 @@ import { getTranslations } from "next-intl/server";
 import { loadContacts } from "@/entities/api/contact.service";
 import { Metadata } from "next";
 
-export const generateMetadata = (): Metadata => ({
-  robots: {
-    index: true,
-    follow: false,
-  },
-});
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: { locale: string };
+}): Promise<Metadata> => {
+  const { locale } = params;
+  const t = await getTranslations("PrivacyPolicy");
+
+  return {
+    title: t("titleMeta"),
+    description: t("descriptionMeta"),
+    keywords: t("keywords"),
+    robots: {
+      index: true,
+      follow: true,
+    },
+    metadataBase: new URL(process.env.NEXT_PUBLIC_CURRENT_HOST!),
+    alternates: {
+      canonical: `/${locale}/privacyPolicy`,
+      languages: {
+        en: `/en/privacyPolicy`,
+        de: `/de/privacyPolicy`,
+        uk: `/uk/privacyPolicy`,
+        "x-default": `/en/privacyPolicy`,
+      },
+    },
+  };
+};
 
 export default async function PrivacyPolicy() {
   const t = await getTranslations("PrivacyPolicy");
@@ -33,8 +56,8 @@ export default async function PrivacyPolicy() {
             country: contacts.country,
           })}
         </p>
-        <p>{ contacts.email }</p>
-        <p> { contacts.phoneNumber }</p>
+        <p>{contacts.email}</p>
+        <p> {contacts.phoneNumber}</p>
       </span>
       <p className="mb-4">{t("responsibleLaw")}</p>
 

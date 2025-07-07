@@ -3,19 +3,19 @@ import { MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://www.hengelershof.com/en/',
+      url: 'https://www.hengelershof.com/en',
       lastModified: new Date(),
       priority: 1.0,
       changeFrequency: 'weekly',
     },
     {
-      url: 'https://www.hengelershof.com/uk/',
+      url: 'https://www.hengelershof.com/uk',
       lastModified: new Date(),
       priority: 1.0,
       changeFrequency: 'weekly',
     },
     {
-      url: 'https://www.hengelershof.com/de/',
+      url: 'https://www.hengelershof.com/de',
       lastModified: new Date(),
       priority: 1.0,
       changeFrequency: 'weekly',

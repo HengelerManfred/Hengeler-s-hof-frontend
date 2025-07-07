@@ -7,21 +7,25 @@ import { Rooms } from "@/widgets/mainPage/rooms";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-export const generateMetadata = async ({params}: {params: Promise<{locale: string}>}): Promise<Metadata> => {
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> => {
   const locale = (await params).locale;
 
   return {
-      metadataBase: new URL(process.env.NEXT_PUBLIC_CURRENT_HOST!),
-     alternates: {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_CURRENT_HOST!),
+    alternates: {
       canonical: `/${locale}`,
       languages: {
         en: "/en",
         de: "/de",
         uk: "/uk",
       },
-    }
-  }
-}
+    },
+  };
+};
 // const slides = [
 //   {
 //     id: "1",

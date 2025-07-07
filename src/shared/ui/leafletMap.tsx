@@ -6,32 +6,43 @@ import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import { LatLng } from "leaflet";
-import Image from "next/image";
+
 import { Contacts } from "@/entities/model/contacts";
 
-
-function LocationMarker({contacts}: {contacts: Contacts}) {
+function LocationMarker({ contacts }: { contacts: Contacts }) {
   const markerPosition = new LatLng(47.7747, 10.2375995);
   return (
     <Marker position={markerPosition} interactive={true}>
       <Popup>
         <div className="flex flex-col gap-[12px] items-center">
           <h2 className="text-[24px] font-bold">Hengeler&apos;s Hof</h2>
-          <Image src="/images/cow.png" alt="map" width={100} height={100} />
+          <img src="/images/cow.png" alt="map" className="w-[100px] h-[100px]" />
           <p className="text-[14px] !m-0">
-          {contacts.street}, {contacts.postalCode} {contacts.city}, {contacts.country}
+            {contacts.street}, {contacts.postalCode} {contacts.city},{" "}
+            {contacts.country}
           </p>
         </div>
       </Popup>
       <Tooltip direction="bottom" offset={[-15, 35]} permanent>
         <div className="text-sm font-medium text-black">
-        {contacts.street}, {contacts.postalCode} {contacts.city}, {contacts.country}
+          {contacts.street}, {contacts.postalCode} {contacts.city},{" "}
+          {contacts.country}
         </div>
       </Tooltip>
     </Marker>
   );
 }
-const LeafletMap = ({zoomControl = true, height = "400px", scrollWheelZoom = false, contacts}: {zoomControl?: boolean, height?: string, scrollWheelZoom?: boolean, contacts: Contacts }) => {
+const LeafletMap = ({
+  zoomControl = true,
+  height = "400px",
+  scrollWheelZoom = false,
+  contacts,
+}: {
+  zoomControl?: boolean;
+  height?: string;
+  scrollWheelZoom?: boolean;
+  contacts: Contacts;
+}) => {
   return (
     <div>
       <MapContainer
@@ -50,7 +61,7 @@ const LeafletMap = ({zoomControl = true, height = "400px", scrollWheelZoom = fal
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <LocationMarker contacts={contacts}/>
+        <LocationMarker contacts={contacts} />
       </MapContainer>
     </div>
   );

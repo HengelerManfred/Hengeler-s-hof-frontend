@@ -2,12 +2,32 @@ import { loadContacts } from "@/entities/api/contact.service";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
-export const generateMetadata = (): Metadata => ({
-  robots: {
-    index: true,
-    follow: false,
-  },
-});
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> => {
+  const locale = (await params).locale;
+  const t = await getTranslations("ImprintMeta");
+  return {
+    title: t("title"),
+    description: t("description"),
+    keywords: t("keywords"),
+    robots: {
+      index: true,
+      follow: true,
+    },
+    metadataBase: new URL(process.env.NEXT_PUBLIC_CURRENT_HOST!),
+    alternates: {
+      canonical: `/${locale}/imprint`,
+      languages: {
+        en: `/en/imprint`,
+        de: `/de/imprint`,
+        uk: `/uk/imprint`,
+      },
+    },
+  };
+};
 
 export default async function Imprint() {
   const t = await getTranslations("Imprint");
@@ -20,7 +40,10 @@ export default async function Imprint() {
           <li>
             <h3 className="text-2xl font-semibold">{t("legal.title")}</h3>
             <p>{t("legal.name")}</p>
-            <p>{contacts.street}, {contacts.postalCode} {contacts.city}, {contacts.country}</p>
+            <p>
+              {contacts.street}, {contacts.postalCode} {contacts.city},{" "}
+              {contacts.country}
+            </p>
             <p className="mt-2">E-Mail: {t("legal.email")}</p>
             <p>Telefon: {t("legal.phone")}</p>
           </li>

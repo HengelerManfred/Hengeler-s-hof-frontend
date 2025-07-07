@@ -1,6 +1,6 @@
 "use client";
 import useEmblaCarousel from "embla-carousel-react";
-import Image from "next/image";
+
 import { useTranslations } from "next-intl";
 import { useState, useEffect, useCallback } from "react";
 import type { UseEmblaCarouselType } from "embla-carousel-react";
@@ -90,16 +90,15 @@ export function RoomCarousel({ slides }: { slides: Slide[] }) {
                   selectedIndex !== index && "!w-[100%] lg:!w-[85%]"
                 )}
               >
-                <Image
+                <img
                   src={
-                    process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) +
-                    slide.imageUrl
+                    process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(
+                      0,
+                      -1
+                    ) + slide.imageUrl
                   }
                   alt={t(slide.titleKey)}
-                  fill
-                  sizes="(max-width: 768px) 80vw, 50vw"
-                  className="object-cover rounded-[16px] select-none pointer-events-none"
-                  priority={index === 0}
+                  className="object-cover h-full w-full rounded-[16px] select-none pointer-events-none"
                 />
               </div>
             </div>

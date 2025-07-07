@@ -1,7 +1,6 @@
 "use client";
 import { Button } from "@mui/material";
 import useEmblaCarousel from "embla-carousel-react";
-import Image from "next/image";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import { useTranslations } from "next-intl";
 import { Slide } from "@/widgets/mainPage/slide";
@@ -10,7 +9,10 @@ export default function BookingCarousel({ slides }: { slides: Slide[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const t = useTranslations("");
   return (
-    <div className="embla w-full relative h-full rounded-lg transition-opacity animate-fadeIn" ref={emblaRef}>
+    <div
+      className="embla w-full relative h-full rounded-lg transition-opacity animate-fadeIn"
+      ref={emblaRef}
+    >
       <div className="embla__container h-full flex">
         {slides.map((image) => (
           <div
@@ -18,15 +20,26 @@ export default function BookingCarousel({ slides }: { slides: Slide[] }) {
             className="embla__slide h-full shrink-0 grow-0 basis-full"
           >
             <div className="relative w-full h-full rounded overflow-hidden">
-              <Image
-                src={process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) + image.imageUrl}
+              <img
+                src={
+                  process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) +
+                  image.imageUrl
+                }
                 alt="Foto vom Zimmer"
-                fill
-                sizes="(max-width: 768px) 90vw, 60vw"
-                className="object-cover"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
               />
             </div>
-            {image.titleKey && <h3 className="text-white text-[36px] absolute bottom-10 w-full text-center">{t(image.titleKey)}</h3>}
+            {image.titleKey && (
+              <h3 className="text-white text-[36px] absolute bottom-10 w-full text-center">
+                {t(image.titleKey)}
+              </h3>
+            )}
           </div>
         ))}
       </div>
@@ -48,4 +61,3 @@ export default function BookingCarousel({ slides }: { slides: Slide[] }) {
     </div>
   );
 }
-

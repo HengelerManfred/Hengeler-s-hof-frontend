@@ -27,7 +27,7 @@ export const generateMetadata = async ({
         uk: `/uk/events`,
       }
     },
-    robots: { index: true, follow: false },
+    robots: { index: true, follow: true },
   };
 };
 

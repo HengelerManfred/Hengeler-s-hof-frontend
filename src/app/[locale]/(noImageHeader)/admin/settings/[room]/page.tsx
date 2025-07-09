@@ -9,6 +9,8 @@ import {
 } from "@/widgets/booking/model/bookingApi";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import AdminSettingsForm from "@/features/booking/adminSettingsForm";
+import { loadFeatures, loadPriceList } from "@/entities/api/adminSettings.service";
 
 export const generateMetadata = (): Metadata => ({
   robots: {
@@ -22,14 +24,15 @@ export default async function AdminSettings({
 }: {
   params: Promise<{ room: string }>;
 }) {
-  let slides, roomData, bookings;
+  let slides, roomData, bookings, features, priceList;
   const { room } = await params;
 
   try {
     slides = (await loadSlides()) ?? [];
     bookings = await loadBookings();
     roomData = await loadRoomById(room);
-
+    features = await loadFeatures();
+    priceList = await loadPriceList();
     if (!roomData) {
       notFound();
     }
@@ -45,7 +48,10 @@ export default async function AdminSettings({
           adminMode={true}
           blockedDatesWithReason={blockedDates}
         ></BookingCalendar>
-        <AdminBookingForm roomId={roomData?.roomId}></AdminBookingForm>
+        <div className="gap-3 flex flex-col">
+          <AdminBookingForm roomId={roomData?.roomId}></AdminBookingForm>
+          <AdminSettingsForm features={features} priceList={priceList}></AdminSettingsForm>
+        </div>
       </div>
       <RoomSettingsForm
         slides={slides}

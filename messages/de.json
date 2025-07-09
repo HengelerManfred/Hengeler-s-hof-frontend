@@ -238,7 +238,13 @@
     "room3_max_guests": "2+1 (das Sofa kann als zweites Bett verwendet werden)",
     "house_max_guests": "7+1 (Babybett)",
     "kitchen": "Küche",
-    "bathroom": "Badezimmer"
+    "bathroom": "Badezimmer",
+    "priceFrom": "Preis ab für das ganze Haus:",
+    "priceInfo": {
+      "title": "Preise je nach Personenzahl",
+      "people": "Anzahl der Personen",
+      "price": "Preis"
+    }
   },
   "RoomsPage": {
     "title": "Unsere Zimmer",

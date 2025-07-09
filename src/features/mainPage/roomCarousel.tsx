@@ -10,6 +10,8 @@ import { Button } from "@mui/material";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { Slide } from "@/widgets/mainPage/slide";
+import { Feature, PriceItem } from "@/entities/api/adminSettings.service";
+import { PriceInfoPopover } from "@/widgets/booking/ui/priceInfoPopover";
 
 // const slides = [
 //   {
@@ -49,7 +51,15 @@ import { Slide } from "@/widgets/mainPage/slide";
 //   },
 // ];
 
-export function RoomCarousel({ slides }: { slides: Slide[] }) {
+export function RoomCarousel({
+  slides,
+  features,
+  priceList,
+}: {
+  slides: Slide[];
+  features: Feature[];
+  priceList: PriceItem[];
+}) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const tRoomCarousel = useTranslations("RoomCarousel");
   const t = useTranslations("");
@@ -122,13 +132,31 @@ export function RoomCarousel({ slides }: { slides: Slide[] }) {
                 )}
               </div>
               <div className="flex xl:flex-col gap-3 justify-center items-center xl:items-start">
-                {slide.price && (
-                  <div className="text-[var(--primary-text)] select-none leading-none self-end bg-[var(--section-bg)] border w-fit border-[var(--section-border)] p-[10px] rounded-[8px] font-medium text-[16px] md:text-[16px] inter">
-                    {tRoomCarousel("priceFrom")} <br />
-                    <span className="text-[34px] xl:text-[36px]">
-                      {slide.price}
+                {!features.find((f) => f.featureName == "booking-enabled")
+                  ?.isActive ? (
+                  <>
+                    {slide.price && (
+                      <div className="text-[var(--primary-text)] select-none leading-none self-end bg-[var(--section-bg)] border w-fit border-[var(--section-border)] p-[10px] rounded-[8px] font-medium text-[16px] md:text-[16px] inter">
+                        {tRoomCarousel("priceFrom")} <br />
+                        <span className="text-[34px] xl:text-[36px]">
+                          {slide.price}
+                        </span>
+                        {tRoomCarousel("perNight")}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <div className="text-[var(--primary-text)] flex flex-col items-start select-none leading-none self-end bg-[var(--section-bg)] border w-fit border-[var(--section-border)] p-[10px] rounded-[8px] font-medium text-[16px] md:text-[16px] inter">
+                    {tRoomCarousel("priceFrom")+":"} <br />
+                    <span className="flex items-end">
+                      <span className="text-[34px] xl:text-[36px]">
+                        {priceList[0]?.price}
+                      </span>
+                      <span className="flex items-center">
+                        {tRoomCarousel("perNight")}
+                        <PriceInfoPopover items={priceList}></PriceInfoPopover>
+                      </span>
                     </span>
-                    {tRoomCarousel("perNight")}
                   </div>
                 )}
                 <BookButton disabled={selectedIndex !== index} />

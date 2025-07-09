@@ -1,3 +1,4 @@
+import { loadFeatures, loadPriceList } from "@/entities/api/adminSettings.service";
 import { loadContacts } from "@/entities/api/contact.service";
 import { loadHeaderSlider } from "@/entities/api/slider.service";
 import { Attractions } from "@/widgets/mainPage/attractions";
@@ -62,11 +63,13 @@ export const generateMetadata = async ({
 export default async function Home() {
   let contacts;
   let headerSlides;
-
+  let priceList;
+  let features;
   try {
     contacts = await loadContacts();
     headerSlides = await loadHeaderSlider();
-
+    priceList = await loadPriceList();
+    features = await loadFeatures();
     if (!contacts || !headerSlides) {
       notFound();
     }
@@ -77,7 +80,7 @@ export default async function Home() {
   return (
     <main className="w-[100dvw] flex pb-[24px] flex-col items-center gap-[24px]">
       <HeaderCarousel slides={headerSlides.slides} />
-      <Rooms />
+      <Rooms priceList={priceList} features={features} />
       <Attractions />
       <MainMap contacts={contacts} />
     </main>

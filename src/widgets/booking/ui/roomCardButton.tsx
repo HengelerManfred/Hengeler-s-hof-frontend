@@ -2,10 +2,15 @@
 
 import { Button } from "@mui/material";
 import { CalendarMonth } from "@mui/icons-material";
+import { Feature } from "@/entities/api/adminSettings.service";
 
-export function RoomCardButton({ label }: { label: string }) {
+export function RoomCardButton({ label, features }: { label: string, features: Feature[] }) {
   const handleClick = () => {
-    document.getElementById("calendar")?.scrollIntoView({ behavior: "smooth" });
+    if(!features.find(f=>f.featureName == "booking-enabled")?.isActive) {
+      
+    } else {
+      document.getElementById("calendar")?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (

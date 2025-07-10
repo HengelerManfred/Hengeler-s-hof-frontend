@@ -29,11 +29,7 @@ const formatDateRange = (range: DateRange | undefined) => {
   )}`;
 };
 
-export function BookingForm({
-  room,
-}: {
-  room: Room;
-}) {
+export function BookingForm({ room }: { room: Room }) {
   const { range } = useBookingStore();
   const t = useTranslations("BookingForm");
   const [moreThanTwoPats, setMoreThanTwoPats] = useState(false);
@@ -53,7 +49,7 @@ export function BookingForm({
     useBookingStore.setState({ price: totalPrice, numberOfDays });
   }, [totalPrice, numberOfDays]);
 
-  const minStay = 3;
+  const minStay = 2;
 
   return (
     <div className="p-5 w-full [@media(width>1424px)]:w-1/3 h-fit flex flex-col gap-3 bg-[var(--section-bg)]  border border-[var(--section-border)] inter rounded-lg shadow-md">

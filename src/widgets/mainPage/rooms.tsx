@@ -1,8 +1,15 @@
 import { RoomCarousel } from "@/features/mainPage/roomCarousel";
 import { getTranslations } from "next-intl/server";
 import { loadRoomSlider, Slider } from "@/entities/api/slider.service";
+import { Feature, PriceItem } from "@/entities/api/adminSettings.service";
 
-export async function Rooms() {
+export async function Rooms({
+  features,
+  priceList,
+}: {
+  features: Feature[];
+  priceList: PriceItem[];
+}) {
   const t = await getTranslations("Rooms");
   const roomsSlider: Slider = await loadRoomSlider();
   return (
@@ -17,7 +24,7 @@ export async function Rooms() {
           </p>
         </span>
       </div>
-      <RoomCarousel slides={roomsSlider.slides}/>
+      <RoomCarousel features={features} priceList={priceList} slides={roomsSlider.slides} />
     </section>
   );
 }

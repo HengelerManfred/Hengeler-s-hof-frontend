@@ -9,6 +9,8 @@ import { loadContacts } from "@/entities/api/contact.service";
 import { loadRoomById } from "@/entities/api/rooms.service";
 import { createTranslator } from "next-intl";
 import { Metadata } from "next";
+import { loadFeatures } from "@/entities/api/adminSettings.service";
+import { clsx } from "clsx";
 
 export const generateMetadata = async ({
   params,
@@ -43,13 +45,24 @@ export default async function RoomPage({
   params: Promise<{ room: string }>;
 }) {
   const { room } = await params;
+  const features = await loadFeatures();
+  const isBookingMode = features.find(
+    (f) => f.featureName == "booking-enabled"
+  )?.isActive;
   const roomData: Room = await loadRoomById(room);
   const contacts = await loadContacts();
   if (!roomData) {
     return notFound();
   }
   return (
-    <main className="w-[100dvw] flex flex-col pb-20 [@media(width>1424px)]:h-[1550px] 2xl:h-[1700px] xl:h-[1800px]  [@media(width>2000px)]:h-[1400px] items-center gap-[24px]">
+    <main
+      className={clsx(
+        "w-[100dvw] flex flex-col pb-20 items-center gap-[24px]",
+        !isBookingMode
+          ? "[@media(width>1424px)]:h-[1550px] 2xl:h-[1700px] xl:h-[1800px] [@media(width>2000px)]:h-[1400px]"
+          : "h-auto"
+      )}
+    >
       <section className="flex gap-[12px] w-9/10 md:w-3/4 lg:flex-row flex-col">
         <div className="lg:w-6/10 w-full lg:h-[inherit] h-[400px]">
           <RoomsSlider slides={roomData.slides} />
@@ -65,7 +78,7 @@ export default async function RoomPage({
         <WhereWeAre contacts={contacts} />
       </div>
       <Benefits />
-      <Booking room={roomData} />
+      {!isBookingMode && <Booking room={roomData} />}
     </main>
   );
 }

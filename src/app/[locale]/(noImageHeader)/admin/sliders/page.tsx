@@ -22,7 +22,7 @@ export default async function Sliders () {
     notFound();
   }
 
-  return <div className="w-9/10 lg:w-3/4">
+  return <div className="w-9/10 lg:w-3/4 min-h-[calc(100vh-530px)] flex gap-4 flex-col">
     <HeaderSlidePicker slider={headerSlider} slides={slides}></HeaderSlidePicker>
     <RoomSlidePicker slider={roomSlider} slides={slides}></RoomSlidePicker>
   </div>

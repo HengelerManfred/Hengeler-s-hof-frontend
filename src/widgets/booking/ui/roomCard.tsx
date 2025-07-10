@@ -68,15 +68,20 @@ export async function RoomCard({ room }: { room: Room }) {
           </>
         ) : (
           <>
-            <span className="text-[var(--secondary-text)]">
-              {tBooking("priceFrom") + " "}
+            <span className="text-[var(--secondary-text)] pr-1">
+              {tBooking("priceFrom")}
             </span>
-            {priceList[0].price ?? room.price}€ {tBooking("perNight")}
-            <PriceInfoPopover items={priceList} />
+            <span className="inline-flex w-fit items-center">
+              {priceList[0].price ?? room.price}€ {tBooking("perNight")}
+              <PriceInfoPopover items={priceList} />
+            </span>
           </>
         )}
       </div>
-      <RoomCardButton features={features} label={tBooking("bookNow")}></RoomCardButton>
+      <RoomCardButton
+        features={features}
+        label={tBooking("bookNow")}
+      ></RoomCardButton>
     </div>
   );
 }

@@ -6,7 +6,7 @@ import { Feature } from "@/entities/api/adminSettings.service";
 
 export function RoomCardButton({ label, features }: { label: string, features: Feature[] }) {
   const handleClick = () => {
-    if(!features.find(f=>f.featureName == "booking-enabled")?.isActive) {
+    if(features.find(f=>f.featureName == "booking-enabled")?.isActive) {
     const url = process.env.NEXT_PUBLIC_BOOKING_URL;
     if (url) {
       window.location.href = url;

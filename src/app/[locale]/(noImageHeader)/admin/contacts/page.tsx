@@ -1,4 +1,3 @@
-
 import { loadContacts } from "@/entities/api/contact.service";
 import AdminContactsClient from "@/widgets/contacts/contactsFrom";
 import { Metadata } from "next";

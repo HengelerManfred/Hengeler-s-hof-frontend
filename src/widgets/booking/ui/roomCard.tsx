@@ -58,7 +58,7 @@ export async function RoomCard({ room }: { room: Room }) {
           </span>
         </div>
       </div>
-      <p className="text-[var(--primary-text)] text-[16px]">
+      <div className="text-[var(--primary-text)] text-[16px]">
         {!features.find((f) => f.featureName == "booking-enabled")?.isActive ? (
           <>
             <span className="text-[var(--secondary-text)]">
@@ -75,7 +75,7 @@ export async function RoomCard({ room }: { room: Room }) {
             <PriceInfoPopover items={priceList} />
           </>
         )}
-      </p>
+      </div>
       <RoomCardButton features={features} label={tBooking("bookNow")}></RoomCardButton>
     </div>
   );

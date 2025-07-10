@@ -57,8 +57,8 @@ export default function AdminContactsClient({ initialContacts }: Props) {
   };
 
   return (
-    <div className="w-9/10 lg:w-3/4 flex flex-col lg:flex-row gap-3">
-      <div className="w-full lg:w-2/5 rounded bg-[var(--section-bg)] py-[10px] px-5 border-1 border-[var(--section-border)] flex flex-col gap-4">
+    <div className="w-9/10 lg:w-3/4 flex flex-col min-h-[calc(100vh-530px)] lg:flex-row gap-3">
+      <div className="w-full lg:w-2/5 h-fit rounded bg-[var(--section-bg)] py-[10px] px-5 border-1 border-[var(--section-border)] flex flex-col gap-4">
         <span className="text-[20px] font-medium">{t('adminPanel')}</span>
 
         <div className="flex flex-col w-[48%]">

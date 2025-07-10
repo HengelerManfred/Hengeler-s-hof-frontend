@@ -26,7 +26,9 @@ export default function AdminSettingsForm({
     { numOfPersons: number; price: number | string }[]
   >(priceList ?? [{ numOfPersons: 1, price: "" }]);
 
-  const [bookingEnabled, setBookingEnabled] = useState(features.find(f=>f.featureName=="booking-enabled")?.isActive || false);
+  const [bookingEnabled, setBookingEnabled] = useState(
+    features.find((f) => f.featureName == "booking-enabled")?.isActive || false
+  );
 
   const onToggleBooking = async (checked: boolean) => {
     setBookingEnabled(checked);
@@ -133,7 +135,7 @@ export default function AdminSettingsForm({
           onClick={addField}
           className="text-sm text-blue-500 hover:underline self-start mt-1"
         >
-          + Добавить ещё
+          + Додати ще
         </button>
       </div>
 

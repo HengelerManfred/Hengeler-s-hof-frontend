@@ -44,7 +44,7 @@ export const generateMetadata = async ({
       card: "summary_large_image",
       title: t("Meta.title"),
       description: t("Meta.description"),
-      images: [`${process.env.NEXT_PUBLIC_CURRENT_HOST}/favicon.ico`],
+      images: [`${process.env.NEXT_PUBLIC_CURRENT_HOST}cow.png`],
     },
     metadataBase: new URL(process.env.NEXT_PUBLIC_CURRENT_HOST!),
     keywords: t("Meta.keywords"),

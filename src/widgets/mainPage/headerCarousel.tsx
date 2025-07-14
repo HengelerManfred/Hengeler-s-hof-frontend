@@ -54,8 +54,9 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
   return (
     <div className="embla relative animate-fadeIn-75" ref={emblaRef}>
       <div className="embla__container h-[100%] w-[100dvw]">
-        {slides.map((slide) => (
-          <div
+        {slides.map((slide, index) => {
+          const Tag =  index ? "h2" : "h1";
+          return <div
             className="embla__slide relative h-[100dvh] w-[100dvw]"
             key={slide.id}
           >
@@ -86,14 +87,14 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
               )}
             >
               {slide.titleKey && (
-                <h1
+                <Tag
                   className={clsx(
                     "text-white font-medium text-[24px] md:text-[48px] lg:text-[64px] inter text-center text-4xl",
                     singleSlide && ""
                   )}
                 >
                   {t(slide.titleKey)}
-                </h1>
+                </Tag>
               )}
               {slide.descriptionKey && (
                 <p className="text-white font-medium text-[16px] md:text-[20px] lg:text-[28px] inter text-justify text-4xl">
@@ -113,8 +114,8 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
                 <ScrollArrows />
               </span>
             )}
-          </div>
-        ))}
+          </div>}
+        )}
       </div>
       {!singleSlide && (
         <button

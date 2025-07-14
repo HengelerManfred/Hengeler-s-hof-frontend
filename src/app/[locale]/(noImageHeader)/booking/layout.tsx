@@ -59,9 +59,9 @@ export default function BookingLayout({
   return (
     <>
       <nav className="flex flex-col inter items-center gap-8 mb-4 md:mb-12 mt-4">
-        <h2 className="text-[28px] px-[5%] lg:px-[12.5%] text-center sm:text-[48px] w-full break-words lg:text-[64px] md:text-[56px] font-light m-0">
+        <h1 className="text-[28px] px-[5%] lg:px-[12.5%] text-center sm:text-[48px] w-full break-words lg:text-[64px] md:text-[56px] font-light m-0">
           {t("availabilityTitle")}
-        </h2>
+        </h1>
         <ul className="hidden md:flex flex-wrap justify-center gap-4 list-none p-0 m-0">
           {navLinks.map((link) => {
             const isActive = pathname.includes(link.href);

@@ -66,7 +66,7 @@
     "title": "Wie findet man uns?",
     "loading": "Karte wird geladen...",
     "whereWeAreTitle": "Wo wir uns befinden?",
-    "whereWeAreDescription": "Unser Hof liegt idyllisch am Rande der Allgäuer Alpen, umgeben von saftigen Wiesen und duftenden Wäldern – der perfekte Rückzugsort für Naturliebhaber."
+    "whereWeAreDescription": "Unser Hof liegt am Rande der Allgäuer Alpen, umgeben von saftigen Wiesen und duftenden Wäldern – der perfekte Rückzugsort für Naturliebhaber."
   },
   "NavBar": {
     "booking": "Buchung",
@@ -212,7 +212,7 @@
     }
   },
   "Booking": {
-    "availabilityTitle": "Belegungsmöglichkeiten",
+    "availabilityTitle": "Verfügbare Zimmer",
     "room1": "Zimmer 1",
     "room2": "Zimmer 2",
     "room3": "Zimmer 3",

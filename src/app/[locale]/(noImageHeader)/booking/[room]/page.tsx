@@ -21,6 +21,10 @@ export const generateMetadata = async ({
   const room = (await params).room;
   const messages = (await import(`@/../messages/${locale}.json`)).default;
   const t = createTranslator({ locale, messages });
+  const roomData: Room = await loadRoomById(room);
+  if (!roomData) {
+    return notFound();
+  }
 
   return {
     title: t("BookingMeta.title"),
@@ -35,6 +39,15 @@ export const generateMetadata = async ({
         de: `/de/booking/${room}`,
         uk: `/uk/booking/${room}`,
       },
+    },
+    openGraph: {
+      title: t("BookingMeta.title"),
+      description: t("BookingMeta.description"),
+      images: [{
+        url:
+          process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) + roomData.slides[0]?.imageUrl,
+        alt: "Room preview",
+      }],
     },
   };
 };

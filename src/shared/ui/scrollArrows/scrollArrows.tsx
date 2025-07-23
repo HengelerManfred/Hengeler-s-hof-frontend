@@ -1,12 +1,11 @@
 "use client";
 
-import styles from "./scrollArrows.module.css";
 
 export const ScrollArrows = () => {
   return (
-    <div className={styles.arrowContainer}>
+    <div className="arrowContainer">
       {[0, 1, 2].map((index) => (
-        <div key={index} className={styles.arrow}>
+        <div key={index} className="arrow">
           <svg
             width="72"
             height="72"

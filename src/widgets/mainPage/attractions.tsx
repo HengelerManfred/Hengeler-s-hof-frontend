@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 const attractions = [
   {
     id: "forests",
-    image: "/images/attractions/forest.jpeg",
+    image: "/images/attractions/forest.webp",
   },
   {
     id: "hohenschwangau",
@@ -12,19 +12,19 @@ const attractions = [
   },
   {
     id: "gorge",
-    image: "/images/attractions/cave.jpeg",
+    image: "/images/attractions/cave.webp",
   },
   {
     id: "hopfenSee",
-    image: "/images/attractions/sea.jpg",
+    image: "/images/attractions/sea.webp",
   },
   {
     id: "mountains",
-    image: "/images/attractions/mountains.jpg",
+    image: "/images/attractions/mountains.webp",
   },
   {
     id: "neuschwanstein",
-    image: "/images/attractions/castle1.jpg",
+    image: "/images/attractions/castle1.webp",
   },
 ];
 

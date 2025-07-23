@@ -120,6 +120,7 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
       {!singleSlide && (
         <button
           className="size-[50px] absolute bottom-10 right-10 rounded-full bg-[var(--accent)]"
+          aria-label={isPlaying ? "Pause slider" : "Play slider"}
           onClick={() => setIsPlaying((p) => !p)}
         >
           {isPlaying ? (

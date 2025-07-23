@@ -1,3 +1,4 @@
+export const revalidate = 60;
 import { routing } from "@/i18n/routing";
 import { createTranslator, hasLocale, NextIntlClientProvider } from "next-intl";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";

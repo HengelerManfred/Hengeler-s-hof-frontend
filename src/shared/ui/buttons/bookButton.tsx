@@ -15,8 +15,8 @@ export function BookButton({ disabled = false }: { disabled: boolean }) {
       component={Link}
       href="/booking/room1"
     >
-      <CalendarMonth className="text-[var(--main-bg)]" />
-      <span className="text-nowrap">{t("book")}</span>
+      <CalendarMonth className="text-[var(--section-bg)]" />
+      <span className="text-nowrap text-[var(--section-bg)]">{t("book")}</span>
     </Button>
   );
 }

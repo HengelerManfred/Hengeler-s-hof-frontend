@@ -23,8 +23,8 @@ export async function Footer() {
         <address className="flex flex-col max-w-[450px] w-full not-italic inter">
           <TextLogo />
           <a className="flex items-center" href={`tel:${t("phone")}`}>
-            <PhoneIphone className="!size-[40px] text-[var(--main-bg)] gap-2 mr-3" />
-            <span className="text-[var(--main-bg)]">
+            <PhoneIphone className="!size-[40px] text-[var(--section-bg)] gap-2 mr-3" />
+            <span className="text-[var(--section-bg)]">
               {t("phoneAnswer")}
               <br />
               {contacts.phoneNumber}
@@ -34,14 +34,14 @@ export async function Footer() {
             href={`mailto:${t("email")}`}
             className="flex items-center gap-[15px] w-full "
           >
-            <Email className="size-[40px]! text-[var(--main-bg)] rounded-full gap-2 " />
-            <span className="text-[16px] text-[var(--main-bg)]">
+            <Email className="size-[40px]! text-[var(--section-bg)] rounded-full gap-2 " />
+            <span className="text-[16px] text-[var(--section-bg)]">
               {contacts.email}
             </span>
           </a>
           <p className="flex items-center">
-            <LocationOn className="size-[40px]! text-[var(--main-bg)] rounded-full gap-2 mr-3" />
-            <span className="text-[var(--main-bg)]">
+            <LocationOn className="size-[40px]! text-[var(--section-bg)] rounded-full gap-2 mr-3" />
+            <span className="text-[var(--section-bg)]">
               {contacts.street}, {contacts.postalCode} {contacts.city},{" "}
               {contacts.country}
             </span>
@@ -53,8 +53,8 @@ export async function Footer() {
           alt="Farm Icon"
         />
         <div className="lg:w-[285px] flex flex-col gap-2 text-justify">
-          <span className="text-[var(--main-bg)]">{tr("slogan")}</span>
-          <div className="flex justify-between text-[var(--main-bg)]">
+          <span className="text-[var(--section-bg)]">{tr("slogan")}</span>
+          <div className="flex justify-between text-[var(--section-bg)]">
             <a
               href={contacts.facebook}
               aria-label="Facebook"
@@ -91,13 +91,13 @@ export async function Footer() {
           <div className="flex pt-2 items-center justify-between">
             <Link
               href="/privacyPolicy"
-              className="text-[var(--main-bg)] border-b-2 border-transparent underline"
+              className="text-[var(--section-bg)] border-b-2 border-transparent underline"
             >
               {tr("privacyPolicy")}
             </Link>
             <Link
               href="/imprint"
-              className="text-[var(--main-bg)] border-b-2 border-transparent underline"
+              className="text-[var(--section-bg)] border-b-2 border-transparent underline"
             >
               {tr("imprint")}
             </Link>

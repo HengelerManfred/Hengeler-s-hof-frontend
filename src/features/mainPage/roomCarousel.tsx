@@ -147,14 +147,16 @@ export function RoomCarousel({
                   </>
                 ) : (
                   <div className="text-[var(--primary-text)] flex flex-col items-start select-none leading-none self-end bg-[var(--section-bg)] border w-fit border-[var(--section-border)] p-[10px] rounded-[8px] font-medium text-[16px] md:text-[16px] inter">
-                    {tRoomCarousel("priceFrom")+":"} <br />
+                    {tRoomCarousel("priceFrom") + ":"} <br />
                     <span className="flex items-end">
                       <span className="text-[34px] xl:text-[36px]">
                         {priceList[0]?.price}
                       </span>
                       <span className="flex items-center">
                         {tRoomCarousel("perNight")}
-                        <PriceInfoPopover items={priceList}></PriceInfoPopover>
+                        <div className="relative w-5 h-5">
+                          <PriceInfoPopover items={priceList}></PriceInfoPopover>
+                        </div>
                       </span>
                     </span>
                   </div>

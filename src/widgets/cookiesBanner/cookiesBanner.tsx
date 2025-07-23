@@ -13,7 +13,7 @@ export async function CookiesBanner() {
     return null;
   }
   return (
-    <div className=" flex flex-col w-full py-5 px-[12.5%] px-auto fixed bottom-0 left-0 bg-[var(--accent)] text-[16px] text-[var(--main-bg)] inter z-1000">
+    <div className=" flex flex-col w-full py-5 px-[12.5%] px-auto fixed bottom-0 left-0 bg-[var(--accent)] text-[16px] text-[var(--section-bg)] inter z-1000">
       <p>{t("mainText")}</p>
       <p className="pb-3">
         {t("moreInfo")}{" "}

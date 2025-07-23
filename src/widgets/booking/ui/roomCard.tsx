@@ -73,7 +73,9 @@ export async function RoomCard({ room }: { room: Room }) {
             </span>
             <span className="inline-flex w-fit items-center">
               {priceList[0].price ?? room.price}€ {tBooking("perNight")}
-              <PriceInfoPopover items={priceList} />
+              <div className="relative w-5 h-5">
+                <PriceInfoPopover items={priceList} />
+              </div>
             </span>
           </>
         )}

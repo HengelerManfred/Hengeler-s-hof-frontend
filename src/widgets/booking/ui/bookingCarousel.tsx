@@ -36,9 +36,9 @@ export default function BookingCarousel({ slides }: { slides: Slide[] }) {
               />
             </div>
             {image.titleKey && (
-              <h3 className="text-white text-[36px] absolute bottom-10 w-full text-center">
+              <p className="text-white text-[36px] absolute bottom-10 w-full text-center">
                 {t(image.titleKey)}
-              </h3>
+              </p>
             )}
           </div>
         ))}

@@ -37,7 +37,7 @@ const slides: Slide[] = [
   {
     id: "2",
     titleKey: "eventTitle",
-    imageUrl: "/images/eventsMain.png",
+    imageUrl: "/images/eventsMain.webp",
     localLink: true,
     scrollArrows: true
   }

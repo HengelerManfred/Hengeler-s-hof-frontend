@@ -12,6 +12,7 @@ import "@/app/datePicker.css";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
 import { Metadata } from "next";
+import "../globals.css";
 
 export const generateMetadata = async ({
   params,

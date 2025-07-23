@@ -1,4 +1,3 @@
-import "./../../globals.css";
 import Header from "@/widgets/header/ui/header";
 import BurgerHeader from "@/widgets/header/ui/burgerHeader";
 import { loadContacts } from "@/entities/api/contact.service";

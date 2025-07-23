@@ -50,7 +50,7 @@ export function WhereWeAre({contacts}: {contacts: Contacts}) {
         ref={textContainerRef}
         className=" sm:w-1/3 w-full flex flex-col [@media(width>2200px)]:w-full gap-3 p-5 bg-[var(--section-bg)] rounded-lg border border-[var(--section-border)]"
       >
-        <h4 className="text-[20px]">{t("whereWeAreTitle")}</h4>
+        <h2 className="text-[20px]">{t("whereWeAreTitle")}</h2>
         <p className="text-sm text-[var(--secondary-text)]">
           {t("whereWeAreDescription")}
         </p>

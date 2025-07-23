@@ -10,7 +10,7 @@ const imagePort = process.env.NEXT_IMAGE_PORT;
 const nextConfig: NextConfig = {
   experimental: {
     serverActions: {
-      bodySizeLimit: '10mb',
+      bodySizeLimit: "10mb",
     },
   },
   images: {
@@ -20,17 +20,17 @@ const nextConfig: NextConfig = {
         hostname: "lh3.googleusercontent.com",
         pathname: "/**",
       },
-       {
+      {
         protocol: "http",
         hostname: imageHost!,
         pathname: "/images/**",
-        port: imagePort!
+        port: imagePort!,
       },
       {
         protocol: "https",
         hostname: imageHost!,
-        pathname: "/images/**"
-      }
+        pathname: "/images/**",
+      },
     ],
   },
   env: {
@@ -39,8 +39,8 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: '/:locale/dotnetapi/:path*',
-        destination: process.env.URL_TO_PROXY_REQUESTS + 'api/:path*',
+        source: "/:locale/dotnetapi/:path*",
+        destination: process.env.URL_TO_PROXY_REQUESTS + "api/:path*",
       },
     ];
   },

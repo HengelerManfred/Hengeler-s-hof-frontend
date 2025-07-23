@@ -14,13 +14,14 @@ export default function BookingCarousel({ slides }: { slides: Slide[] }) {
       ref={emblaRef}
     >
       <div className="embla__container h-full flex">
-        {slides.map((image) => (
+        {slides.map((image, index) => (
           <div
             key={image.id}
             className="embla__slide h-full shrink-0 grow-0 basis-full"
           >
             <div className="relative w-full h-full rounded overflow-hidden">
               <img
+                loading={index === 0 ? "eager" : "lazy"}
                 src={
                   process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) +
                   image.imageUrl

@@ -13,6 +13,7 @@ export async function HoverAttractionCard({ attraction }: { attraction: Attracti
     >
       <div className="relative aspect-video w-full will-change-transform transform transition-transform duration-500 group-hover:scale-105 group-focus-within:scale-105">
         <img
+          loading="lazy"
           src={attraction.image}
           alt={t(`items.${attraction.id}.title`)}
           className="w-full object-cover h-full absolute"

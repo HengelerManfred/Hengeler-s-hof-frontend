@@ -101,6 +101,7 @@ export function RoomCarousel({
                 )}
               >
                 <img
+                  loading={index === 0 ? "eager" : "lazy"}
                   src={
                     process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(
                       0,
@@ -155,7 +156,9 @@ export function RoomCarousel({
                       <span className="flex items-center">
                         {tRoomCarousel("perNight")}
                         <div className="relative w-5 h-5">
-                          <PriceInfoPopover items={priceList}></PriceInfoPopover>
+                          <PriceInfoPopover
+                            items={priceList}
+                          ></PriceInfoPopover>
                         </div>
                       </span>
                     </span>

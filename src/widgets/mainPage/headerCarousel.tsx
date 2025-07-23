@@ -61,6 +61,7 @@ export function HeaderCarousel({ slides }: { slides: Slide[] }) {
             key={slide.id}
           >
             <img
+              loading={index === 0 ? "eager" : "lazy"}
               src={
                 !slide.localLink
                   ? process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(

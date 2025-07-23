@@ -22,6 +22,7 @@ export async function Events({ events }: { events: EventExample[] }) {
         >
           <div className="w-full xl:w-2/3 min-h-[250px] [@media(width<640px)]:h-[300px] [@media(width<1280px)]:h-[600px] relative">
             <img
+              loading="lazy"
               alt="Event image"
               src={
                 process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) +

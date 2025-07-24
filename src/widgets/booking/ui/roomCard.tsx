@@ -16,9 +16,9 @@ export async function RoomCard({ room }: { room: Room }) {
   const t = await getTranslations("");
   return (
     <div className="w-full inter backface-hidden flex flex-col bg-[var(--section-bg)] border border-[var(--section-border)] rounded-[8px] gap-[15px] p-[20px]">
-      <h3 className="text-[var(--primary-text)] text-[36px]">
+      <h2 className="text-[var(--primary-text)] text-[36px]">
         {t(room.nameKey)}
-      </h3>
+      </h2>
       <p className="text-[var(--secondary-text)] text-[14px]">
         {t(room.descriptionKey)}
       </p>

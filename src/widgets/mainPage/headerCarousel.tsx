@@ -120,7 +120,7 @@ export function HeaderCarousel({ slides }: HeaderCarouselProps) {
       <Swiper
         modules={[Navigation]}
         loop={!singleSlide}
-        speed={800}
+        speed={550}
         onSwiper={handleSwiper}
         navigation={{ nextEl: ".swiper-next", prevEl: ".swiper-prev" }}
         className="h-[100dvh] w-[100dvw]"
@@ -194,6 +194,7 @@ export function HeaderCarousel({ slides }: HeaderCarouselProps) {
         <>
           <button
             className="size-[50px] absolute bottom-10 right-10 rounded-full bg-[var(--accent)] z-10"
+            aria-label={isPlaying ? "Pause" : "Stop"}
             onClick={togglePlay}
           >
             {isPlaying ? (

@@ -1,27 +1,39 @@
 "use client";
+
+import { useRef } from "react";
 import { Button } from "@mui/material";
-import useEmblaCarousel from "embla-carousel-react";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import { useTranslations } from "next-intl";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+
+import "swiper/css";
+import "swiper/css/navigation";
+
 import { Slide } from "@/widgets/mainPage/slide";
 
 export default function BookingCarousel({ slides }: { slides: Slide[] }) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const t = useTranslations("");
+  const swiperRef = useRef<SwiperType | null>(null);
+
   return (
-    <div
-      className="embla w-full relative h-full rounded-lg transition-opacity animate-fadeIn"
-      ref={emblaRef}
-    >
-      <div className="embla__container h-full flex">
-        {slides.map((image, index) => (
-          <div
-            key={image.id}
-            className="embla__slide h-full shrink-0 grow-0 basis-full"
-          >
+    <div className="relative w-full h-full rounded-lg transition-opacity animate-fadeIn">
+      <Swiper
+        modules={[Navigation]}
+        loop
+        onSwiper={(s) => (swiperRef.current = s)}
+        navigation={{
+          prevEl: ".booking-prev",
+          nextEl: ".booking-next",
+        }}
+        className="w-full h-full"
+      >
+        {slides.map((image) => (
+          <SwiperSlide key={image.id} className="h-full">
             <div className="relative w-full h-full rounded overflow-hidden">
               <img
-                loading={index === 0 ? "eager" : "lazy"}
+                loading={"lazy"}
                 src={
                   process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) +
                   image.imageUrl
@@ -41,23 +53,24 @@ export default function BookingCarousel({ slides }: { slides: Slide[] }) {
                 {t(image.titleKey)}
               </p>
             )}
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
+
       <Button
-        className="!absolute !min-w-[50px] !p-0  top-1/2 -translate-y-1/2 md:left-3 !rounded-full !bg-[rgba(0,0,0,0.5)]"
+        className="booking-prev !absolute !min-w-[50px] !p-0 top-1/2 -translate-y-1/2 md:left-3 !rounded-full !bg-[rgba(0,0,0,0.5)] z-10"
         aria-label="Previous slide"
-        onClick={() => emblaApi?.scrollPrev()}
+        onClick={() => swiperRef.current?.slidePrev()}
       >
         <KeyboardArrowLeft className="text-white !text-[40px] md:!text-[70px] !h-[50px] md:!h-[70px]" />
       </Button>
 
       <Button
-        className="!absolute top-1/2 !min-w-[50px] right-0 md:right-3 -translate-y-1/2 !p-0 !rounded-full !bg-[rgba(0,0,0,0.5)]"
+        className="booking-next !absolute top-1/2 !min-w-[50px] right-0 md:right-3 -translate-y-1/2 !p-0 !rounded-full !bg-[rgba(0,0,0,0.5)] z-10"
         aria-label="Next slide"
-        onClick={() => emblaApi?.scrollNext()}
+        onClick={() => swiperRef.current?.slideNext()}
       >
-        <KeyboardArrowRight className="text-white  !text-[40px] md:!text-[70px] !h-[50px] md:!h-[70px]" />
+        <KeyboardArrowRight className="text-white !text-[40px] md:!text-[70px] !h-[50px] md:!h-[70px]" />
       </Button>
     </div>
   );

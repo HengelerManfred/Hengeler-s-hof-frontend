@@ -1,4 +1,4 @@
-// components/ProgressCircle.tsx
+"use client";
 import React from "react";
 
 interface ProgressCircleProps {
@@ -7,7 +7,11 @@ interface ProgressCircleProps {
 }
 
 export function ProgressCircle({ progress, className }: ProgressCircleProps) {
-  const dashOffset = 100 - progress;
+  const R = 16;
+  const C = 2 * Math.PI * R;
+  const pct = Math.max(0, Math.min(progress, 100));
+  const dashOffset = C - (C * pct) / 100;
+
   return (
     <svg
       className={className}
@@ -17,24 +21,25 @@ export function ProgressCircle({ progress, className }: ProgressCircleProps) {
       fill="none"
     >
       <circle
-        className="stroke-[var(--accent-dark)]"
+        stroke="var(--accent-dark)"
         strokeWidth="2"
         fill="none"
-        r="16"
+        r={R}
         cx="18"
         cy="18"
         opacity="0.3"
       />
       <circle
-        className="stroke-white transition-all duration-100"
+        stroke="white"
         strokeWidth="2"
         fill="none"
-        r="16"
+        r={R}
         cx="18"
         cy="18"
-        strokeDasharray="100"
+        strokeDasharray={C}
         strokeDashoffset={dashOffset}
         transform="rotate(-90 18 18)"
+        style={{ willChange: "stroke-dashoffset" }}
       />
     </svg>
   );

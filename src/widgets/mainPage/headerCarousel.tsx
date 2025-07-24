@@ -133,12 +133,16 @@ export function HeaderCarousel({ slides }: HeaderCarouselProps) {
                 <img
                   src={
                     !slide.localLink
-                      ? process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) +
-                        slide.imageUrl
+                      ? process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(
+                          0,
+                          -1
+                        ) + slide.imageUrl
                       : slide.imageUrl
                   }
                   loading="lazy"
-                  alt={t(slide.titleKey)}
+                  alt={
+                    slide?.titleKey ? t(slide?.titleKey) : "background image"
+                  }
                   className="object-cover select-none pointer-events-none md:layer-blur h-full w-full"
                 />
 
@@ -171,7 +175,9 @@ export function HeaderCarousel({ slides }: HeaderCarouselProps) {
                 {slide.scrollArrows && (
                   <span
                     onClick={() =>
-                      document.getElementById("slide0")?.scrollIntoView({ behavior: "smooth" })
+                      document
+                        .getElementById("slide0")
+                        ?.scrollIntoView({ behavior: "smooth" })
                     }
                     className="absolute w-full top-2/3 left-0 flex justify-center"
                   >
@@ -190,8 +196,15 @@ export function HeaderCarousel({ slides }: HeaderCarouselProps) {
             className="size-[50px] absolute bottom-10 right-10 rounded-full bg-[var(--accent)] z-10"
             onClick={togglePlay}
           >
-            {isPlaying ? <Pause className="text-white" /> : <PlayArrow className="text-white" />}
-            <ProgressCircle progress={progress} className="absolute top-0 left-0 z-0" />
+            {isPlaying ? (
+              <Pause className="text-white" />
+            ) : (
+              <PlayArrow className="text-white" />
+            )}
+            <ProgressCircle
+              progress={progress}
+              className="absolute top-0 left-0 z-0"
+            />
           </button>
 
           <Button

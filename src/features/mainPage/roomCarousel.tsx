@@ -90,7 +90,7 @@ export function RoomCarousel({ slides, features, priceList }: RoomCarouselProps)
                       process.env.NEXT_PUBLIC_URL_TO_PROXY_REQUESTS?.slice(0, -1) +
                       slide.imageUrl
                     }
-                    alt={t(slide.titleKey)}
+                    alt={slide?.titleKey ? t(slide.titleKey) : "room image"}
                     className="object-cover h-full w-full rounded-[16px] select-none pointer-events-none"
                     onLoad={() => swiperRef.current?.update()}
                   />

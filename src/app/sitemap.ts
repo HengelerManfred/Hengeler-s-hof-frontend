@@ -129,6 +129,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
     },
     {
+      url: 'https://www.hengelershof.com/en/booking/room4',
+      lastModified: new Date(),
+      priority: 0.8,
+      changeFrequency: 'weekly',
+    },
+    {
+      url: 'https://www.hengelershof.com/uk/booking/room4',
+      lastModified: new Date(),
+      priority: 0.8,
+      changeFrequency: 'weekly',
+    },
+    {
+      url: 'https://www.hengelershof.com/de/booking/room4',
+      lastModified: new Date(),
+      priority: 0.8,
+      changeFrequency: 'weekly',
+    },
+    {
       url: 'https://www.hengelershof.com/en/booking/house',
       lastModified: new Date(),
       priority: 0.8,

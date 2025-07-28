@@ -24,6 +24,7 @@ export default function RoomLayout({
     { href: "/admin/settings/room1", label: t("room1") },
     { href: "/admin/settings/room2", label: t("room2") },
     { href: "/admin/settings/room3", label: t("room3") },
+    { href: "/admin/settings/room4", label: t("room4") },
     { href: "/admin/settings/house", label: t("house") },
   ];
   const mobileNavItems = [
@@ -40,6 +41,11 @@ export default function RoomLayout({
     {
       href: "/admin/settings/room3",
       label: t("room3"),
+      icon: <SingleBedIcon />,
+    },
+    {
+      href: "/admin/settings/room4",
+      label: t("room4"),
       icon: <KingBedIcon />,
     },
     { href: "/admin/settings/house", label: t("house"), icon: <HomeIcon /> },
@@ -57,7 +63,7 @@ export default function RoomLayout({
   return (
     <>
       <nav className="flex flex-col inter items-center gap-8 mb-4 md:mb-8 mt-8">
-        <ul className="hidden md:flex flex-wrap justify-center items-center gap-4 list-none p-0 m-0">
+        <ul className="hidden [@media(min-width:900px)]:flex flex-wrap justify-center items-center gap-4 list-none p-0 m-0">
           {navLinks.map((link) => {
             const isActive = pathname.includes(link.href);
             const activeClasses = isActive
@@ -77,7 +83,7 @@ export default function RoomLayout({
             );
           })}
         </ul>
-        <Box sx={{ width: "100%" }} className="fixed md:hidden bottom-0 z-4">
+        <Box sx={{ width: "100%" }} className="fixed [@media(min-width:900px)]:hidden bottom-0 z-4">
           <BottomNavigation
             showLabels
             value={value}
@@ -86,7 +92,8 @@ export default function RoomLayout({
             }}
             className="bg-[var(--section-bg)] border-t text-nowrap border-[var(--section-border)]"
             sx={{
-              height: "80px",
+              height: "70px",
+              width: "100%",
               "& .MuiBottomNavigationAction-root": {
                 color: "var(--primary-text)",
                 "&.Mui-selected": {
@@ -100,6 +107,7 @@ export default function RoomLayout({
                 key={item.href}
                 label={item.label}
                 icon={item.icon}
+                className="min-w-[70px]! w-[72px]! max-w-[72px]! [@media(min-width:400px)]:min-w-fit! [@media(min-width:400px)]:w-[auto]! [@media(min-width:400px)]:max-w-fit!"
                 component={Link}
                 href={item.href}
                 onClick={() => setRange(undefined)}

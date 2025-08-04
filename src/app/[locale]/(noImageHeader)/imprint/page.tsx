@@ -24,6 +24,7 @@ export const generateMetadata = async ({
         en: `/en/imprint`,
         de: `/de/imprint`,
         uk: `/uk/imprint`,
+        "x-default": `/en/imprint`,
       },
     },
   };

@@ -38,6 +38,7 @@ export const generateMetadata = async ({
         en: `/en/booking/${room}`,
         de: `/de/booking/${room}`,
         uk: `/uk/booking/${room}`,
+        "x-default": `/booking/${room}`,
       },
     },
     openGraph: {

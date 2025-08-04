@@ -1,4 +1,7 @@
-import { loadFeatures, loadPriceList } from "@/entities/api/adminSettings.service";
+import {
+  loadFeatures,
+  loadPriceList,
+} from "@/entities/api/adminSettings.service";
 import { loadContacts } from "@/entities/api/contact.service";
 import { loadHeaderSlider } from "@/entities/api/slider.service";
 import { Attractions } from "@/widgets/mainPage/attractions";
@@ -11,22 +14,24 @@ import { notFound } from "next/navigation";
 export const generateMetadata = async ({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale?: string }>;
 }): Promise<Metadata> => {
-  const locale = (await params).locale;
+  const { locale } = await params;
 
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_CURRENT_HOST!),
     alternates: {
-      canonical: `/${locale}`,
+      canonical:  `/${locale}`,
       languages: {
         en: "/en",
         de: "/de",
         uk: "/uk",
+        "x-default": "/",
       },
-    },
+    }
   };
 };
+
 // const slides = [
 //   {
 //     id: "1",

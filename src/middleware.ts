@@ -7,10 +7,14 @@ import { routing } from "./i18n/routing";
 const intlMiddleware = createIntlMiddleware({ ...routing });
 
 const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(",") ?? [];
+const ROBOT_USER_AGENTS = ["Googlebot", "Bingbot", "YandexBot", "DuckDuckBot", "Baiduspider"];
 
 export default async function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname;
   const isProd = process.env.NODE_ENV === "production";
+  const userAgent = req.headers.get('user-agent') || '';
+  const isRobot = ROBOT_USER_AGENTS.some(robot => userAgent.includes(robot));
+  const isRoot = pathname === "/";
 
   const token = await getToken({
     req,
@@ -18,6 +22,12 @@ export default async function middleware(req: NextRequest) {
     secureCookie: isProd,
     cookieName: isProd ? "__Secure-authjs.session-token" : "authjs.session-token",
   });
+
+  if (isRoot && isRobot) {
+    const response = new NextResponse(null, { status: 200 });
+    response.headers.set("X-Robots-Tag", "noindex");
+    return response;
+  }
 
   if (pathname.includes("/admin")) {
     const email = token?.email;

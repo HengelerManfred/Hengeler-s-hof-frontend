@@ -25,6 +25,7 @@ export const generateMetadata = async ({
         en: `/en/events`,
         de: `/de/events`,
         uk: `/uk/events`,
+        "x-default": `/events`,
       }
     },
     robots: { index: true, follow: true },

@@ -45,8 +45,8 @@ export default async function Imprint() {
               {contacts.street}, {contacts.postalCode} {contacts.city},{" "}
               {contacts.country}
             </p>
-            <p className="mt-2">E-Mail: {t("legal.email")}</p>
-            <p>Telefon: {t("legal.phone")}</p>
+            <p className="mt-2">E-Mail: {contacts.email}</p>
+            <p>Telefon: {contacts.phoneNumber}</p>
           </li>
           <li>
             <h3 className="text-2xl font-semibold">{t("content.title")}</h3>
